@@ -26,7 +26,7 @@ def powwow(base,exp):
 
     return math.pow(base,exp)
 
-def splitStringiBySpace(a):
+def splitStringBySpace(a):
     
     return a.split(' ') 
 
@@ -39,6 +39,21 @@ def specialFunc():
     num_list = [1,2,3] 
     ans = [(lambda x : x*2)(x) for x in num_list]
     return ans
+
+def countItems1():
+
+    a = ["mary", "had" , "a", "sheep"]
+    print len(a)
+
+def countItems2():
+
+    cnt = 0
+    a = ["mary", "had", "a", "giant","sheep"]
+    for i in a:
+        cnt+=1
+
+    print "the number of items in this list ist: " + str(cnt)
+
 
 def main():
 
