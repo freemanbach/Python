@@ -25,6 +25,7 @@ def main():
                 continue   
     print str(lst)
     print "the numbere of chars ist: " + str(cnt)
+    f.close()
 
 
 if __name__ == "__main__":
