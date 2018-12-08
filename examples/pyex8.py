@@ -13,45 +13,44 @@ import time
 def chkBeautifulSoup():
     try:
         from bs4 import BeautifulSoup
-    except ImportError as err:
+    except ImportError:
         print "Missing Plugin, download BeautifulSoup version 4 "
-        exit(1)
-
 
 def chkFileExist():
     try:
         f = open("hobbit.txt", "r")
-    except FileNotFoundError, IOError as err:
-        print "File missing, check location " + err
-        exit(1)
+    except IOError:
+        print "File missing, check location "
 
 
-def chkDivideZero():
+def chkDivideZero(a,b):
     try:
-        print 1 / 0 
-    except ZeroDivisionError as err:
-        print "cantnot divide by zero " + err
-        exit(1)
+        print a / b 
+    except ZeroDivisionError:
+        print "can not divide by zero "
 
 
 def chkNameError():
     try:
         print 3 * 4 + cheese
-    except NameError as err:
-        print "Variable was never assigned a value and variable cannot do the task at hand " + err
-        exit(1)
+    except NameError:
+        print "Variable was never assigned a value and variable cannot do the task at hand "
 
-
+		
 def chkTypeError():
     try:
         print "there are " + 8 + " Hobbits on middle earth"
-    except TypeError as err:
-        print "Cannot have string to print out with numeric types " + err
-        exit(1)
-
+    except TypeError:
+        print "Cannot have string to print out with numeric types "
 
 def main():
-
+    chkBeautifulSoup()
+    chkFileExist()
+    a = input("Enter a value? ")
+    b = input("Enter another value? ")
+    chkDivideZero(a,b)
+    chkNameError()
+    chkTypeError()
 
 if __name__ == "__main__":
     main()
