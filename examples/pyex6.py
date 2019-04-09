@@ -2,7 +2,7 @@
 # Date    : 2018.11.19
 # Version : 0.0.1
 # Desc    : Program 6
-#         : Obj Classes Programming
+#         : Obj Classes Programming-- Complex inheritance example
 ###################################################################
 
 import os
@@ -86,23 +86,18 @@ class Checking(Account):
         self.accamt = float(accamt)
         self.accnum = accnum
 
-
     def setAccAmt(self, accamt):
         self.accamt = float(accamt)
-
 
     def getAccNum(self):
         return self.accnum
     
-
     def getAccAmt(self):
         return self.accamt
-
 
     def setAccNum(self, accnum):
         self.accnum = accnum
 
- 
     def toString(self):
         super(Checking, self).toString()
         print "Your account info is: " +  " " + self.getAccNum()  + " " + str(self.getAccAmt())
