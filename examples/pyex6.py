@@ -12,48 +12,67 @@ import time
 # Class Object
 class Account:
     # Constructor
-    def __init__(self, name, addr, ssn, dob):
+    def __init__(self, name, addrnum, addrname, addrcity, addrstate, addrzip, ssn, dob):
         self.name = name
-        self.addr= addr
+        self.addrnum= addrnum
+        self.addrname= addrname
+        self.addrcity= addrcity
+        self.addrstate= addrstate
+        self.addrzip= addrzip
         self.ssn= ssn
         self.dob= dob
-
 
     def setName(self, name):
         self.name = name
 	
+    def setAddrNum(self, addrnum):
+        self.addrnum = addrnum
 
-    def setAddr(self, addr):
-        self.addr = addr
+    def setAddrName(self, addrname):
+        self.addrname = addrname
 
+    def setAddrCity(self, addrcity):
+        self.addrcity = addrcity
+
+    def setAddrState(self, addrstate):
+        self.addrstate = addrstate
+
+    def setAddrZip(self, addrzip):
+        self.addrzip = addrzip
 
     def setSSN(self, ssn):
         self.ssn= ssn 
 
-
     def setDOB(self, dob):
         self.dob= dob 
 
-	
     def getName(self):
         return self.name
 
+    def getAddrNum(self):
+        return self.addrnum
 
-    def getAddr(self):
-        return self.addr
+    def getAddrName(self):
+        return self.addrname
 
+    def getAddrCity(self):
+        return self.addrcity
+
+    def getAddrState(self):
+        return self.addrstate
+
+    def getAddrZip(self):
+        return self.addrzip
 
     def getSSN(self):
         return self.ssn
 
-
     def getDOB(self):
         return self.dob
     
-
     def toString(self):
         print "Name  is: " + self.name
-        print "Address is: " + self.addr
+        print "Address is: " + self.addrnum + " " + self.addrname + " " + self.addrcity + " " + self.addrstate + " " + self.addrzip
         print "SSN is: " + self.ssn 
         print "DOB is: " + self.dob
 
@@ -61,8 +80,8 @@ class Account:
 # Class Checking
 class Checking(Account):
     # Constructor
-    def __init__(self, name, addr, ssn, dob, accamt, accnum):
-        Account.__init__(self, name, addr, ssn, dob)
+    def __init__(self, name, addrnum, addrname, addrcity, addrstate, addrzip, ssn, dob, accamt, accnum):
+        Account.__init__(self, name, addrnum, addrname, addrcity, addrstate, addrzip, ssn, dob)
         self.accamt = float(accamt)
         self.accnum = accnum
 
@@ -84,12 +103,12 @@ class Checking(Account):
 
  
     def toString(self):
-        print "Your account info is: " + self.getName() + " " + self.getAddr() + " " + self.getSSN() + " " + self.getDOB()
+        print "Your account info is: " + self.getAccNum()  + " " + str(self.getAccAmt())
 
 
 def main():
 
-    joe = Checking("joe","20 hobbit court", "111-23-3456", "02/12/1945",56.9, "VA111233456")
+    joe = Checking("joe","20",  "hobbit court", "hobbitsburg", "va", "24073", "111-23-3456", "02/12/1945", 10000000.99, "VA111233456")
     joe.toString()
 
 
