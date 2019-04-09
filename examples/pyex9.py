@@ -2,7 +2,7 @@
 # Date    : 2019.04.08
 # Version : 0.0.1
 # Desc    : Program 9
-#         : simple OO programming
+#         : python OO programming -- simple inheritance example
 ###################################################################
 
 import os
@@ -10,6 +10,9 @@ import sys
 import time
 
 class Mammal(object):
+
+    # private variables
+
     def __init__(self):
         print "Dog is ready"
 
@@ -21,10 +24,13 @@ class Mammal(object):
 
 class Dog(Mammal):
 
+    # private variables
     breed = "Golden Retriever"
 
     def __init__(self, name, age):
         super(Mammal, self).__init__()
+        # If Dog class has data needed to be passed to parent class, one must do the following
+        # Mammal.__init__(self, )
         self.name = name
         self.age = age
 
