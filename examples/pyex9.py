@@ -11,8 +11,9 @@ import time
 
 class Mammal(object):
 
-    # private variables
+    # Global Variables
 
+    # default Constructor
     def __init__(self):
         print "Dog is ready"
 
