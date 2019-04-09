@@ -10,7 +10,7 @@ import sys
 import time
 
 # Class Object
-class Account:
+class Account(object):
     # Constructor
     def __init__(self, name, addrnum, addrname, addrcity, addrstate, addrzip, ssn, dob):
         self.name = name
@@ -81,6 +81,7 @@ class Account:
 class Checking(Account):
     # Constructor
     def __init__(self, name, addrnum, addrname, addrcity, addrstate, addrzip, ssn, dob, accamt, accnum):
+        super(Account, self).__init__()
         Account.__init__(self, name, addrnum, addrname, addrcity, addrstate, addrzip, ssn, dob)
         self.accamt = float(accamt)
         self.accnum = accnum
@@ -103,7 +104,8 @@ class Checking(Account):
 
  
     def toString(self):
-        print "Your account info is: " + self.getAccNum()  + " " + str(self.getAccAmt())
+        super(Checking, self).toString()
+        print "Your account info is: " +  " " + self.getAccNum()  + " " + str(self.getAccAmt())
 
 
 def main():
