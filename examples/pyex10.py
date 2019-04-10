@@ -41,6 +41,13 @@ def main():
     car.setBrand("Ferrari")
     car.price()
     car.brand()
+    gm = Car()
+    gm.setSellPrice(45000)
+    gm.setBrand("GM Truck")
+    gm.price()
+    gm.brand()
+    gm.setSellPrice(60000)
+    gm.price()
 
 
 if __name__ == "__main__":
