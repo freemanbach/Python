@@ -1,6 +1,6 @@
 # Author  : freeman
-# Date    : 2019.04.08
-# Version : 0.0.1
+# Date    : 2019.04.11
+# Version : 0.0.2
 # Desc    : Program 9
 #         : python OO programming -- simple inheritance example
 ###################################################################
@@ -15,13 +15,13 @@ class Mammal(object):
 
     # default Constructor
     def __init__(self):
-        print "Dog is ready"
+        return "Dog is ready"
 
     def whoisthis(self):
-        print "dog"
+        return "dog"
 
     def swim(self):
-        print "dog can swim"
+        return "dog can swim"
 
 class Dog(Mammal):
 
@@ -34,6 +34,12 @@ class Dog(Mammal):
         # Mammal.__init__(self, )
         self.name = name
         self.age = age
+
+    def setBreed(self,breed):
+        self.breed = breed
+
+    def getBreed(self):
+        return self.breed
 
     def speak(self, lang):
         return "{} speaks {}".format(self.name, lang)
@@ -48,8 +54,10 @@ def main():
     print amos.age
     print amos.speak("woof")
     print amos.run()
-    amos.whoisthis()
-    amos.swim()
+    print "this is : " + amos.whoisthis()
+    print "" + amos.swim()
+    amos.__class__.breed = "chiwawa"
+    print amos.__class__.breed
 
 if __name__ == "__main__":
     main()
