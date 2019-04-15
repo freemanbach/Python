@@ -22,9 +22,9 @@ class Mammal(object):
 
     def swim(self, name, swim):
         if int(swim) == 0:
-            return "This animal " + name + " can not swim like a boss"
+            return "This animal " + name + " can not swim well."
         else:
-            return "This animal " + name + " can swim like a boss"
+            return "This animal " + name + " can swim well."
 
 class Dog(Mammal):
 
