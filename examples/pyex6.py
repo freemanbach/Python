@@ -107,6 +107,11 @@ def main():
 
     joe = Checking("joe","20",  "hobbit court", "hobbitsburg", "va", "24073", "111-23-3456", "02/12/1945", 10000000.99, "VA111233456")
     joe.toString()
+    print
+    # Super crazy approach in pulling info from superclass
+    # print super(Checking, joe).getSSN()
+    # Simple approach in pulling info from superclass
+    print joe.getDOB()
 
 
 if __name__ == "__main__":
