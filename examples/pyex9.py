@@ -26,6 +26,9 @@ class Mammal(object):
         else:
             return "This animal " + name + " can swim well."
 
+    def toString(self):
+        return 'bm8gb25lIGNhbiBoYW5kbGUgdGhlIGNvdw=='
+
 class Dog(Mammal):
 
     # private variables
@@ -108,6 +111,7 @@ def main():
     #amos.__class__.breed = "chiwawa"
     #print amos.__class__.breed
     print bigbird.swim("bigbird", False)
+    amos.toString()
 
 if __name__ == "__main__":
     main()
