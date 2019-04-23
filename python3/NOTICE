@@ -1,0 +1,5 @@
+Unfortunately, my knowledge of Python3 is limited, need to practice this before it is too late.
+Python 2 EOL is fast approaching, end of January 2020 i think. i wonder if the Python community would
+continue with security patches for Python 2. Usually not many people want to risk it. They simply migrate over to
+Python 3 from Python 2. Many Linux Distros have yet to migrate their Python 2 default package to 3, so i wonder will it
+be this year or sometime fourth quarter of 2019 or early 2020.
