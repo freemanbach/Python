@@ -13,8 +13,7 @@ import time
 
 
 def main():
-    # must enter in quotes in prompt:  "4 + 3 ="
-    ui = str(input("Enter in a equation with equal symbol at the end: "))
+    ui = input("Enter in a equation with equal symbol at the end: ")
     values = list(ui.strip().split())
     if values[len(values)-1] == '=':
         #print(values)
