@@ -19,21 +19,20 @@ def processGrades(f):
     stuff = grade.readlines()
     for i in stuff:
         items = i.split()
-        #print items
-        if items[0] == "hw":
+        if items[0].lower() == "hw":
             for a in items:
                 hw.append(a.strip("\n"))
-        elif items[0] == 'quiz':
+        elif items[0].lower() == 'quiz':
             for b in items:
                 quiz.append(b.strip("\n"))
-        elif items[0] == 'lab':
+        elif items[0].lower() == 'lab':
             for c in items:
                 lab.append(c.strip("\n"))
-        elif items[0] == 'test':
+        elif items[0].lower() == 'test':
             for d in items:
                 test.append(d.strip("\n"))
         else:
-            print "there are no other options"
+            print "student, There are no other options"
 
     calculateGrades(hw, quiz, lab, test)
 
