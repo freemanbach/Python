@@ -40,7 +40,7 @@ def calculateGrades(h, q, l, t):
     hw_sum, quiz_sum, test_sum, lab_sum = 0.0, 0.0, 0.0, 0.0
     hwG, quizG, testG, labG = 0.0, 0.0, 0.0, 0.0
     # 20% HW, 20% labs, 20% quiz, 40% test
-    # 30 pts max for each lab assignment
+    # 30 pts max for each HW assignment
     # 10 pts max for each quiz
     # 100 pts max for each lab
     # 100 pts max for each test

@@ -11,7 +11,7 @@
 
 """
 Grade Breakdown: 20% HW, 20% labs, 20% quiz, 40% test
-30 pts max for each lab assignment
+30 pts max for each HW assignment
 10 pts max for each quiz
 100 pts max for each lab
 100 pts max for each test
