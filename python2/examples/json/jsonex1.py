@@ -44,10 +44,18 @@ def readJson4():
 
 
 def main():
-    readJson1()
-    readJson2()
-    readJson3()
-    readJson4()
+    print "Set A:"
+    a = readJson1()
+    print a
+    print "Set B:"
+    b = readJson2()
+    print b
+    print "Set C:"
+    c = readJson3()
+    print c
+    print "Set D:"
+    d = readJson4()
+    print d
 
 if __name__ == "__main__":
     main()
