@@ -17,7 +17,7 @@ try:
 except ImportError as err:
     print "You dont have BeautifulSoup installed."
     print err.__class__.__name__ + ": " + err.message
-    sys.exit(1)
+    #sys.exit(1)
 
 
 try:
@@ -26,7 +26,7 @@ try:
 except ImportError as err:
     print "You dont have Requests installed."
     print err.__class__.__name__ + ": " + err.message
-    sys.exit(1)
+    #sys.exit(1)
 
 
 try:
@@ -35,4 +35,12 @@ try:
 except ImportError as err:
     print "You dont have Scrapy installed."
     print err.__class__.__name__ + ": " + err.message
-    sys.exit(1)
+    #sys.exit(1)
+
+try:
+    import sqlite3
+    print "You have SQlite3 installed !"
+except ImportError as err:
+    print "You dont have Sqlite3 installed."
+    print err.__class__.__name__ + " : " + err.message
+    #sys.exit(1)
