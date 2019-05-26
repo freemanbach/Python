@@ -2,13 +2,21 @@
 
 # Author  : freeman
 # Date    : 2019.05.15
-# Version : 0.0.1
-# Desc    : Testing Availability of 3 Packages
+# Version : 0.0.2
+# Desc    : Testing Availability of 5 Packages
 #         : 
 ###################################################################
 
 
 import sys
+
+try:
+    import json
+    print "You have JSON installed!"
+except ImportError as err:
+    print "You dont have JSON installed."
+    print err.__class__.__name__ + ": " + err.message
+    #sys.exit(1)
 
 
 try:
@@ -37,6 +45,7 @@ except ImportError as err:
     print err.__class__.__name__ + ": " + err.message
     #sys.exit(1)
 
+
 try:
     import sqlite3
     print "You have SQlite3 installed !"
@@ -44,3 +53,11 @@ except ImportError as err:
     print "You dont have Sqlite3 installed."
     print err.__class__.__name__ + " : " + err.message
     #sys.exit(1)
+
+
+def main():
+    return 0
+
+
+if __name__ == "__main__":
+    main()
