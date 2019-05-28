@@ -48,8 +48,12 @@ def testConn():
 # https://www.marketwatch.com/tools/mutual-fund/list/A
 def buildLinks():
     symbolsLink = []
-    parta = "http://www.barrons.com/mdc/public/page/9_3048-usmfunds_"
-    partb = "-usmfunds.html"
+    # humm.... barron data had moved to wall street journal apparently
+    parta = "http://interactive5.wsj.com/mdc/public/page/9_3048-usmfunds_" 
+    partb = "-usmfunds.html?mod=mdc_h_mfhl"
+    #http://interactive5.wsj.com/mdc/public/page/9_3048-usmfunds_B-usmfunds.html?mod=mdc_h_mfhl
+    #parta = "http://www.barrons.com/mdc/public/page/9_3048-usmfunds_"
+    #partb = "-usmfunds.html"
     print "Building links..."
     for i in string.ascii_uppercase:
         symbolsLink.append(parta+i+partb)
@@ -59,6 +63,8 @@ def buildLinks():
 
 # lack therfore ninja skillz in BS4
 # definitely can do better with advance BS4 skillz, this is a hack
+# idk why it is slow in wsj.com when compared to barron.com
+# there might be a blocking tool in wsj to prevent this crawler from crawling its dataset
 def parseData(rlinks):
     random.seed(time.time)
     data, symbols = [], []
