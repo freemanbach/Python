@@ -88,7 +88,7 @@ def parseData(rlinks):
 
 
 def writeToFile(bigdata):
-    dfile = "MutualFundCLassCTickers.txt"
+    dfile = "marketWatchClassCTickers.txt"
     fo = open(dfile , "w")
     for i in bigdata:
         fo.write(i+"\n")
@@ -104,7 +104,7 @@ def main():
         x = parseData(l)
         writeToFile(x)
         print
-        print "Completed, there should be a file called MutualFundClassCTickers.txt " 
+        print "Completed, there should be a file called marketWatchClassCTickers.txt " 
     else:
         print "Your local Internet Connection is down or something wrong with router."
         print "Reboot Router, Switch, Hub or PC or All four ."
