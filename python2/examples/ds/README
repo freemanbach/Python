@@ -1,0 +1,4 @@
+I dont own this dataset nor the creator of this dataset. 
+You can locate this set from UC Irvine: https://archive.ics.uci.edu/ml/datasets/Ecoli
+
+I had to modify this file ecoli.data to replace all spaces with comma before pandas.read_csv() would work, apparently.
