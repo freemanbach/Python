@@ -24,3 +24,8 @@ print dataset.groupby('Class').size()
 ########################################################
 dataset.plot(kind='box', subplots=True, layout=(3,3), sharex=False, sharey=False)
 plt.show()
+dataset.hist()
+plt.show()
+# this graph doesnt work unless the above four lines are commented out.
+#scatter_matrix(dataset)
+#plt.show()
