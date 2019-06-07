@@ -19,7 +19,7 @@ import requests
 
 def main():
     api_key="---YOUR GOOGLE PROJECT CREDENTIAL KEY---"
-    loc = "dartmouth college"
+    loc = "Harvard University"
     url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + loc + "&" + "key=" + api_key
     r = requests.get(url)
     data = r.json()
