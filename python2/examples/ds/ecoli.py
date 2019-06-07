@@ -27,5 +27,5 @@ plt.show()
 dataset.hist()
 plt.show()
 # this graph doesnt work unless the above four lines are commented out.
-#scatter_matrix(dataset)
-#plt.show()
+scatter_matrix(dataset)
+plt.show()
