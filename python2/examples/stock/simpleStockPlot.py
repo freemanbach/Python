@@ -3,7 +3,7 @@
 
 # Author  : freeman
 # Date    : 2019.05.12
-# Version : 0.0.1
+# Version : 0.0.4
 # Desc    : A Program which will build a plot chart for you 
 #         : when you supply it with a stock symbol or a mutual fund 
 #         :  symbol
