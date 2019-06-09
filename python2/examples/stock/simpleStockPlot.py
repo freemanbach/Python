@@ -20,6 +20,8 @@ def getStockChart(tick, startd, endd):
     ed = endd.split('-')
     ticker = pdr.get_data_yahoo(symbols=tick, start=datetime(int(sd[0]),int(sd[1]),int(sd[2])), end=datetime(int(ed[0]),int(ed[1]),int(ed[2])) )
     ticker.Close.plot()
+    plt.xlabel("date")
+    plt.ylabel("price")
     plt.title(tick)
     plt.show()
 
