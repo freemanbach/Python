@@ -55,7 +55,7 @@ def getStockChart(cdates, pdates, tags):
 
     for i in range(len(tags)):
         tmp = str(tags[i])
-        fname = str(tmp) + 'png'
+        fname = str(tmp)
         ticker = pdr.get_data_yahoo(symbols=tmp, start=datetime(int(pdates[0]),int(pdates[1]),int("1")), end=datetime(int(cdates[0]),int(cdates[1]),int(cdates[2])) )
         ticker.Close.plot(label=tmp)
         plt.xlabel("date")
