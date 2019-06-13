@@ -1,4 +1,4 @@
-Playground for DB with Python
+Playground for SqliteDB with Python
 
 actually, Dataset can be found here with a browser:
 https://query2.finance.yahoo.com/v10/finance/quoteSummary/fb?modules=financialData,price,defaultKeyStatistics
