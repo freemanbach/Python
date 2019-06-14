@@ -12,3 +12,9 @@ https://www.quandl.com/api/v3/datasets/WIKI/FB.json?start_date=2017-12-01&end_da
 
 Yahoo and a few other sites still support current stock data but not easy to understand their API.
 https://query2.finance.yahoo.com/v10/finance/quoteSummary/aapl?formatted=true&lang=en-US&region=US&modules=summaryProfile,financialData,price,defaultkeystatistics
+
+Another website which provided stock data.
+https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=FB&interval=weekly&apikey=YOUR_API_KEY
+
+Other possible website to acquire Stock information:
+IEX, EOD Historical Data, Intrinio, Quandl, world trading data, Alpha Vantage
