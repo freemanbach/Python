@@ -1,7 +1,7 @@
 # Author  : freeman
 # Date    : 2019.05.25
-# Version : 0.0.1
-# Desc    : Program 1
+# Version : 0.0.2
+# Desc    : parse historical JSON data from quandl.com
 #         : 
 ###################################################################
 
@@ -16,6 +16,7 @@ from sqlite3 import Error
 0: Date; 1: Open; 2: High; 3: Low; 4: Close; 5: Volume
 """
 def readJson():
+
     with open('fb.json', 'r') as fi:
         ds = json.load(fi)
     d3 = ds['dataset']['data']
@@ -23,6 +24,7 @@ def readJson():
 
 
 def genSQL(ds):
+
     sqlAll ,sql2, cnt = [], "", 1
     sql1 = '''INSERT INTO FBData(id, fbDate, fbOpen, fbHigh, fbLow, fbClose, fbVolume) VALUES '''
     for i in ds:
@@ -31,14 +33,13 @@ def genSQL(ds):
         sql2=""
         cnt+=1
 
-    #for i in sqlAll:
-    #    print i
-
     return sqlAll
 
 
 def createDBConn(db_file):
-    """ create a database connection """
+    """ create a database connection
+    :param db_file
+    """
     try:
         conn = sqlite3.connect(db_file)
         return conn
@@ -92,6 +93,7 @@ def main():
     rid = insertData(conn, sqlData)
     conn.close()
     print str(rid)
+
 
 if __name__ == "__main__":
     main()
