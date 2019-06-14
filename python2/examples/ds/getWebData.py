@@ -3,8 +3,8 @@
 # Author  : freeman
 # Date    : 2019.06.04
 # Version : 0.0.1
-# Desc    : 
-#         : 
+# Desc    : Pull dataset from UC Irvine and modify its data
+#         : by adding commas between each fields.
 #         : 
 ###################################################################
 
@@ -15,7 +15,8 @@ import requests
 
 
 def pullData():
-    mess, fdata = "", []
+
+    mess, cnt, fdata = "", 0, []
     urlData = "https://archive.ics.uci.edu/ml/machine-learning-databases/ecoli/ecoli.data"
     data = requests.get(urlData)
     a = (data.text).split("\n")
@@ -27,13 +28,23 @@ def pullData():
         mess = mess[:-1]
         mess += "\n"
         fdata.append(mess)
+        mess=""
+
     return fdata
 
 
+def writeToFile(dFile):
+
+    fo = open('ecoli_mod.data', 'w')
+    for i in dFile:
+        fo.write(i)
+    fo.close()
+
+
 def main():
+
     hob = pullData()
-    for i in hob:
-        print i
+    writeToFile(hob)
 
 
 if __name__ == "__main__":
