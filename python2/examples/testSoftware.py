@@ -2,13 +2,14 @@
 
 # Author  : freeman
 # Date    : 2019.05.15
-# Version : 0.0.2
-# Desc    : Testing Availability of 5 Packages
+# Version : 0.0.3
+# Desc    : Testing Availability of 6 Packages
 #         : 
 ###################################################################
 
 
 import sys
+
 
 try:
     import json
@@ -51,6 +52,15 @@ try:
     print "You have SQlite3 installed !"
 except ImportError as err:
     print "You dont have Sqlite3 installed."
+    print err.__class__.__name__ + " : " + err.message
+    #sys.exit(1)
+
+
+try:
+    import pandas as pd
+    print "You have pandas installed !"
+except ImportError as err:
+    print "You dont have padas installed."
     print err.__class__.__name__ + " : " + err.message
     #sys.exit(1)
 
