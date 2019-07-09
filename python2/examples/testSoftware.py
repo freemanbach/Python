@@ -60,7 +60,7 @@ try:
     import pandas as pd
     print "You have pandas installed !"
 except ImportError as err:
-    print "You dont have padas installed."
+    print "You dont have pandas installed."
     print err.__class__.__name__ + " : " + err.message
     #sys.exit(1)
 
