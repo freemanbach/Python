@@ -65,6 +65,15 @@ except ImportError as err:
     #sys.exit(1)
 
 
+try:
+    import PyPDF2
+    print "You have Python Pdf Reader installed !"
+except ImportError as err:
+    print "You dont have Python Pdf Reader installed."
+    print err.__class__.__name__ + " : " + err.message
+    #sys.exit(1)
+
+
 def main():
     return 0
 
