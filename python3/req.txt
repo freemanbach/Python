@@ -1,0 +1,14 @@
+# For a nicer terminal
+ipython
+
+# For https communication
+requests
+
+# For crawling html
+scrapy
+
+# For processing HTML tags
+Beautifulsoup4
+
+# For parsing HTML
+html5lib
