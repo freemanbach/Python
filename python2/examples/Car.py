@@ -29,16 +29,26 @@ class Car:  # CLASS
         
 def main():
     lotus = Car() # Class
+    #just b/c i cant spell farrarie
+    print "Lotus: "
+    lotus.setCarBrand("lotus")
     lotus.getCarBrand()
-    lotus.getCarPrice() # 250,000
+    lotus.setCarPrice(159999)
+    lotus.getCarPrice() 
+    # decreased in cost due to special reason
     lotus.setCarPrice(100000)
-    lotus.getCarPrice() # 250,000
+    lotus.getCarPrice() 
+    lotus.setCarSpeed(240)
+    lotus.getCarSpeed()
     
+    print "Porsche: "
     porsche = Car()
     porsche.setCarBrand("Porsche")
-    porsche.setCarPrice(159999)
+    porsche.setCarPrice(169999)
+    porsche.setCarSpeed(245)
     porsche.getCarBrand()
     porsche.getCarPrice()
+    porsche.getCarSpeed()
     
 main()
         
