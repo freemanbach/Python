@@ -1,7 +1,9 @@
 #!/bin/env python3
 
+# Infomation on python native unittest module
 # http://www.blog.pythonlibrary.org/2016/07/07/python-3-testing-an-intro-to-unittest/
 # https://lukewickstead.wordpress.com/2015/06/12/unit-testing/
+# Types of Python3 unit testing modules: doctest, unittest, nose2 and pytest
 
 import unittest
 import grade
@@ -11,75 +13,81 @@ class testGrade(unittest.TestCase):
     testing the Grade is correct.
     """
     
-    def test_grade_A(self):
+    def test_grade_float_A(self):
         """
         Test that the output of the grade is correct.
         """
         result = grade.chkgrade(99.5)
-        self.assertIs(result, 'A')
+        self.assertEqual(result, 'A')
 
-    def test_grade_B(self):
+    def test_grade_float_B(self):
         """
         Test that the output of the grade is correct.
         """
         result = grade.chkgrade(89.5)
-        self.assertIs(result, 'B')
+        self.assertEqual(result, 'B')
 
-    def test_grade_C(self):
+        
+    def test_grade_float_C(self):
         """
         Test that the output of the grade is correct.
         """
         result = grade.chkgrade(79.5)
-        self.assertIs(result, 'C')
+        self.assertEqual(result, 'C')
 
-    def test_grade_D(self):
+        
+    def test_grade_float_D(self):
         """
         Test that the output of the grade is correct.
         """
         result = grade.chkgrade(69.5)
-        self.assertIs(result, 'D')
+        self.assertEqual(result, 'D')
 
-    def test_grade_F(self):
+    # wrong case
+    """
+    An example of an incorrect test case
+    """
+    def test_assertIsTypeInt(self):    
+        #Test that the data is of type float or int
+        result = grade.chkgrade('a')
+        self.assertIs(type(self.result), str)
+
+        
+    def test_grade_float_F(self):
         """
         Test that the output of the grade is correct.
         """
         result = grade.chkgrade(59.5)
-        self.assertIs(result, 'F')
+        self.assertEqual(result, 'F')
 
-    def test_assertIsTypeInt(self):
-        """
-        Test that the data is of type float or int
-        """
-        result = grade.chkgrade('a')
-        self.assertIs(type(self.result), str)
-
+            
     def test_grade_int_A(self):
         """
         Test that the output of the grade is correct.
         """
         result = grade.chkgrade(99)
-        self.assertIs(result, 'A')
+        self.assertEqual(result, 'A')
 
     def test_grade_int_B(self):
         """
         Test that the output of the grade is correct.
         """
         result = grade.chkgrade(89)
-        self.assertIs(result, 'B')
+        self.assertEqual(result, 'B')
 
     def test_grade_int_C(self):
         """
         Test that the output of the grade is correct.
         """
         result = grade.chkgrade(79)
-        self.assertIs(result, 'C')
+        self.assertEqual(result, 'C')
 
     def test_grade_int_D(self):
         """
         Test that the output of the grade is correct.
         """
         result = grade.chkgrade(69)
-        self.assertIs(result, 'D')
+        self.assertEqual(result, 'D')
 
         
     def test_grade_int_F(self):
@@ -87,14 +95,14 @@ class testGrade(unittest.TestCase):
         Test that the output of the grade is correct.
         """
         result = grade.chkgrade(59)
-        self.assertIs(result, 'F')
+        self.assertEqual(result, 'F')
 
         
     def test_procnametype(self):
         """
         Test that the data is of type string
         """
-        result = grade.procname("freeman lo")
+        result = grade.procname("John Smith")
         self.assertIs(type(result), str)
 
         
