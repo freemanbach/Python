@@ -3,20 +3,45 @@
 import sys
 
 
+# if a is {int||float}  -> solution 
+# if b is {int||float}  -> solution 
+# if a || b is {String} -> None
 def add(a,b):
-    return a+b
+    """
+    Exception: except NameError outside of this function
+    """
+    ans = 0
+    if str(type(a)).split(' ')[1].split('\'')[1].lower() == 'int' or str(type(a)).split(' ')[1].split('\'')[1].lower() == 'float' and str(type(b)).split(' ')[1].split('\'')[1].lower() == 'int' or str(type(b)).split(' ')[1].split('\'')[1].lower() == 'float':
+        ans = a+b
+        return ans
+    return 'None'
 
-
+# if a is {int||float}  -> solution 
+# if b is {int||float}  -> solution 
+# if a || b is {String} -> None
 def sub(a,b):
-    return a-b
+    """
+    Exception: except NameError outside of this function
+    """
+    if str(type(a)).split(' ')[1].split('\'')[1].lower() == 'int' or str(type(a)).split(' ')[1].split('\'')[1].lower() == 'float' and str(type(b)).split(' ')[1].split('\'')[1].lower() == 'int' or str(type(b)).split(' ')[1].split('\'')[1].lower() == 'float':
+        return a+b
+    return 'None'
 
 
+# if a is {int||float}  -> solution 
+# if b is {int||float}  -> solution 
+# if a || b is {String} -> None
 def mul(a,b):
-    return a*b
+    """
+    Exception: except NameError outside of this function
+    """
+    if str(type(a)).split(' ')[1].split('\'')[1].lower() == 'int' or str(type(a)).split(' ')[1].split('\'')[1].lower() == 'float' and str(type(b)).split(' ')[1].split('\'')[1].lower() == 'int' or str(type(b)).split(' ')[1].split('\'')[1].lower() == 'float':
+        return a+b
+    return 'None'
 
 
-# if divisor == 0 -> None
-# if divisor != 0 -> floatValue
+# if divisor is 0 -> NoneType
+# if divisor is not 0 -> floatValue
 def div(a,b):
     z = 0
     try:
