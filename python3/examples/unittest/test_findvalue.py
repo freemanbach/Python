@@ -15,3 +15,15 @@ def test_findLarge():
 def test_findLarge():
     val = findvalue.findLarge(20,5,60)
     assert val == 60
+    
+def test_findSmall():
+    val = findvalue.findSmall(1,4,6)
+    assert val == 1
+
+def test_findSmall():
+    val = findvalue.findSmall(8,4,6)
+    assert val == 4
+
+def test_findSmall():
+    val = findvalue.findSmall(20,5,60)
+    assert val == 5

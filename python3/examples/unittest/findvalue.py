@@ -17,4 +17,15 @@ def findLarge(a,b,c):
 
 
 def findSmall(a,b,c):
-    return 0
+    min = 0
+    if a < b:
+        if a < c:
+            min = a
+        else:
+            min = c
+    elif b < a:
+        if b < c:
+            min = b
+        else:
+            min = c
+    return min
