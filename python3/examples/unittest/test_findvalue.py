@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# /Users/hobbit/Library/Python/3.7/bin
+# /Users/hobbit/Library/Python/3.7/bin/pytest -v test_findvalue.py
 
 import findvalue
 import pytest
