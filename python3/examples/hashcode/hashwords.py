@@ -6,7 +6,7 @@ Date      : 2020.03.03
 version   : 0.0.1  
 Desc      : hasing the entire english word into sha1, sha256, sha384
 wordSrc   : https://github.com/dwyl/english-words
-use       : python3 hashword.py words_alpha.txt
+use       : python3 hashwords.py words_alpha.txt
 """
 
 
@@ -23,7 +23,9 @@ def processwords():
     words, fn = [], ""
     
     if size != 2:
-        print("Supply the dictionary file, words_alpha.txt. ")
+        print("Argument File Not Found.                      ")
+        print("Supply the dictionary file, words_alpha.txt.  ")
+        print("run:   python3 hashwords.py words_alpha.txt.  ")
         sys.exit(0)
     else:
         fn = sys.argv[1]
