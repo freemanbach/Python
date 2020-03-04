@@ -47,7 +47,7 @@ def processhash(mylst):
         h_sha256 = hashlib.sha256(a.encode('utf-8')).hexdigest()
         h_sha384 = hashlib.sha384(a.encode('utf-8')).hexdigest()
         # left this out intentionally
-        #h_sha512 = hashlib.sha512(i.encode('utf-8')).hexdigest()
+        #h_sha512 = hashlib.sha512(a.encode('utf-8')).hexdigest()
         hashword.update( { i : [h_sha1, h_sha256, h_sha384 ] } )
     
     # Printing out the hashes(sha1, sha384, sha512) for each word
