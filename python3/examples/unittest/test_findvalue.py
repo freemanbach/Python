@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # /Users/hobbit/Library/Python/3.7/bin/pytest -v test_findvalue.py
-
+# https://kapeli.com/cheat_sheets/Python_unittest_Assertions.docset/Contents/Resources/Documents/index
+# https://pediaa.com/difference-between-cloud-computing-and-distributed-computing/
 import findvalue
 import pytest
 
