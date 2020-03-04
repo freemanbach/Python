@@ -54,8 +54,8 @@ def processhash(mylst):
     
     # Printing out the hashes(sha1, sha384, sha512) for each word
     # from the word file, you can also add h_sha512 to the list
-    for i, k in hashword.items():
-        print( i, "  " , k )
+    for k, v in hashword.items():
+        print( k, "  " , v )
 
     
 def main():
