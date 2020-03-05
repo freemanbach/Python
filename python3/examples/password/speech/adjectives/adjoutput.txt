@@ -777,7 +777,6 @@ Notogaea
 Nubian
 Numidia
 Numidian
-OK'd
 Occidentalist
 Oceanian
 Oedipean
@@ -3390,7 +3389,6 @@ biracial
 biramous
 birch
 birchen
-bird's-eye
 bird-brained
 birdlike
 birefringent
@@ -15636,7 +15634,6 @@ naval
 navicular
 navigable
 navigational
-ne'er-do-well
 neap
 neaped
 near
@@ -24298,7 +24295,6 @@ troglodytic
 troglodytical
 trollopy
 tromometric
-trompe-l'oeil
 trophallactic
 trophic
 trophied
@@ -28052,9 +28048,7 @@ whackiest
 whacking
 whacky
 whapping
-whate'er
 whatever
-whatsoe'er
 whatsoever
 wheaten
 wheeled
