@@ -11,16 +11,22 @@ wordSrc2  : http://www.ashley-bovan.co.uk/words/partsofspeech.html
 use       : python3 choosePasswd.py file1.txt file2.txt file3.txt file4.txt etc.........
 """
 
-
 import sys
 import os
+import os.path
+from os import path
 
 # phase 1 to combine all the words together into a single file 
 # of each part of speech without overlapping words for each categories
 def processadj():
+    
+    fns, cnt, file_words, fData = [], 0, set(), []
+    
+    if path.exists('adjoutput.txt'):
+        os.remove('adjoutput.txt')
+    
     a = len(sys.argv)
     f = open("adjoutput.txt", "a+")
-    fns, cnt, file_words, fData = [], 0, set(), []
     
     if a < 2:
         print("Need at minimum one file to process like-terms.")
@@ -39,8 +45,10 @@ def processadj():
         with open( fns[i], mode='r' ) as fn:
             for i in fn:
                 tmp = str(i).strip()
-                #tmp +="\n"
-                file_words.add(tmp)
+                if "'" in tmp:
+                    print(type(tmp), "  ", tmp)
+                else:
+                    file_words.add(tmp)
     
     # Sorting the words alfabetically
     fData = sorted(file_words)
@@ -74,7 +82,6 @@ def processnoun():
         with open( fns[i], mode='r' ) as fn:
             for i in fn:
                 tmp = str(i).strip()
-                #tmp +="\n"
                 file_words.add(tmp)
     
     # Sorting the words alfabetically
@@ -157,7 +164,7 @@ def processverb():
     
 def main():
     #processverb()
-    #processadj()
+    processadj()
     #processadv()
     #processnoun()
     
