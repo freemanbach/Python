@@ -37,13 +37,7 @@ def processwords():
             
     return words
 
-"""
-data = {}
-data['vocabs'] = []
-data['vocabs'].append( { 'word': v[0], 'sha1': v[1], 'sha256': v[2]  } )
-data = {'people':[{'name': 'Scott', 'website': 'stackabuse.com', 'from': 'Nebraska'}]}
- 
-"""
+
 def processhash(mylst):
     """ prints the hashed values to screen. """ 
     hashword, tmp = dict(), []
