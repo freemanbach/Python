@@ -105,22 +105,24 @@ def sha3_512(fname):
     return hash_sha3_512.hexdigest()
 
 
-# this doesnt work
 def shake_128(fname):
+    """ the parameter in the function *.hexdigest() is the size of the return digest. 
+        the length of the return digest could vary but 46 should be sufficient.  """
     hash_shake_128 = hashlib.shake_128()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
             hash_shake_128.update(chunk)
-    return hash_shake_128.hexdigest()
+    return hash_shake_128.hexdigest(46)
 
 
-# this doesnt work
 def shake_256(fname):
+    """ the parameter in the function *.hexdigest() is the size of the return digest. 
+        the length of the return digest could vary but 46 should be sufficient.  """
     hash_shake_256 = hashlib.shake_256()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
             hash_shake_256.update(chunk)
-    return hash_shake_256.hexdigest()
+    return hash_shake_256.hexdigest(46)
 
 
 def b2b(fname):
