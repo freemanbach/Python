@@ -162,13 +162,22 @@ def crc(fname):
 
 def version():
     """ """
-    print("version 0.0.1")
+    print("version 0.0.2")
 
 
 def chksumtypes():
     """ """
-    print("\t\tAvailable Algorithms: ")
-    print("" + str(hashlib.algorithms_guaranteed))
+    print("Available Algorithms: ")
+    hashalgor = []
+    for i in hashlib.algorithms_guaranteed:
+        hashalgor.append(i)
+    d = hashalgor.index('blake2b')
+    hashalgor.pop(d)
+    d = hashalgor.index('blake2s')
+    hashalgor.pop(d)
+    hashalgor.append('b2b')
+    hashalgor.append('b2s')
+    print("" + str(sorted(hashalgor)))
 
 
 def getCheckSum(tp, fp):
