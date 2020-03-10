@@ -9,11 +9,13 @@ example : python chksum.py -v
 example : python chksum.py -h
 """
 
+
 import os
 import sys
 import hashlib  # main hashing libs 
 import hmac     # message algorithm
 import zlib     # adler and crc32
+
 
 try:
     import getopt   # parameter package lib
@@ -30,12 +32,14 @@ def md5(fname):
             hash_md5.update(chunk)
     return hash_md5.hexdigest()
 
+
 def sha1(fname):
     hash_sha1 = hashlib.sha1()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
             hash_sha1.update(chunk)
     return hash_sha1.hexdigest()
+
 
 def sha224(fname):
     hash_sha224 = hashlib.sha224()
@@ -44,6 +48,7 @@ def sha224(fname):
             hash_sha224.update(chunk)
     return hash_sha224.hexdigest()
 
+
 def sha256(fname):
     hash_sha256 = hashlib.sha256()
     with open(fname, "rb") as f:
@@ -51,12 +56,14 @@ def sha256(fname):
             hash_sha256.update(chunk)
     return hash_sha256.hexdigest()
 
+
 def sha384(fname):
     hash_sha384 = hashlib.sha384()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
             hash_sha384.update(chunk)
     return hash_sha384.hexdigest()
+
 
 def sha512(fname):
     hash_sha512 = hashlib.sha512()
@@ -73,12 +80,14 @@ def sha3_224(fname):
             hash_sha3_224.update(chunk)
     return hash_sha3_224.hexdigest()
 
+
 def sha3_256(fname):
     hash_sha3_256 = hashlib.sha3_256()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
             hash_sha3_256.update(chunk)
     return hash_sha3_256.hexdigest()
+
 
 def sha3_384(fname):
     hash_sha3_384 = hashlib.sha3_384()
@@ -165,7 +174,27 @@ def getCheckSum(tp, fp):
     elif tp == "sha3_224":
         chksum = sha3_224(fp)
         print(str(chksum) + "\t" + "*" + str(fp))
-
+    elif tp == "sha3_256":
+        chksum = sha3_256(fp)
+        print(str(chksum) + "\t" + "*" + str(fp))
+    elif tp == "sha3_384":
+        chksum = sha3_384(fp)
+        print(str(chksum) + "\t" + "*" + str(fp))
+    elif tp == "sha3_512":
+        chksum = sha3_512(fp)
+        print(str(chksum) + "\t" + "*" + str(fp))
+    elif tp == "shake_128":
+        chksum = shake_128(fp)
+        print(str(chksum) + "\t" + "*" + str(fp))
+    elif tp == "shake_256":
+        chksum = shake_256(fp)
+        print(str(chksum) + "\t" + "*" + str(fp))
+    elif tp == "b2b":
+        chksum = b2b(fp)
+        print(str(chksum) + "\t" + "*" + str(fp))
+    elif tp == "b2s":
+        chksum = b2s(fp)
+        print(str(chksum) + "\t" + "*" + str(fp))
     else:
         print("There is no other option ! ")
         sys.exit(1)
@@ -242,7 +271,46 @@ def verifyCheckSum(tp, fp, cksumf):
             print("software checksum   : " + "\t" + str(chksum))
         else:
             failed()
-
+    elif tp == "sha3_256":
+        chksum = sha3_256(fp)
+        if chksum == cs:
+            print("The file\'s checksum and checksumming this file here MATCHed !")
+            print("    File checksum   : " + "\t" + str(cs))
+            print("software checksum   : " + "\t" + str(chksum))
+        else:
+            failed()
+    elif tp == "sha3_384":
+        chksum = sha3_384(fp)
+        if chksum == cs:
+            print("The file\'s checksum and checksumming this file here MATCHed !")
+            print("    File checksum   : " + "\t" + str(cs))
+            print("software checksum   : " + "\t" + str(chksum))
+        else:
+            failed()
+    elif tp == "sha3_512":
+        chksum = sha3_512(fp)
+        if chksum == cs:
+            print("The file\'s checksum and checksumming this file here MATCHed !")
+            print("    File checksum   : " + "\t" + str(cs))
+            print("software checksum   : " + "\t" + str(chksum))
+        else:
+            failed()
+    elif tp == "shake_128":
+        chksum = shake_128(fp)
+        if chksum == cs:
+            print("The file\'s checksum and checksumming this file here MATCHed !")
+            print("    File checksum   : " + "\t" + str(cs))
+            print("software checksum   : " + "\t" + str(chksum))
+        else:
+            failed()
+    elif tp == "shake_256":
+        chksum = shake_256(fp)
+        if chksum == cs:
+            print("The file\'s checksum and checksumming this file here MATCHed !")
+            print("    File checksum   : " + "\t" + str(cs))
+            print("software checksum   : " + "\t" + str(chksum))
+        else:
+            failed()
     else:
         print("There is no other option !")
         sys.exit(1)
