@@ -146,9 +146,6 @@ def chksumtypes():
 
     print("\nAvailable Algorithms: ")
     print("\t\t\t" + str(hashlib.algorithms_guaranteed))
-    """
-    { 'blake2b',  'blake2s', '', '', '', '', '', ''  }
-    """
 
 
 def getCheckSum(tp, fp):
