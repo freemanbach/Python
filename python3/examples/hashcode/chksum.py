@@ -105,6 +105,7 @@ def sha3_512(fname):
     return hash_sha3_512.hexdigest()
 
 
+# this doesnt work
 def shake_128(fname):
     hash_shake_128 = hashlib.shake_128()
     with open(fname, "rb") as f:
@@ -113,6 +114,7 @@ def shake_128(fname):
     return hash_shake_128.hexdigest()
 
 
+# this doesnt work
 def shake_256(fname):
     hash_shake_256 = hashlib.shake_256()
     with open(fname, "rb") as f:
@@ -144,8 +146,8 @@ def version():
 
 def chksumtypes():
 
-    print("\nAvailable Algorithms: ")
-    print("\t\t\t" + str(hashlib.algorithms_guaranteed))
+    print("\t\tAvailable Algorithms: ")
+    print("" + str(hashlib.algorithms_guaranteed))
 
 
 def getCheckSum(tp, fp):
@@ -183,6 +185,7 @@ def getCheckSum(tp, fp):
     elif tp == "shake_128":
         chksum = shake_128(fp)
         print(str(chksum) + "\t" + "*" + str(fp))
+        
     elif tp == "shake_256":
         chksum = shake_256(fp)
         print(str(chksum) + "\t" + "*" + str(fp))
