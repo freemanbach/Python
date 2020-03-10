@@ -177,6 +177,7 @@ def chksumtypes():
     hashalgor.pop(d)
     hashalgor.append('b2b')
     hashalgor.append('b2s')
+    hashalgor.append('crc')
     print("" + str(sorted(hashalgor)))
 
 
@@ -224,6 +225,9 @@ def getCheckSum(tp, fp):
     elif tp == "b2s":
         chksum = b2s(fp)
         print(str(chksum) + "\t" + "*" + str(fp))
+    elif tp == "crc":
+        chksum = crc(fp)
+        print(str(chksum) + "\t" + "*" + str(fp))    
     else:
         print("There is no other option ! ")
         sys.exit(1)
@@ -356,6 +360,14 @@ def verifyCheckSum(tp, fp, cksumf):
             print("software checksum   : " + "\t" + str(chksum))
         else:
             failed()
+    elif tp == "crc":
+        chksum = crc(fp)
+        if chksum == cs:
+            print("The file\'s checksum and checksumming this file here MATCHed !")
+            print("    File checksum   : " + "\t" + str(cs))
+            print("software checksum   : " + "\t" + str(chksum))
+        else:
+            failed()
     else:
         print("There is no other option !")
         sys.exit(1)
@@ -367,14 +379,14 @@ def usage():
             usage: python chksum.py [-t,--tp = checksum_algorithm] [-g,--gp = filename] 
                                     [-c,--cs = filename.{ md5:sha1:sha224:sha256:sha384:sha512:sha3_224:
                                                           sha3_256:sha3_384:sha3_512:shake_128:shake_256:
-                                                          b2b:b2s } ]     [ -h ] [ -v ]
+                                                          b2b:b2s:crc } ]     [ -h ] [ -v ]
 			
             examples:
             python chksum.py
             python chksum.py -t sha1 -g linux.iso 
             python chksum.py -t sha1 -g linux.iso -c filename.{ md5:sha1:sha224:sha256:sha384:sha512:sha3_224:
                                                                 sha3_256:sha3_384:sha3_512:shake_128:shake_256:
-                                                                b2b:b2s }
+                                                                b2b:b2s:crc }
 
             python chksum.py -v
             python chksum.py -h
@@ -382,7 +394,7 @@ def usage():
             options :
             -t, --tp=value, --tp value  Collision Algorithms { md5:sha1:sha224:sha256:sha384:sha512:sha3_224:
                                                                sha3_256:sha3_384:sha3_512:shake_128:shake_256:
-                                                               b2b:b2s }
+                                                               b2b:b2s:crc }
                                                                
             -g, --gp=value, --gp value  file to check to get checksum
             -c, --cs=value, --cs value  supply this value, this software will verify the 
@@ -439,7 +451,8 @@ def main():
                 type = a.strip().lower()
             elif a.strip().lower() == "b2s":
                 type = a.strip().lower()
-
+            elif a.strip().lower() == "crc":
+                type = a.strip().lower()
             else:
                 print("Please enter the limited correct type of file Collision Algorithm available to you. ")
                 chksumtypes()
