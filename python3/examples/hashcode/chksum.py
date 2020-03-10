@@ -311,6 +311,22 @@ def verifyCheckSum(tp, fp, cksumf):
             print("software checksum   : " + "\t" + str(chksum))
         else:
             failed()
+    elif tp == "b2b":
+        chksum = b2b(fp)
+        if chksum == cs:
+            print("The file\'s checksum and checksumming this file here MATCHed !")
+            print("    File checksum   : " + "\t" + str(cs))
+            print("software checksum   : " + "\t" + str(chksum))
+        else:
+            failed()
+    elif tp == "b2s":
+        chksum = b2s(fp)
+        if chksum == cs:
+            print("The file\'s checksum and checksumming this file here MATCHed !")
+            print("    File checksum   : " + "\t" + str(cs))
+            print("software checksum   : " + "\t" + str(chksum))
+        else:
+            failed()
     else:
         print("There is no other option !")
         sys.exit(1)
@@ -321,18 +337,25 @@ def usage():
     # Help info
     usage = """
             usage: python chksum.py [-t,--tp = checksum_algorithm] [-g,--gp = filename] 
-                                     [-c,--cs = filename.{md5:sha1:sha224:sha256:sha384:sha512:sha3_224}  ] [-h] [-v]
+                                    [-c,--cs = filename.{ md5:sha1:sha224:sha256:sha384:sha512:sha3_224:
+                                                          sha3_256:sha3_384:sha3_512:shake_128:shake_256:
+                                                          b2b:b2s } ]     [ -h ] [ -v ]
 			
             examples:
             python chksum.py
             python chksum.py -t sha1 -g linux.iso 
-            python chksum.py -t sha1 -g linux.iso -c filename.{md5:sha1:sha224:sha256:sha384:sha512:sha3_224}
+            python chksum.py -t sha1 -g linux.iso -c filename.{ md5:sha1:sha224:sha256:sha384:sha512:sha3_224:
+                                                                sha3_256:sha3_384:sha3_512:shake_128:shake_256:
+                                                                b2b:b2s }
 
             python chksum.py -v
             python chksum.py -h
 
             options :
-            -t, --tp=value, --tp value  Collision Algorithms {md5:sha1:sha224:sha256:sha384:sha512:sha3_224}
+            -t, --tp=value, --tp value  Collision Algorithms { md5:sha1:sha224:sha256:sha384:sha512:sha3_224:
+                                                               sha3_256:sha3_384:sha3_512:shake_128:shake_256:
+                                                               b2b:b2s }
+                                                               
             -g, --gp=value, --gp value  file to check to get checksum
             -c, --cs=value, --cs value  supply this value, this software will verify the 
 			                            checksum against the downloaded file
@@ -375,6 +398,21 @@ def main():
                 type = a.strip().lower()
             elif a.strip().lower() == "sha3_224":
                 type = a.strip().lower()
+            elif a.strip().lower() == "sha3_256":
+                type = a.strip().lower()
+            elif a.strip().lower() == "sha3_384":
+                type = a.strip().lower()
+            elif a.strip().lower() == "sha3_512":
+                type = a.strip().lower()
+            elif a.strip().lower() == "shake_128":
+                type = a.strip().lower()
+            elif a.strip().lower() == "shake_256":
+                type = a.strip().lower()
+            elif a.strip().lower() == "b2b":
+                type = a.strip().lower()
+            elif a.strip().lower() == "b2s":
+                type = a.strip().lower()
+
             else:
                 print("Please enter the limited correct type of file Collision Algorithm available to you. ")
                 chksumtypes()
