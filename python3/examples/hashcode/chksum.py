@@ -187,7 +187,6 @@ def getCheckSum(tp, fp):
     elif tp == "shake_128":
         chksum = shake_128(fp)
         print(str(chksum) + "\t" + "*" + str(fp))
-        
     elif tp == "shake_256":
         chksum = shake_256(fp)
         print(str(chksum) + "\t" + "*" + str(fp))
