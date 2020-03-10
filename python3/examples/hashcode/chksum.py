@@ -1,6 +1,6 @@
 """
 Author  :  freeman
-date    :  2020.03.10
+date    :  2020.03.11
 Purpose :  Need a file checksum software for all kinds of reasons.
         :  There is a Java version, but its alpha stage, yet Java skillz is lacking. 
 Comments:  need to implement a ton more before this is truly effective
@@ -25,7 +25,7 @@ except ImportError as err:
 
 
 def md5(fname):
-    # https://stackoverflow.com/questions/1131220/get-md5-hash-of-big-files-in-python
+    """ https://stackoverflow.com/questions/1131220/get-md5-hash-of-big-files-in-python """
     hash_md5 = hashlib.md5()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
@@ -34,6 +34,7 @@ def md5(fname):
 
 
 def sha1(fname):
+    """ """
     hash_sha1 = hashlib.sha1()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
@@ -42,6 +43,7 @@ def sha1(fname):
 
 
 def sha224(fname):
+    """ """
     hash_sha224 = hashlib.sha224()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
@@ -50,6 +52,7 @@ def sha224(fname):
 
 
 def sha256(fname):
+    """ """
     hash_sha256 = hashlib.sha256()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
@@ -58,6 +61,7 @@ def sha256(fname):
 
 
 def sha384(fname):
+    """ """
     hash_sha384 = hashlib.sha384()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
@@ -66,6 +70,7 @@ def sha384(fname):
 
 
 def sha512(fname):
+    """ """
     hash_sha512 = hashlib.sha512()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
@@ -74,6 +79,7 @@ def sha512(fname):
 
 
 def sha3_224(fname):
+    """ """
     hash_sha3_224 = hashlib.sha3_224()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
@@ -82,6 +88,7 @@ def sha3_224(fname):
 
 
 def sha3_256(fname):
+    """ """
     hash_sha3_256 = hashlib.sha3_256()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
@@ -90,6 +97,7 @@ def sha3_256(fname):
 
 
 def sha3_384(fname):
+    """ """
     hash_sha3_384 = hashlib.sha3_384()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
@@ -98,6 +106,7 @@ def sha3_384(fname):
 
 
 def sha3_512(fname):
+    """ """
     hash_sha3_512 = hashlib.sha3_512()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
@@ -126,6 +135,7 @@ def shake_256(fname):
 
 
 def b2b(fname):
+    """ """
     hash_b2b = hashlib.blake2b()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
@@ -134,6 +144,7 @@ def b2b(fname):
 
 
 def b2s(fname):
+    """ """
     hash_b2s = hashlib.blake2s()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
@@ -141,19 +152,27 @@ def b2s(fname):
     return hash_b2s.hexdigest()
 
 
-def version():
+def crc(fname):
+    """ """
+    with open(fname, 'rb') as f:
+        buf = f.read()
+    nbuf = ( zlib.crc32(buf) & 0xffffffff)
+    return "%08X" % nbuf
 
+
+def version():
+    """ """
     print("version 0.0.1")
 
 
 def chksumtypes():
-
+    """ """
     print("\t\tAvailable Algorithms: ")
     print("" + str(hashlib.algorithms_guaranteed))
 
 
 def getCheckSum(tp, fp):
-
+    """ """
     if tp == "md5":
         chksum = md5(fp)
         print(str(chksum) + "\t" + "*" + str(fp))
@@ -202,14 +221,14 @@ def getCheckSum(tp, fp):
 
 
 def failed():
-
+    """ """
     print("File and Software checksum did not MATCHed !")
     print("Quiting.....................................")
     sys.exit(1)
 
 
 def verifyCheckSum(tp, fp, cksumf):
-    
+    """ """
     # Pull the first column of checksum to match with
     # a live checksum using this software
     with open(cksumf, "r+") as f:
@@ -334,8 +353,7 @@ def verifyCheckSum(tp, fp, cksumf):
 
 
 def usage():
-
-    # Help info
+    """ Help info """
     usage = """
             usage: python chksum.py [-t,--tp = checksum_algorithm] [-g,--gp = filename] 
                                     [-c,--cs = filename.{ md5:sha1:sha224:sha256:sha384:sha512:sha3_224:
@@ -366,10 +384,9 @@ def usage():
 
     print(usage)
 
-
-# Feel the main 
+    
 def main():
-
+    """ Feel the main """
     # default values
     type, filename, csumf = "", "", ""
 
@@ -444,7 +461,6 @@ def main():
             sys.exit(1)
 
     # the brain of the operation, yodaheim
-    # 
     if len(sys.argv) == 7:
         verifyCheckSum(type,filename,csumf)
     elif len(sys.argv) == 5:
@@ -454,6 +470,5 @@ def main():
         sys.exit()
 	
 
-# Feel the main, now !
 if __name__ == "__main__":
     main()
