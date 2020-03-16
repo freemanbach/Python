@@ -409,11 +409,11 @@ def usage():
 def main():
     """ Feel the main """
     # default values
-    type, filename, csumf = "", "", ""
+    tp, filename, csumf, flist = "", "", "", []
 
     # using getopt function for giggles only
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 't:g:c:vh', ['tp=', 'gp=', 'cs='])
+        opts, args = getopt.getopt(sys.argv[1:], 't:g:c:z:vh', ['tp=', 'gp=', 'cs=', 'zf='])
     except getopt.GetoptError as err:
         # print something and exit
         print(str(err))
@@ -424,35 +424,35 @@ def main():
     for o, a in opts:
         if o in ('-t', '--tp'):
             if a.strip().lower() == "md5":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             elif a.strip().lower() == "sha1":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             elif a.strip().lower() == "sha224":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             elif a.strip().lower() == "sha256":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             elif a.strip().lower() == "sha384":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             elif a.strip().lower() == "sha512":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             elif a.strip().lower() == "sha3_224":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             elif a.strip().lower() == "sha3_256":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             elif a.strip().lower() == "sha3_384":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             elif a.strip().lower() == "sha3_512":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             elif a.strip().lower() == "shake_128":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             elif a.strip().lower() == "shake_256":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             elif a.strip().lower() == "b2b":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             elif a.strip().lower() == "b2s":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             elif a.strip().lower() == "crc":
-                type = a.strip().lower()
+                tp = a.strip().lower()
             else:
                 print("Please enter the limited correct type of file Collision Algorithm available to you. ")
                 chksumtypes()
@@ -484,9 +484,9 @@ def main():
 
     # the brain of the operation, yodaheim
     if len(sys.argv) == 7:
-        verifyCheckSum(type,filename,csumf)
+        verifyCheckSum(tp,filename,csumf)
     elif len(sys.argv) == 5:
-        getCheckSum(type,filename)
+        getCheckSum(tp,filename)
     else:
         usage()
         sys.exit()
