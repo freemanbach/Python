@@ -413,7 +413,7 @@ def main():
 
     # using getopt function for giggles only
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 't:g:c:z:vh', ['tp=', 'gp=', 'cs=', 'zf='])
+        opts, args = getopt.getopt(sys.argv[1:], 't:g:c:vh', ['tp=', 'gp=', 'cs='])
     except getopt.GetoptError as err:
         # print something and exit
         print(str(err))
