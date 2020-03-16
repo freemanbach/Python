@@ -404,12 +404,12 @@ def usage():
             """
 
     print(usage)
-
+    
     
 def main():
     """ Feel the main """
     # default values
-    tp, filename, csumf, flist = "", "", "", []
+    tp, filename, csumf = "", "", ""
 
     # using getopt function for giggles only
     try:
