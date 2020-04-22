@@ -17,6 +17,7 @@ import time
 class Cow:
 
     # Global Variables
+    # public data members
 
     # default Constructor
     def __init__(self, breed, age, color):
