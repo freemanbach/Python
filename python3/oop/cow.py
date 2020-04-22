@@ -1,7 +1,12 @@
 # Author  : freeman
 # Date    : 2020.04.21
 # Version : 0.0.1
-# Desc    :
+# Desc    : Big 4 Concepts of OOP
+#         : 1) Abstration; 2) Encapsulation; 3) Inheritance; 4) Polymorphism
+#         : 1: real world attributes and behaviors, classes and objs
+#         : 2: data hiding: private, public data members
+#         : 3: inherite values and behaviors from parent class(es)
+#         : 4: having the same behaviors or methods in the child class
 #         : python OO programming -- simple cow class 
 ###################################################################
 

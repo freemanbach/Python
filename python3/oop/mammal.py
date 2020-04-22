@@ -107,7 +107,8 @@ def main():
     print(amos.speak("woof"))
     print(amos.run())
     print("this is : " + amos.whoisthis(amos.getName()))
-    print(amos.swim("amos", True))
+    print("Amos the Dog can swim? ", amos.swim("amos", True))
+    print("bigbird the cat can swim? ", bigbird.swim("bigbird", False))
     #amos.__class__.breed = "chiwawa"
     #print(amos.__class__.breed)
     print(bigbird.swim("bigbird", False))
