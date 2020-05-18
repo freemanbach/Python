@@ -1,1 +1,12 @@
+Python Installation and Download Location
+
+If you desire to use this script to automate your installation, download version 3.8.x or newer. We have not tested 
+this script using previous versions of python 3.7.x or older.
+
+# Python Download Site
+
+https://www.python.org/downloads/
+
+# Install this python langauge silently by using the script from above
+
 python-3.8.0-amd64.exe /quiet c:\users\hobbit\unattend.xml
