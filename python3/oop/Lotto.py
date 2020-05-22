@@ -7,6 +7,7 @@
 ###################################################################
 
 from numpy import random
+from tqdm import tqdm
 import math
 import sys
 
@@ -22,7 +23,7 @@ class Lotto:
         self.rnum = 0
         
     def additemstolist(self, size):
-        for i in list(range(size)):
+        for i in tqdm(list(range(size))):
             self.lotto = []
             for i in list(range(6)):
                 if (i==5):
