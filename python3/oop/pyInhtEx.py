@@ -26,7 +26,7 @@ class Mammal(object):
     def __str__(self):
         return "Your name is: " + str(self.name)
 
-
+# Child Clas
 class Cow(Mammal):
 
     # Global Variables
@@ -55,20 +55,24 @@ class Cow(Mammal):
     def eat(self):
         return self.food
 
+    def setEat(self, food):
+        self.food = food
+
     def __str__(self):
         return str(self.breed) + " " + str(self.age)
 
 
 def main():
-    adam = Cow("angus", 3, "black")
+    adam = Cow("Adam", 3, "black angus")
     print(type(adam))
     print("Adam can speak: ", adam.speak(), " often times.")
     print("Adam will sleep: " , str(adam.sleep()), " hours per day.")
     print("Adam will eat: ", adam.eat()," most of the time.")
     print("Adam is a ", adam.__str__().split()[0], " Cow.")
+
     print("Adam has a name of: ", adam.getName())
     adam.setName("Frodo")
-    print("Adam has a name of: ", adam.getName())
+    print("Adam has a new name of: ", adam.getName())
 
 
 if __name__ == "__main__":
