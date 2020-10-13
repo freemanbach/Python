@@ -66,11 +66,11 @@ def writeData( a, b, c, nf ):
     # Date,VADATA.Death,VADATA.DeathConfirmed
     data = []
     fn = nf.strip() + "data.csv" 
-    for i in list(range(0, len(a)-1)):
+    for i in list(range(0, len(a))):
         m = str(a[i]).strip() + "," + str(b[i]).strip() + "," + str(c[i]).strip() + "\n"
         data.append(m)
 
-    head = "Date,"+ fn.upper() + "DATA.Death," +  fn.upper() + "DATA.DeathConfirmed\n"
+    head = "Date,"+ nf.upper() + "DATA.Death," +  nf.upper() + "DATA.DeathConfirmed\n"
     
     data.insert(0, head)
     with open(fn, "w+") as f:
