@@ -8,10 +8,19 @@ example    : python3 getCOVdata.py nc
 """
 
 
-from tqdm import trange, tqdm
-from requests.exceptions import HTTPError
+try:
+    from tqdm import trange, tqdm
+except ImportError as herr:
+    print("Missing tqdm lib.")
+
+try:
+    from requests.exceptions import HTTPError
+    import requests
+except ImportError as herr:
+    print("Missing requests library")
+
+
 from datetime import datetime
-import requests
 import json
 import sys
 
