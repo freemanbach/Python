@@ -8,6 +8,7 @@ example    : python3 getCOVdata.py nc
 """
 
 
+from tqdm import trange, tqdm
 from requests.exceptions import HTTPError
 from datetime import datetime
 import requests
@@ -22,8 +23,21 @@ def fixdate(d):
     return dt
 
 
+def chkStates(a):
+    # state abbr codes
+    scode = ['ak', 'al', 'ar','az', 'ca', 'co', 'ct', 'de', 'fl', 'ga', 'hi', 'ia', 'id', 'il', 'in', 'ks', 'ky', 'la', 'ma', 'md', 'me', 'mi', 'mn', 'mo',
+                'ms', 'mt', 'nc', 'nd', 'ne', 'nh', 'nj', 'nm', 'nv', 'ny', 'oh', 'ok', 'or', 'pa',  'ri', 'sc', 'sd', 'tn', 'tx', 'ut', 'va', 'vt', 'wa', 'wi',  'wv', 'wy' ]
+    if a.strip().lower() in scode:
+        return True
+    else:
+        return False
+
+
 def pullJSON(sa):
     # Having flexible US State Abbreviation to generate csv file
+    if not chkStates(sa):
+        print("Enter the correct 2 characters US state code!")
+        sys.exit()
     state = "https://api.covidtracking.com/v1/states/" + sa + "/daily.json"
     try:
         resp = requests.get(state)
@@ -74,9 +88,9 @@ def writeData( a, b, c, nf ):
     
     data.insert(0, head)
     with open(fn, "w+") as f:
-        for i in data:
+        for i in tqdm(data, total=len(data), desc=fn):
             f.write(i)
-    
+
 
 def main():
     # VOODOO Magik
