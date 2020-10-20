@@ -7,6 +7,23 @@ desc          : morsecode translator from the abyss
 """
 
 
+def recip(v):
+    if (v != 0) or (v != 1):
+        # do something
+        sol, value = [], str(v)
+        c, tmp2 = 2, sorted(value)
+        for a in list(range(2, 11)): # can alter end value
+            sol.append(str(a*v))
+        for a in sol:
+            tmp1 = sorted(a)
+            if tmp1 == tmp2:
+                print("Yes, match number at {}".format(c))
+                c+=1
+            else:
+                print("No, Not match number at {}".format(c))
+                c+=1
+                
+
 def con2mc(mess):
     ans = ""
     c2mc = { 'A':'.- ', 'B':'-... ', 
