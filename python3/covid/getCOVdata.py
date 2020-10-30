@@ -117,9 +117,6 @@ def main():
         xz = sys.argv
         if str(xz[1]).strip().lower() == 'all':
             all()
-            #print("Future features, not yet implemented.")
-            #print("With this feature --all--, all 50 US states --Death Counts-- in CSV format")
-            #print("will be written out onto the filesystem. ")
         else:
             a = pullJSON(str(xz[1]).strip().lower())
             x,y,z = processJSON(a)
