@@ -1,6 +1,6 @@
 """
 author     : freeman
-date       : 20201012
+date       : 20201030
 desc       : Pull covid data from covidtracking.com over json api
            : it will generate a csv file after it ran.
 exec       : python3 getCOVdata.py US_state
@@ -12,6 +12,7 @@ try:
     from tqdm import trange, tqdm
 except ImportError as herr:
     print("Missing tqdm lib.")
+
 
 try:
     from requests.exceptions import HTTPError
@@ -41,6 +42,7 @@ def chkStates(a):
     else:
         return False
 
+
 def all():
     # state abbr codes
     scode = ['ak', 'al', 'ar','az', 'ca', 'co', 'ct', 'de', 'fl', 'ga', 'hi', 'ia', 'id', 'il', 'in', 'ks', 'ky', 'la', 'ma', 'md', 'me', 'mi', 'mn', 'mo',
@@ -49,7 +51,6 @@ def all():
         a = pullJSON(i)
         x, y, z = processJSON(a)
         writeData(x,y,z, str(i))
-
 
 
 def pullJSON(sa):
@@ -93,7 +94,7 @@ def processJSON(jsdata):
 
     return vadate, vadeath, vadeathconfirm
     
-
+    
 def writeData( a, b, c, nf ):
     # heading for csv file to prep for plotly.JS
     # Date,VADATA.Death,VADATA.DeathConfirmed
