@@ -41,6 +41,16 @@ def chkStates(a):
     else:
         return False
 
+def all():
+    # state abbr codes
+    scode = ['ak', 'al', 'ar','az', 'ca', 'co', 'ct', 'de', 'fl', 'ga', 'hi', 'ia', 'id', 'il', 'in', 'ks', 'ky', 'la', 'ma', 'md', 'me', 'mi', 'mn', 'mo',
+                'ms', 'mt', 'nc', 'nd', 'ne', 'nh', 'nj', 'nm', 'nv', 'ny', 'oh', 'ok', 'or', 'pa',  'ri', 'sc', 'sd', 'tn', 'tx', 'ut', 'va', 'vt', 'wa', 'wi',  'wv', 'wy' ]
+    for i in scode:
+        a = pullJSON(i)
+        x, y, z = processJSON(a)
+        writeData(x,y,z, str(i))
+
+
 
 def pullJSON(sa):
     # Having flexible US State Abbreviation to generate csv file
@@ -106,9 +116,10 @@ def main():
     if len(sys.argv) == 2:
         xz = sys.argv
         if str(xz[1]).strip().lower() == 'all':
-            print("Future features, not yet implemented.")
-            print("With this feature --all--, all 50 US states --Death Counts-- in CSV format")
-            print("will be written out onto the filesystem. ")
+            all()
+            #print("Future features, not yet implemented.")
+            #print("With this feature --all--, all 50 US states --Death Counts-- in CSV format")
+            #print("will be written out onto the filesystem. ")
         else:
             a = pullJSON(str(xz[1]).strip().lower())
             x,y,z = processJSON(a)
