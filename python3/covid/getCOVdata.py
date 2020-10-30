@@ -105,9 +105,14 @@ def main():
     # VOODOO Magik
     if len(sys.argv) == 2:
         xz = sys.argv
-        a = pullJSON(str(xz[1]).strip())
-        x,y,z = processJSON(a)
-        writeData( x, y, z, str(xz[1]))
+        if str(xz[1]).strip().lower() == 'all':
+            print("Future features, not yet implemented.")
+            print("With this feature --all--, all 50 US states --Death Counts-- in CSV format")
+            print("will be written out onto the filesystem. ")
+        else:
+            a = pullJSON(str(xz[1]).strip().lower())
+            x,y,z = processJSON(a)
+            writeData( x, y, z, str(xz[1]))
     else:
         print("not enough parameters.")
         sys.exit()
