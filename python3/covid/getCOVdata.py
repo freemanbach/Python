@@ -14,6 +14,7 @@ example    : python3 getCOVdata.py all
 scode = ['ak', 'al', 'ar','az', 'ca', 'co', 'ct', 'de', 'fl', 'ga', 'hi', 'ia', 'id', 'il', 'in', 'ks', 'ky', 'la', 'ma', 'md', 'me', 'mi', 'mn', 'mo',
         'ms', 'mt', 'nc', 'nd', 'ne', 'nh', 'nj', 'nm', 'nv', 'ny', 'oh', 'ok', 'or', 'pa',  'ri', 'sc', 'sd', 'tn', 'tx', 'ut', 'va', 'vt', 'wa', 'wi',  'wv', 'wy' ]
 
+
 try:
     from tqdm import trange, tqdm
 except ImportError as herr:
@@ -113,17 +114,29 @@ def writeData( a, b, c, nf ):
 
 
 def main():
-    # VOODOO Magik
-    if len(sys.argv) == 2:
-        xz = sys.argv
-        if str(xz[1]).strip().lower() == 'all':
-            all()
+    network = 0
+    # Forbidden Magik
+    try:
+        r = requests.get('https://www.google.com', timeout=4)
+        network = 1
+    except (requests.ConnectionError, requests.Timeout):
+        network = 0
+
+    if network == 1:
+        # VOODOO Magik
+        if len(sys.argv) == 2:
+            xz = sys.argv
+            if str(xz[1]).strip().lower() == 'all':
+                all()
+            else:
+                a = pullJSON(str(xz[1]).strip().lower())
+                x,y,z = processJSON(a)
+                writeData( x, y, z, str(xz[1]))
         else:
-            a = pullJSON(str(xz[1]).strip().lower())
-            x,y,z = processJSON(a)
-            writeData( x, y, z, str(xz[1]))
+            print("not enough parameters.")
+            sys.exit()
     else:
-        print("not enough parameters.")
+        print("No internet Access, Apparently.")
         sys.exit()
 
 
