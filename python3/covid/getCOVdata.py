@@ -5,7 +5,7 @@ author     : freeman
 date       : 20201030
 desc       : Pull covid data from covidtracking.com over json api
            : it will generate a csv file after it ran.
-exec       : python3 getCOVdata.py US_state
+exec       : python3 getCOVdata.py US_state || all
 example    : python3 getCOVdata.py nc
 example    : python3 getCOVdata.py all
 """
