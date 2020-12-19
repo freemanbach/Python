@@ -4,7 +4,9 @@
 # Version : 0.0.1
 # Desc    : Financial Stock Program
 #         : Pull Barron Mutual Fund tickers to a file
-#         : 
+# ***     : Apparently, wsj had discontinued with publishing their
+# ***     : mutual funds data out in the open for the public.
+# ***     : Therefore, we decided to pull data from Marketwatch.com
 ###################################################################
 
 
@@ -54,23 +56,21 @@ def testConn():
 # https://www.marketwatch.com/tools/mutual-fund/list/A
 def buildLinks():
     symbolsLink = []
-    # humm.... barron data had moved to wall street journal apparently
-    parta = "http://interactive5.wsj.com/mdc/public/page/9_3048-usmfunds_" 
-    partb = "-usmfunds.html?mod=mdc_h_mfhl"
+    # This used to work but wsj updated their website
+    #parta = "http://interactive5.wsj.com/mdc/public/page/9_3048-usmfunds_" 
+    #partb = "-usmfunds.html?mod=mdc_h_mfhl"
+    parta = "https://www.marketwatch.com/tools/mutual-fund/list/"
+    # This used to work too, but it no longer works now
     #http://interactive5.wsj.com/mdc/public/page/9_3048-usmfunds_B-usmfunds.html?mod=mdc_h_mfhl
     #parta = "http://www.barrons.com/mdc/public/page/9_3048-usmfunds_"
     #partb = "-usmfunds.html"
     print("Building links...")
     for i in string.ascii_uppercase:
-        symbolsLink.append(parta+i+partb)
+        symbolsLink.append(parta+i)
 
     return symbolsLink
 
 
-# lack therfore ninja skillz in BS4
-# definitely can do better with advance BS4 skillz, this is a hack
-# idk why it is slow in wsj.com when compared to barron.com
-# there might be a blocking tool in wsj to prevent this crawler from crawling its dataset
 def parseData(rlinks):
     random.seed(time.time)
     data, symbols = [], []
@@ -78,10 +78,13 @@ def parseData(rlinks):
         t = random.randint(1,3)
         page = requests.get(lk)
         goop = BeautifulSoup(page.text, 'html.parser')
+        
         time.sleep(1+t)
         print("Building Mutual Fund: " + str(lk) + " ticker info.")
-        for a in goop.find_all('a', href=True):
-            if len(a.text) == 5:
+        for a in goop.find_all('td', {'class': 'quotelist-symb'} ):
+            # Mutual Funds has len of 5
+            # Stocks has len < 5
+            if len(a.text) <= 5:
                 symbols.append(str(a.text).strip())
         print("Building Mutual Fund: " + str(lk) + " ticker info: Done.")
 
