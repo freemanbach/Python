@@ -1,11 +1,10 @@
 #!/usr/bin/env python
-
 # Author  : freeman
-# Date    : 2019.06.09
+# Date    : 2020.12.20
 # Version : 0.0.1
 # Desc    : A Program which will build a plot chart for you 
-#         : when you supply it with a stock symbol or a mutual fund 
-#         :  symbol: saves to a png img file
+#         : when you supply it with a stock symbol or a 
+#         : mutual fund symbol: saves to a png img file
 ###################################################################
 
 
@@ -23,6 +22,7 @@ def getTicker():
     tickers = ['fb', 'goog', 'aapl', 'ibm', 'csco', 'mrk', 'lly', 'pfe', 'sny', 'bsx', 'xom', 'bp', 'db']
     ticks = list()
     rnd.seed(time.time())
+    # limit the number of ticker using remainder approach
     items = len(tickers) % 5
     for i in range(items):
         ticks.append(tickers[rnd.randint(0, len(tickers)-1)])
