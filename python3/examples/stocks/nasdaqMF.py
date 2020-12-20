@@ -13,7 +13,7 @@ import sys
 import socket
 
 try:
-    import urllib3
+    import ftplib
 except ImportError as err:
     warnings.warn('No Package named urllib3 was found. ', ImportWarning)
     print(err.__class__.__name__ + ": " + err.message)
@@ -31,10 +31,7 @@ def testConn():
 
 def retrieveFile():
     url = 'ftp://ftp.nasdaqtrader.com/symboldirectory/mfundslist.txt'
-    f = urllib3.urlopen(url)
-    data = f.readlines()
-
-    return data
+    return stuff
 
 
 def processData(rData):
