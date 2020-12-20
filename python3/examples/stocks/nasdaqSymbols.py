@@ -1,11 +1,13 @@
 #!/usr/bin/env python
-
 # Author  : freeman
-# Date    : 2019.05.09
+# Date    : 2020.12.20
 # Version : 0.0.1
 # Desc    : Financial Stock Program
 #         : Pull NASDAQ stock ticker tags to a file
-#         : 
+# updated : https://www.nasdaq.com/market-activity/stocks/fb 
+#         : their site will only take known ticker symbols
+#         : This code doesnt work with that ATM.
+#         : https://www.advfn.com/nasdaq/nasdaq.asp?companies=A
 ###################################################################
 
 
@@ -17,15 +19,22 @@ try:
     import pandas as pd
 except ImportError as err:
     warnings.warn('No Package named pandas available', ImportWarning)
-    print err.__class__.__name__ + ": " + err.message
+    print(err.__class__.__name__ + ": " + err.message)
     sys.exit(1)
 
 
 import string
 import time
 import random
-import urllib2
 import socket
+
+
+try:
+    import urllib3
+except ImportError as err:
+    warnings.warn('No Package named urllib3 was found.', ImportWarning)
+    print(err.__class__.__name__ + ": " + err.message)
+    sys.exit(1)
 
 
 def testConn():
@@ -33,17 +42,20 @@ def testConn():
         socket.create_connection(("www.google.com", 80))
         return True
     except OSError as err:
-        print "No Connection: " + err.errno
+        print("No Connection: " + err.errno)
     return False
 
 
 def buildLinks():
     symbolsLink = []
-    parta = "https://www.nasdaq.com/screening/companies-by-name.aspx?letter="
-    partb = "&render=download"
-    print "Building links..."
+    # https://www.advfn.com/nasdaq/nasdaq.asp?companies=
+    # http://eoddata.com/stocklist/NASDAQ/A.htm
+    parta = "https://www.advfn.com/nasdaq/nasdaq.asp?companies="
+    # "https://www.nasdaq.com/screening/companies-by-name.aspx?letter="
+    # partb = "&render=download"
+    print("Building links...")
     for i in string.ascii_uppercase:
-        symbolsLink.append(parta+i+partb)
+        symbolsLink.append(parta+i)
 
     return symbolsLink
 
@@ -56,12 +68,11 @@ def buildTicker(sLink):
         t = random.randint(1,3)
         sym = pd.read_csv(z)
         stockSymbol = sym.Symbol.tolist()
-        print "Building Stock " + z + " ticker info."
+        print("Building Stock " + z + " ticker info.")
         for i in stockSymbol:
             symbols.append(i.strip())
         time.sleep(1+t)
-        print "Building Stock " + z + " ticker info: done."
-        #print stockSymbol
+        print("Building Stock " + z + " ticker info: done.")
     symbols.sort()
 
     return symbols
@@ -77,16 +88,19 @@ def writeToFile(data):
 def main():
     val = int(testConn())
     if val == 1:
-        print "Internet Connection is ok."
+        print("Internet Connection is ok.")
+        print("Not had time to figureout what to do with this code.")
+        print("Not functional at the moment.")
+        sys.exit(0)
         l = buildLinks()
-        print "Building Links: Done"
+        print("Building Links: Done")
         a = buildTicker(l)
         writeToFile(a)
-        print
-        print "Completed, there should be a file called tickers.txt"
+        print("\n")
+        print("Completed, there should be a file called tickers.txt")
     else:
-        print "Your local Internet Connection is down or something wrong with router."
-        print "Reboot Router, Switch, Hub or PC or All four ."
+        print("Your local Internet Connection is down or something wrong with router.")
+        print("Reboot Router, Switch, Hub or PC or All four .")
 
 
 if __name__ == "__main__":
