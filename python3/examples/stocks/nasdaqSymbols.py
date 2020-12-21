@@ -5,8 +5,7 @@
 # Desc    : Financial Stock Program
 #         : Pull NASDAQ stock ticker tags to a file
 # updated : https://www.nasdaq.com/market-activity/stocks/fb 
-#         : their site will only take known ticker symbols
-#         : This code doesnt work with that ATM.
+#         : New Site:
 #         : https://www.advfn.com/nasdaq/nasdaq.asp?companies=A
 ###################################################################
 
@@ -30,9 +29,17 @@ import socket
 
 
 try:
-    import urllib3
+    from bs4 import BeautifulSoup
 except ImportError as err:
-    warnings.warn('No Package named urllib3 was found.', ImportWarning)
+    warnings.warn('No Package named BeautifulSoup was found. ', ImportWarning)
+    print(err.__class__.__name__ + ": " + err.message)
+    sys.exit(1)
+
+
+try:
+    import requests
+except ImportError as err:
+    warnings.warn('No package named Requests was found. ', ImportWarning)
     print(err.__class__.__name__ + ": " + err.message)
     sys.exit(1)
 
@@ -48,7 +55,6 @@ def testConn():
 
 def buildLinks():
     symbolsLink = []
-    # https://www.advfn.com/nasdaq/nasdaq.asp?companies=
     # http://eoddata.com/stocklist/NASDAQ/A.htm
     parta = "https://www.advfn.com/nasdaq/nasdaq.asp?companies="
     # "https://www.nasdaq.com/screening/companies-by-name.aspx?letter="
@@ -60,22 +66,27 @@ def buildLinks():
     return symbolsLink
 
 
-def buildTicker(sLink):
-    stockSymbol, symbols = [], []
+def parseData(rlinks):
     random.seed(time.time)
-
-    for z in sLink:
-        t = random.randint(1,3)
-        sym = pd.read_csv(z)
-        stockSymbol = sym.Symbol.tolist()
-        print("Building Stock " + z + " ticker info.")
-        for i in stockSymbol:
-            symbols.append(i.strip())
+    data, symbols = [], []
+    for lk in rlinks:
+        t = random.randint(1,4)
+        page = requests.get(lk)
+        goop = BeautifulSoup(page.text, 'html.parser')
         time.sleep(1+t)
-        print("Building Stock " + z + " ticker info: done.")
-    symbols.sort()
+        print("Building Mutual Fund: " + str(lk) + " ticker info.")
+        for a in goop.find_all('a', href=True):
+            # Stocks has len == 4 from this website
+            if len(a.text) == 4:
+                symbols.append(str(a.text).strip())
+        print("Building Mutual Fund: " + str(lk) + " ticker info: Done.")
 
-    return symbols
+    # This should all be stock symbols
+    for d in symbols:
+            data.append(d)
+    data.sort()
+
+    return data
 
 
 def writeToFile(data):
@@ -89,12 +100,9 @@ def main():
     val = int(testConn())
     if val == 1:
         print("Internet Connection is ok.")
-        print("Not had time to figureout what to do with this code.")
-        print("Not functional at the moment.")
-        sys.exit(0)
         l = buildLinks()
         print("Building Links: Done")
-        a = buildTicker(l)
+        a = parseData(l)
         writeToFile(a)
         print("\n")
         print("Completed, there should be a file called tickers.txt")
