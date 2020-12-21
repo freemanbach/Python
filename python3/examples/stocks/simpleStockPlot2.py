@@ -23,9 +23,12 @@ def getTicker():
     ticks = list()
     rnd.seed(time.time())
     # limit the number of ticker using remainder approach
-    items = len(tickers) % 5
-    for i in range(items):
-        ticks.append(tickers[rnd.randint(0, len(tickers)-1)])
+    #items = len(tickers) % 5
+    #for i in range(items):
+    #    ticks.append(tickers[rnd.randint(0, len(tickers)-1)])
+    # Add all the tickers from the list to demo
+    for i in tickers:
+        ticks.append(i)
 
     return ticks
 
@@ -39,7 +42,7 @@ def getDates():
     ctl.append(cy)
     ctl.append(cm)
     ctl.append(cdays)
-    ot = ct - timedelta(days=180)
+    ot = ct - timedelta(days=240)
     oy = ot.year
     om = ot.month
     odays = monthrange(oy, om)[1]
