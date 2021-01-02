@@ -44,8 +44,7 @@ drop table if exists `stock_price`;
 CREATE TABLE `stock_price` (
                           `id`         int(11) not null auto_increment,
                           `ticker_id`  int(10) NULL,
-                          `datepull`   date NULL,
-                          `time`       timestamp NULL,
+                          `datepull`   TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                           `date`       date NULL,
                           `open`       decimal(12,4)  NULL,
                           `high`       decimal(12,4) NULL,
@@ -65,7 +64,7 @@ drop table if exists `stock_overview`;
 CREATE TABLE `stock_overview` (
                             `id`                         int(11) not null auto_increment,
                             `ticker_id`                  int(10) NULL,
-                            `datepull`                   date NULL,
+                            `datepull`                   TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                             `PEratio`                    decimal(12,4) NULL,
                             `PEGratio`                   decimal(12,4) NULL,
                             `bookvalue`                  decimal(12,4) NULL,
