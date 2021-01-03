@@ -6,7 +6,6 @@ date       : 20200101
 desc       : Process Nasdaq Stock Data into sql for company table
            : 
 use        : python3 processcompany.py ns.csv companyData.sql
-           :
 """
 
 import sys
@@ -64,7 +63,7 @@ def getsymbols():
             a = a.replace(".", "")
             a = a.replace("/", "")
             tmp.append(str(a)+"\n")
-    for i in list(range(0,10)):
+    for i in list(range(0,2)):
         symbols.append(random.choice(tmp))
 
     print(symbols)
