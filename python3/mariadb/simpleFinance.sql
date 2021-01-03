@@ -50,7 +50,7 @@ CREATE TABLE `stock_price` (
                           `high`       decimal(12,4) NULL,
                           `low`        decimal(12,4) NULL,
                           `close`      decimal(12,4) NULL,
-                          `volume`     decimal(20,4) NULL,
+                          `volume`     int(20) NULL,
                           PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 -- alter table stock_price add constraint fk_stock_price_company foreign key (`ticker_id`) references company(`id`) on update cascade on delete cascade;

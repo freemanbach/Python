@@ -5,15 +5,15 @@ author     : freeman
 date       : 20200102
 desc       : Process Alpha Vantage Stock Data into sql for our company table
            : 
-use        : python3 processcompany_alpha.py Stock_Symbol.json data.sql
-use        : python3 processcompany_alpha.py ibm.json data.sql
+use        : python3 processcompany_alpha.py Stock_Symbol.json com_data.sql
+use        : python3 processcompany_alpha.py ibm.json com_data.sql
            :
 DATA       : https://www.alphavantage.co/query?function=OVERVIEW&symbol=IBM&apikey=YOUR_PERSONAL_API_KEY
            : 
 READ       : First download the JSON file using your web-browser, copy and paste the json data onto a
            : text editor and save the file as STOCK_SYMBOL.json as shown in the use area. 
            : Then run this python script to generate the single line of sql as in data.sql file. 
-           : mysql -u YOUR_USER_NAME -p < data.sql
+           : mysql -u YOUR_USER_NAME -p < com_data.sql
 """
 
 
@@ -51,8 +51,14 @@ def main():
         filename = sys.argv[1]
         outfile = sys.argv[2]
         processdata(str(filename).strip(), str(outfile).strip())
+    elif len(sys.argv) == 2:
+        print("ok, we will make this com_data.sql file for you.")
+        filename = sys.argv[1]
+        outfile = "com_data.sql"
+        processdata(str(filename).strip(), str(outfile))
     else:
-        print("Not enough parameters.")
+        print("idk, Not enough parameters ?!?!?!")
+        print("See File Header !")
 
 if __name__ == "__main__":
     main()
