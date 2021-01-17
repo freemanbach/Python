@@ -177,7 +177,7 @@ echo.
 echo.
 echo.Installing Additional required Modules
 TIMEOUT /T 4 > nul
-C:\Python38\scripts\pip.exe install --user requests diceware scipy numpy pandas matplotlib seaborn wordcloud wikipedia
+C:\Python38\scripts\pip.exe install --user requests diceware scipy numpy pandas matplotlib seaborn wordcloud wikipedia pillow
 TIMEOUT /T 8 > nul
 ::
 echo.
@@ -196,4 +196,4 @@ del /s %userprofile%\Downloads\python-3.8.7-amd64.exe >nul 2>&1
 echo."Done Installing"
 call %userprofile%\runme.bat
 python -c "print(\"Welcome, Python installation Success !\")"
-:END
+:end
