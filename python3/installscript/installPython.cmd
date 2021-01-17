@@ -177,7 +177,7 @@ echo.
 echo.
 echo.Installing Additional required Modules
 TIMEOUT /T 4 > nul
-C:\Python38\scripts\pip.exe install --user requests diceware scipy numpy pandas matplotlib seaborn
+C:\Python38\scripts\pip.exe install --user requests diceware scipy numpy pandas matplotlib seaborn wordcloud wikipedia
 TIMEOUT /T 8 > nul
 ::
 echo.
