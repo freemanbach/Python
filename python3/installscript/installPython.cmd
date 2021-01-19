@@ -64,7 +64,7 @@ echo.Downloading Python Software.
 TIMEOUT /T 4 > nul
 echo.
 echo.
-bitsadmin /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.8.7/python-3.8.7-amd64.exe %userprofile%\Downloads\python-3.8.7-amd64.exe
+bitsadmin /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.8.6/python-3.8.6-amd64.exe %userprofile%\Downloads\python-3.8.6-amd64.exe
 
 :: Quick Pause
 echo.
@@ -73,7 +73,7 @@ TIMEOUT /T 2 > nul
 TIMEOUT /T 2 > nul
 echo.Checking to see if this python file has been downloaded.
 
-IF EXIST python-3.8.7-amd64.exe (
+IF EXIST python-3.8.6-amd64.exe (
   echo.Python file has been Found.
   echo.Will now Install this Software.
   echo.
@@ -97,13 +97,13 @@ echo.============================
 echo.
 
 echo.
-echo.Installing Python version 3.8.7.
+echo.Installing Python version 3.8.6.
 echo.This process will take as much as 15 mins if there is no SSD.
 echo.
 echo.Go grab Koffie or something before coming back to your Laptop.
 :: This python install process is weird, it will simply return prompt once it had been executed but the process
 :: will not be 100 percent completed before continuing as we have learned.
-%userprofile%\Downloads\python-3.8.7-amd64.exe /quiet InstallAllUsers=1 TargetDir=c:\Python38 AssociateFiles=1 CompileAll=1 PrependPath=0 Shortcuts=0 Include_doc=1 Include_debug=0 Include_dev=0 Include_exe=1 Include_launcher=1 InstallLauncherAllUsers=1 Include_lib=1 Include_pip=1 Include_symbol=0 Include_tcltk=1 Include_test=1 Include_tools=1
+%userprofile%\Downloads\python-3.8.6-amd64.exe /quiet InstallAllUsers=1 TargetDir=c:\Python38 AssociateFiles=1 CompileAll=1 PrependPath=0 Shortcuts=0 Include_doc=1 Include_debug=0 Include_dev=0 Include_exe=1 Include_launcher=1 InstallLauncherAllUsers=1 Include_lib=1 Include_pip=1 Include_symbol=0 Include_tcltk=1 Include_test=1 Include_tools=1
 ::
 ::
 :: This is quite sensitive wait time during installation.
