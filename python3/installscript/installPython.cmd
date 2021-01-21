@@ -62,7 +62,7 @@ echo.
 echo. Checking for existing version of Python
 ::
 ::
-IF EXIST "python-3.8.6-amd64.<" (
+IF EXIST "python-3.8.6-*.<" (
   echo.Found existing version of Python 3.8.6
   del python-3.8.6-amd64.exe
   echo.Deleting existing version of Python
@@ -76,7 +76,7 @@ IF EXIST "python-3.8.6-amd64.<" (
 ::
 TIMEOUT /T 2 > nul
 ::
-IF EXIST "python-3.8.7-amd64.<" (
+IF EXIST "python-3.8.7-*.<" (
   echo.Found existing version of Python 3.8.7
   del python-3.8.7-amd64.exe
   echo.Deleting existing version of Python
