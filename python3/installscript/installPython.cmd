@@ -46,9 +46,51 @@ systeminfo | findstr /c:"Virtual Memory: In Use"
 :: wmic diskdrive GET index,caption,name,size /format:table
 :: wmic diskdrive GET index,Model,SerialNumber,Size,Status
 
+
 :: Quick Pause
 echo.
-TIMEOUT /T 10 > nul
+TIMEOUT /T 2 > nul
+
+echo.
+echo.
+:: Section 3: Python Download.
+echo.============================
+echo.Checking Existing Python
+echo.============================
+echo.
+::
+echo. Checking for existing version of Python
+::
+::
+IF EXIST "python-3.8.6-amd64.<" (
+  echo.Found existing version of Python 3.8.6
+  del python-3.8.6-amd64.exe
+  echo.Deleting existing version of Python
+  echo.
+  TIMEOUT /T 2 > nul
+) ELSE (
+  TIMEOUT /T 2 > nul
+  echo.No existing version of python 3.8.6 Found.
+  echo.
+)
+::
+TIMEOUT /T 2 > nul
+::
+IF EXIST "python-3.8.7-amd64.<" (
+  echo.Found existing version of Python 3.8.7
+  del python-3.8.7-amd64.exe
+  echo.Deleting existing version of Python
+  echo.
+  TIMEOUT /T 2 > nul
+) ELSE (
+  TIMEOUT /T 2 > nul
+  echo.No existing version of python 3.8.7 Found.
+  echo.
+)
+
+:: Quick Pause
+echo.
+TIMEOUT /T 5 > nul
 
 echo.
 echo.
@@ -61,7 +103,7 @@ echo.
 echo.Downloading Python Software.
 ::
 ::
-TIMEOUT /T 4 > nul
+TIMEOUT /T 2 > nul
 echo.
 echo.
 bitsadmin /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.8.6/python-3.8.6-amd64.exe %userprofile%\Downloads\python-3.8.6-amd64.exe
@@ -69,17 +111,17 @@ bitsadmin /transfer PythonDownload /download /priority normal https://www.python
 :: Quick Pause
 echo.
 echo.
-TIMEOUT /T 2 > nul
-TIMEOUT /T 2 > nul
+TIMEOUT /T 1 > nul
+TIMEOUT /T 1 > nul
 echo.Checking to see if this python file has been downloaded.
 
 IF EXIST python-3.8.6-amd64.exe (
   echo.Python file has been Found.
   echo.Will now Install this Software.
   echo.
-  TIMEOUT /T 2 > nul
+  TIMEOUT /T 4 > nul
 ) ELSE (
-  TIMEOUT /T 2 > nul
+  TIMEOUT /T 3 > nul
   echo.Software not found.
   echo.Perhaps, try to run this file again.
   echo.
