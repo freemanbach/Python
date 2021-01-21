@@ -161,7 +161,7 @@ echo.Still compiling Python modules........
 :: Buffer Zone
 TIMEOUT /T 2 > nul
 echo.
-SET num=60
+SET num=389
 for /L %%I IN (1, 1, %num%) do (
   echo. | set /p="%%I " 
   TIMEOUT /T 1 > nul
@@ -190,15 +190,16 @@ echo.
 :check
 if exist C:\Python38\Tools\pynche\Main.py (
     echo.Checking Files if they were Created.....
-    TIMEOUT /T 3 > nul
+    TIMEOUT /T 4 > nul
     echo.
     echo.They were created.
 ) else (
     echo.Files still not created.....
-    TIMEOUT /T 2 > nul
+    echo.Still compiling code, maybe.
+    TIMEOUT /T 4 > nul
     echo.
-    TIMEOUT /T 3 > nul
-    echo.Problem with installation. PRESS: CTRL-C to End Installation process only if after two messages printed.
+    TIMEOUT /T 4 > nul
+    echo.Problem with installation. PRESS: CTRL-C to End Installation process only if after three printed messages.
     goto check
 )
 
