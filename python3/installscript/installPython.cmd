@@ -234,7 +234,7 @@ echo.============================
 echo.
 
 echo set PATH=C:\Python38;%PATH% > %userprofile%\runme.bat
-del /s %userprofile%\Downloads\python-3.8.7-amd64.exe >nul 2>&1
+del /s %userprofile%\Downloads\python-3.8.6-amd64.exe >nul 2>&1
 echo."Done Installing"
 call %userprofile%\runme.bat
 python -c "print(\"Welcome, Python installation Success !\")"
