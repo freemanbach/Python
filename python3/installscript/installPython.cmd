@@ -145,7 +145,9 @@ echo.
 echo.Go grab Koffie or something before coming back to your Laptop.
 :: This python install process is weird, it will simply return prompt once it had been executed but the process
 :: will not be 100 percent completed before continuing as we have learned.
-%userprofile%\Downloads\python-3.8.6-amd64.exe /quiet InstallAllUsers=1 TargetDir=c:\Python38 AssociateFiles=1 CompileAll=1 PrependPath=0 Shortcuts=0 Include_doc=1 Include_debug=0 Include_dev=0 Include_exe=1 Include_launcher=1 InstallLauncherAllUsers=1 Include_lib=1 Include_pip=1 Include_symbol=0 Include_tcltk=1 Include_test=1 Include_tools=1
+:: Came across another problem where installAllusers must be 0
+:: before the Python38 dir will stay around in the C:\ driectory
+%userprofile%\Downloads\python-3.8.6-amd64.exe /quiet InstallAllUsers=0 TargetDir=C:\Python38 AssociateFiles=1 CompileAll=1 PrependPath=0 Shortcuts=0 Include_doc=1 Include_debug=0 Include_dev=0 Include_exe=1 Include_launcher=1 InstallLauncherAllUsers=1 Include_lib=1 Include_pip=1 Include_symbol=0 Include_tcltk=1 Include_test=1 Include_tools=1
 ::
 ::
 :: This is quite sensitive wait time during installation.
