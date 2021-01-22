@@ -220,12 +220,12 @@ echo.
 echo.
 echo.Installing Additional required Modules
 TIMEOUT /T 4 > nul
-C:\Python38\scripts\pip.exe install --user requests diceware scipy numpy pandas matplotlib seaborn wordcloud wikipedia pillow
+C:\Python38\scripts\pip.exe install --user requests diceware scipy numpy pandas matplotlib seaborn wordcloud wikipedia pillow pandas_datareader
 TIMEOUT /T 8 > nul
 ::
 echo.
 echo.Finished installing Required Modules.
-
+::
 echo.
 echo.
 :: Section 4: Execute runme.bat.
@@ -233,7 +233,7 @@ echo.============================
 echo.Execute runme.bat
 echo.============================
 echo.
-
+::
 echo set PATH=C:\Python38;%PATH% > %userprofile%\runme.bat
 del /s %userprofile%\Downloads\python-3.8.6-amd64.exe >nul 2>&1
 echo."Done Installing"
