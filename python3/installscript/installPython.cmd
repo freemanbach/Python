@@ -8,7 +8,7 @@ cls
 setlocal
 set Value="n"
 :PROMPT
-SET /P Value=Are you sure (y/[n])?
+SET /P Value=Are you sure installing Python38 (y/[n])?
 IF /I "%Value%" NEQ "y" GOTO END
 
 :: This batch file will show details Windows 10, and install Python v3.8.7.
