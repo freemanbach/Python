@@ -1,0 +1,117 @@
+@echo OFF
+::
+:: Python Uninstall script: not sure whether this will work.
+:: 
+cls
+:: Prompt for user to Really run this script
+setlocal
+set Value="n"
+:PROMPT
+SET /P Value=Are you sure to uninstall Python38 (y/[n])?
+IF /I "%Value%" NEQ "y" GOTO END
+
+:: This batch file will show details Windows 10, and install Python v3.8.7.
+TITLE Install Python Software on Windows 7/8/9/10
+echo.Checking system information.
+TIMEOUT /T 2 > nul
+
+:: Switch to Downloads early on
+cd %userprofile%/Downloads
+
+echo.
+echo.
+:: Section 1: Windows 10 information.
+echo.============================
+echo.WINDOWS INFO
+echo.============================
+echo.
+systeminfo | findstr /c:"OS Name"
+systeminfo | findstr /c:"OS Version"
+systeminfo | findstr /c:"Hyper-V Requirements"
+
+:: Quick Pause
+echo.
+TIMEOUT /T 2 > nul
+
+echo.
+echo.
+:: Section 2: Hardware information.
+echo.============================
+echo.HARDWARE INFO
+echo.============================
+echo.
+systeminfo | findstr /c:"Total Physical Memory"
+systeminfo | findstr /c:"Virtual Memory: In Use"
+
+:: Quick Pause
+echo.
+TIMEOUT /T 2 > nul
+
+echo.
+echo.
+:: Section 3: Python Download.
+echo.============================
+echo.Delete from OS if found
+echo.============================
+echo.
+::
+:: Default Python 3.8.x location
+:: %LocalAppData%\Local\Programs\Python\Python38\python.exe /quiet /passive /uninstall
+echo. Checking for existing version of Python
+::
+::
+if exist C:\Python38\python.exe (
+  echo.Python file has been Found.
+  echo.Will now Delete this Software.
+  
+  C:\Python38\python.exe  /uninstall /quiet
+  echo.Continuing to delete Python Software
+  echo.
+  TIMEOUT /T 4 > nul
+  echo.Python has been deleted.
+  echo.
+  goto end
+) ELSE (
+  TIMEOUT /T 3 > nul
+  echo.Not Found Python installed in thid Custom location. 
+  echo.Will try a second location.
+  echo.
+  goto checkagain
+  echo.
+)
+::
+:checkagain
+echo.
+SET num=10
+for /L %%I IN (1, 1, %num%) do (
+  echo. | set /p="%%I " 
+  TIMEOUT /T 1 > nul
+)
+::
+:: Default Python 3.8.x location
+:: %LocalAppData%\Local\Programs\Python\Python38\python.exe /quiet /passive /uninstall
+echo. Checking for the second location in window for Python38
+::
+::
+if exist %LocalAppData%\Local\Programs\Python\Python38\python.exe (
+  echo.Python file has been Found.
+  echo.Will now Delete this Software.
+  
+  %LocalAppData%\Local\Programs\Python\Python38\python.exe /uninstall /quiet
+  echo.Continuing to delete Python Software
+  echo.
+  TIMEOUT /T 4 > nul
+  echo.Python has been deleted.
+  echo.
+  goto end
+) ELSE (
+  TIMEOUT /T 3 > nul
+  echo.
+  echo.Not Found Python installed in this Default location. 
+  echo.no other options.
+  echo.We dont know where python v3.8 install location if installed previously
+  echo.Maybe try using the GUI to install it.
+  echo.We Will end this now.
+  goto end
+)
+:end
