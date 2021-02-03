@@ -1,6 +1,7 @@
 @echo OFF
 ::
-:: Python Uninstall script: not sure whether this will work.
+:: Python Uninstall script: Found the Registry Key Uninstall Value.
+:: Should now work.
 :: 
 cls
 :: Prompt for user to Really run this script
@@ -11,12 +12,12 @@ SET /P Value=Are you sure to uninstall Python38 (y/[n])?
 IF /I "%Value%" NEQ "y" GOTO END
 
 :: This batch file will show details Windows 10, and install Python v3.8.7.
-TITLE Install Python Software on Windows 7/8/9/10
+TITLE Uninstall Python Software on Windows 7/8/9/10
 echo.Checking system information.
 TIMEOUT /T 2 > nul
 
 :: Switch to Downloads early on
-cd %userprofile%/Downloads
+:: cd %userprofile%/
 
 echo.
 echo.
@@ -64,7 +65,7 @@ if exist C:\Python38\python.exe (
   echo.Python file has been Found.
   echo.Will now Delete this Software.
   
-  C:\Python38\python.exe  /uninstall /quiet
+  "%LocalAppData%\Local\Package Cache\{fef707d7-d438-4dd9-bb0f-5788ee658f4f}\python-3.8.6-amd64.exe" /uninstall /quiet
   echo.Continuing to delete Python Software
   echo.
   TIMEOUT /T 4 > nul
@@ -82,7 +83,7 @@ if exist C:\Python38\python.exe (
 ::
 :checkagain
 echo.
-SET num=10
+SET num=5
 for /L %%I IN (1, 1, %num%) do (
   echo. | set /p="%%I " 
   TIMEOUT /T 1 > nul
@@ -97,7 +98,7 @@ if exist %LocalAppData%\Local\Programs\Python\Python38\python.exe (
   echo.Python file has been Found.
   echo.Will now Delete this Software.
   
-  %LocalAppData%\Local\Programs\Python\Python38\python.exe /uninstall /quiet
+  "%LocalAppData%\Local\Package Cache\{fef707d7-d438-4dd9-bb0f-5788ee658f4f}\python-3.8.6-amd64.exe" /uninstall /quiet
   echo.Continuing to delete Python Software
   echo.
   TIMEOUT /T 4 > nul
@@ -110,8 +111,8 @@ if exist %LocalAppData%\Local\Programs\Python\Python38\python.exe (
   echo.Not Found Python installed in this Default location. 
   echo.no other options.
   echo.We dont know where python v3.8 install location if installed previously
-  echo.Maybe try using the GUI to install it.
-  echo.We Will end this now.
+  echo.Maybe try using the GUI to Uninstall it.
+  echo.We Will end this Uninstall Process.
   goto end
 )
 :end
