@@ -14,7 +14,7 @@ IF /I "%Value%" NEQ "y" GOTO END
 :: This batch file will show details Windows 10, and install Python v3.8.7.
 TITLE Install Python Software on Windows 7/8/9/10
 echo.Checking system information.
-TIMEOUT /T 2 > nul
+timeout /T 2 > nul
 
 :: Switch to Downloads early on
 cd %userprofile%/Downloads
@@ -32,7 +32,7 @@ systeminfo | findstr /c:"Hyper-V Requirements"
 
 :: Quick Pause
 echo.
-TIMEOUT /T 2 > nul
+timeout /T 2 > nul
 
 echo.
 echo.
@@ -49,7 +49,7 @@ systeminfo | findstr /c:"Virtual Memory: In Use"
 
 :: Quick Pause
 echo.
-TIMEOUT /T 2 > nul
+timeout /T 2 > nul
 
 echo.
 echo.
@@ -67,30 +67,30 @@ IF EXIST "python-3.8.6-*.<" (
   del python-3.8.6-amd64.exe
   echo.Deleting existing version of Python
   echo.
-  TIMEOUT /T 2 > nul
+  timeout /T 2 > nul
 ) ELSE (
-  TIMEOUT /T 2 > nul
+  timeout /T 2 > nul
   echo.No existing version of python 3.8.6 Found.
   echo.
 )
 ::
-TIMEOUT /T 2 > nul
+timeout /T 2 > nul
 ::
 IF EXIST "python-3.8.7-*.<" (
   echo.Found existing version of Python 3.8.7
   del python-3.8.7-amd64.exe
   echo.Deleting existing version of Python
   echo.
-  TIMEOUT /T 2 > nul
+  timeout /T 2 > nul
 ) ELSE (
-  TIMEOUT /T 2 > nul
+  timeout /T 2 > nul
   echo.No existing version of python 3.8.7 Found.
   echo.
 )
 
 :: Quick Pause
 echo.
-TIMEOUT /T 5 > nul
+timeout /T 5 > nul
 
 echo.
 echo.
@@ -103,7 +103,7 @@ echo.
 echo.Downloading Python Software.
 ::
 ::
-TIMEOUT /T 2 > nul
+timeout /T 2 > nul
 echo.
 echo.
 bitsadmin /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.8.6/python-3.8.6-amd64.exe %userprofile%\Downloads\python-3.8.6-amd64.exe
@@ -111,17 +111,17 @@ bitsadmin /transfer PythonDownload /download /priority normal https://www.python
 :: Quick Pause
 echo.
 echo.
-TIMEOUT /T 1 > nul
-TIMEOUT /T 1 > nul
+timeout /T 1 > nul
+timeout /T 1 > nul
 echo.Checking to see if this python file has been downloaded.
 
 IF EXIST python-3.8.6-amd64.exe (
   echo.Python file has been Found.
   echo.Will now Install this Software.
   echo.
-  TIMEOUT /T 4 > nul
+  timeout /T 4 > nul
 ) ELSE (
-  TIMEOUT /T 3 > nul
+  timeout /T 3 > nul
   echo.Software not found.
   echo.Perhaps, try to run this file again.
   echo.
@@ -161,12 +161,12 @@ echo.
 echo.Still compiling Python modules........
 :: TIMEOUT 400
 :: Buffer Zone
-TIMEOUT /T 2 > nul
+timeout /T 2 > nul
 echo.
-SET num=110
+set num=60
 for /L %%I IN (1, 1, %num%) do (
   echo. | set /p="%%I " 
-  TIMEOUT /T 1 > nul
+  timeout /T 1 > nul
 )
 echo.
 echo.
@@ -192,15 +192,15 @@ echo.
 :check
 if exist C:\Python38\Tools\pynche\Main.py (
     echo.Checking Files if they were Created.....
-    TIMEOUT /T 4 > nul
+    timeout /T 4 > nul
     echo.
     echo.They were created.
 ) else (
     echo.Files still not created.....
     echo.Still compiling code, maybe.
-    TIMEOUT /T 4 > nul
+    timeout /T 4 > nul
     echo.
-    TIMEOUT /T 4 > nul
+    timeout /T 4 > nul
     echo.Problem with installation. PRESS: CTRL-C to End Installation process only if after three printed messages.
     goto check
 )
@@ -212,7 +212,7 @@ echo.Updating pip the module manager tool.
 :: Updating pip on Windows
 C:\Python38\python.exe -m pip install --upgrade pip
 ::
-TIMEOUT /T 3 > nul
+timeout /T 3 > nul
 echo.
 echo.Finished Updating pip.
 ::
@@ -221,9 +221,15 @@ echo.Finished Updating pip.
 echo.
 echo.
 echo.Installing Additional required Modules
-TIMEOUT /T 4 > nul
-C:\Python38\scripts\pip.exe install --user requests diceware scipy numpy pandas matplotlib seaborn wordcloud wikipedia pillow pandas_datareader rasa nltk
-TIMEOUT /T 8 > nul
+:: It hung hee if i were to add rasa and nltk in the line below, therefore i took it as a seperate install
+timeout /T 4 > nul
+C:\Python38\scripts\pip.exe install --user requests diceware scipy numpy pandas matplotlib seaborn wordcloud wikipedia pillow pandas_datareader 
+timeout /T 4 > nul
+:: Processor Intensive Libraries
+:: C:\Python38\scripts\pip.exe install --user rasa nltk
+timeout /T 2 > nul
+timeout /T 2 > nul
+timeout /T 2 > nul
 ::
 echo.
 echo.Finished installing Required Modules.
