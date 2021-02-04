@@ -11,13 +11,10 @@ set Value="n"
 SET /P Value=Are you sure to uninstall Python38 (y/[n])?
 IF /I "%Value%" NEQ "y" GOTO END
 
-:: This batch file will show details Windows 10, and install Python v3.8.7.
+:: This batch file will show details Windows 10, and Uninstall Python v3.8.6.
 TITLE Uninstall Python Software on Windows 7/8/9/10
 echo.Checking system information.
 TIMEOUT /T 2 > nul
-
-:: Switch to Downloads early on
-:: cd %userprofile%/
 
 echo.
 echo.
@@ -65,7 +62,10 @@ if exist C:\Python38\python.exe (
   echo.Python file has been Found.
   echo.Will now Delete this Software.
   
-  "%LocalAppData%\Local\Package Cache\{fef707d7-d438-4dd9-bb0f-5788ee658f4f}\python-3.8.6-amd64.exe" /uninstall /quiet
+  cd "%LocalAppData%\Package Cache\{fef707d7-d438-4dd9-bb0f-5788ee658f4f}" 
+  python-3.8.6-amd64.exe" /uninstall /quiet
+  cd "%LocalAppData%\
+  rmdir /s /q pip\
   echo.Continuing to delete Python Software
   echo.
   TIMEOUT /T 4 > nul
@@ -98,7 +98,10 @@ if exist %LocalAppData%\Local\Programs\Python\Python38\python.exe (
   echo.Python file has been Found.
   echo.Will now Delete this Software.
   
-  "%LocalAppData%\Local\Package Cache\{fef707d7-d438-4dd9-bb0f-5788ee658f4f}\python-3.8.6-amd64.exe" /uninstall /quiet
+  cd "%LocalAppData%\Local\Package Cache\{fef707d7-d438-4dd9-bb0f-5788ee658f4f}" 
+  python-3.8.6-amd64.exe" /uninstall /quiet
+  cd "%LocalAppData%\
+  rmdir /s /q pip\
   echo.Continuing to delete Python Software
   echo.
   TIMEOUT /T 4 > nul
