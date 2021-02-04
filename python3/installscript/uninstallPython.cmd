@@ -70,6 +70,10 @@ if exist C:\Python38\python.exe (
   echo.
   TIMEOUT /T 4 > nul
   echo.Python has been deleted.
+  :: Remove Packages from Python38
+  cd %userprofile%\AppData\Roaming\Python
+  rmdir /s /q Python38
+  TIMEOUT /T 4 > nul
   echo.
   goto end
 ) ELSE (
@@ -105,7 +109,11 @@ if exist %LocalAppData%\Local\Programs\Python\Python38\python.exe (
   echo.Continuing to delete Python Software
   echo.
   TIMEOUT /T 4 > nul
-  echo.Python has been deleted.
+  echo.Python has been deleted
+  :: Remove Packages from Python38
+  cd %userprofile%\AppData\Roaming\Python
+  rmdir /s /q Python38
+  TIMEOUT /T 4 > nul
   echo.
   goto end
 ) ELSE (
