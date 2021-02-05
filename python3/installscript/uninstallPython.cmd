@@ -62,18 +62,23 @@ if exist C:\Python38\python.exe (
   echo.Python file has been Found.
   echo.Will now Delete this Software.
   
-  cd "%LocalAppData%\Package Cache\{fef707d7-d438-4dd9-bb0f-5788ee658f4f}" 
-  python-3.8.6-amd64.exe" /uninstall /quiet
+  cd %LocalAppData%\Package Cache\{fef707d7-d438-4dd9-bb0f-5788ee658f4f} 
+  python-3.8.6-amd64.exe /uninstall
   cd "%LocalAppData%\
   rmdir /s /q pip\
   echo.Continuing to delete Python Software
   echo.
   TIMEOUT /T 4 > nul
   echo.Python has been deleted.
+  echo.Press ENTER
   :: Remove Packages from Python38
   cd %userprofile%\AppData\Roaming\Python
   rmdir /s /q Python38
-  TIMEOUT /T 4 > nul
+  echo.Press ENTER
+  cd C:\
+  rmdir /s /q Python38
+  echo.Press ENTER
+  TIMEOUT /T 2 > nul
   echo.
   goto end
 ) ELSE (
@@ -98,22 +103,24 @@ for /L %%I IN (1, 1, %num%) do (
 echo. Checking for the second location in window for Python38
 ::
 ::
-if exist %LocalAppData%\Local\Programs\Python\Python38\python.exe (
+if exist %LocalAppData%\Programs\Python\Python38\python.exe (
   echo.Python file has been Found.
   echo.Will now Delete this Software.
   
-  cd "%LocalAppData%\Local\Package Cache\{fef707d7-d438-4dd9-bb0f-5788ee658f4f}" 
-  python-3.8.6-amd64.exe" /uninstall /quiet
+  cd %LocalAppData%\Package Cache\{fef707d7-d438-4dd9-bb0f-5788ee658f4f}
+  python-3.8.6-amd64.exe /uninstall
   cd "%LocalAppData%\
   rmdir /s /q pip\
   echo.Continuing to delete Python Software
   echo.
   TIMEOUT /T 4 > nul
   echo.Python has been deleted
+  echo.Press ENTER
   :: Remove Packages from Python38
   cd %userprofile%\AppData\Roaming\Python
   rmdir /s /q Python38
   TIMEOUT /T 4 > nul
+  echo.Press ENTER
   echo.
   goto end
 ) ELSE (
