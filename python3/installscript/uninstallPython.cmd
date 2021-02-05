@@ -64,7 +64,7 @@ if exist C:\Python38\python.exe (
   
   cd %LocalAppData%\Package Cache\{fef707d7-d438-4dd9-bb0f-5788ee658f4f} 
   python-3.8.6-amd64.exe /uninstall
-  cd "%LocalAppData%\
+  cd %LocalAppData%
   rmdir /s /q pip\
   echo.Continuing to delete Python Software
   echo.
@@ -109,7 +109,7 @@ if exist %LocalAppData%\Programs\Python\Python38\python.exe (
   
   cd %LocalAppData%\Package Cache\{fef707d7-d438-4dd9-bb0f-5788ee658f4f}
   python-3.8.6-amd64.exe /uninstall
-  cd "%LocalAppData%\
+  cd %LocalAppData%
   rmdir /s /q pip\
   echo.Continuing to delete Python Software
   echo.
