@@ -37,6 +37,20 @@ __CURRENT_ALGORITHMS__ = ['md5', 'whirlpool', 'sha1', 'sha224', 'sha256', 'sha38
 __DIGEST_SIZE__ = 32
 
 
+def crc32(fname):
+    hash_crc32 = b""
+    with open(fname, "rb") as f:
+        while (byte := f.read(1)):
+            hash_crc32+=byte
+    return zlib.crc32(hash_crc32)
+
+def adler32(fname):
+    hash_adler32 = b""
+    with open(fname, "rb") as f:
+        while (byte := f.read(1)):
+            hash_adler32+=byte
+    return zlib.adler32(hash_adler32)
+
 def md5(fname):
     # https://stackoverflow.com/questions/1131220/get-md5-hash-of-big-files-in-python
     # reading in 4k block at a time should be sufficient, others will use 1024 or 2048
