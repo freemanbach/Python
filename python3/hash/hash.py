@@ -138,7 +138,7 @@ def blake2s(fname):
     return hash_blake2s.hexdigest()
 
 def whirlpool_hash(fname):
-    hash_whirlpool = whirlpool.new(fname.encoding('utf-8'))
+    hash_whirlpool = whirlpool.new()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
             hash_whirlpool.update(chunk)
