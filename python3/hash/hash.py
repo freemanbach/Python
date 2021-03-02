@@ -32,7 +32,7 @@ except ImportError as err:
 
 
 __VERSION__ = "0.1.0"
-__CURRENT_ALGORITHMS__ = ['md5', 'whirlpool', 'sha1', 'sha224', 'sha256', 'sha384', 'sha512', 'sha3_224','sha3_256', 'sha3_384','sha3_512', 'shake_128', 'shake_256', 'blake2b','blake2s']
+__CURRENT_ALGORITHMS__ = ['crc32', 'adler32', 'md5', 'blake2b','blake2s', 'sha1', 'sha224', 'sha256', 'sha384', 'sha512', 'sha3_224','sha3_256', 'sha3_384','sha3_512', 'shake_128', 'shake_256','whirlpool' ]
 # shake_128 and shake_256 Digest Size
 __DIGEST_SIZE__ = 32
 
