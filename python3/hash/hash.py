@@ -31,7 +31,7 @@ except ImportError as err:
     sys.exit(1)
 
 
-__VERSION__ = "0.0.4"
+__VERSION__ = "0.1.0"
 __CURRENT_ALGORITHMS__ = ['md5', 'whirlpool', 'sha1', 'sha224', 'sha256', 'sha384', 'sha512', 'sha3_224','sha3_256', 'sha3_384','sha3_512', 'shake_128', 'shake_256', 'blake2b','blake2s']
 # shake_128 and shake_256 Digest Size
 __DIGEST_SIZE__ = 32
@@ -174,9 +174,12 @@ def getCheckSum(tp, fp):
     if tp == "md5":
         chksum = md5(fp)
         print(str(chksum), "\t",  "*",  str(fp))
-    elif tp == "whirlpool":
-        chksum = whirlpool_hash(fp)
+    elif tp == "crc32":
+        chksum = crc32(fp)
         print(str(chksum), "\t",  "*",  str(fp))
+    elif tp == "adler32":
+        chksum = adler32(fp)
+        print(str(chksum), "\t", "*", str(fp))
     elif tp == "sha1":
         chksum = sha1(fp)
         print(str(chksum), "\t", "*", str(fp))
@@ -216,6 +219,9 @@ def getCheckSum(tp, fp):
     elif tp == "blake2b":
         chksum = blake2b(fp)
         print(str(chksum), "\t",  "*",  str(fp))
+    elif tp == "whirlpool":
+        chksum = whirlpool_hash(fp)
+        print(str(chksum), "\t",  "*",  str(fp))
     else:
         print("There is no other option !")
         sys.exit(1)
@@ -238,6 +244,22 @@ def verifyCheckSum(tp, fp, cksumf):
         if chksum == cs:
             print("The file\'s checksum and checksumming this file here MATCHed !")
             print("File checksum    : ", "\t", str(cs))
+            print("software checksum: ", "\t", str(chksum))
+        else:
+            failed()
+    elif tp == "crc32":
+        chksum = crc32(fp)
+        if chksum == cs:
+            print("The file\'s checksum and checksumming this file here MATCHed !")
+            print("File checksum    : ",  "\t", str(cs))
+            print("software checksum: ", "\t", str(chksum))
+        else:
+            failed()
+    elif tp == "adler32":
+        chksum = adler32(fp)
+        if chksum == cs:
+            print("The file\'s checksum and checksumming this file here MATCHed !")
+            print("File checksum    : ",  "\t", str(cs))
             print("software checksum: ", "\t", str(chksum))
         else:
             failed()
@@ -362,21 +384,21 @@ def usage():
     # Help info
     usage = """
             usage: python hash.py [-t,--tp = checksum_algorithm] [-g,--gp = filename] 
-                                  [-c,--cs = filename.{md5:sha1:sha224:sha256:sha384:sha512:sha3_224:sha3_256:sha3_384:sha3_512:shake_128: \
+                                  [-c,--cs = filename.{crc32:adler32:md5:sha1:sha224:sha256:sha384:sha512:sha3_224:sha3_256:sha3_384:sha3_512:shake_128: \
                                                                             blake2b:blake2s:whirlpool}]    [-h] [-v]
 
 			
             examples:
             python hash.py
             python hash.py -t sha1 -g linux.iso 
-            python hash.py -t sha1 -g linux.iso -c filename.{md5:sha1:sha224:sha256:sha384:sha512:sha3_224:sha3_256:sha3_384:sha3_512:shake_128: \
+            python hash.py -t sha1 -g linux.iso -c filename.{crc32:adler32:md5:sha1:sha224:sha256:sha384:sha512:sha3_224:sha3_256:sha3_384:sha3_512:shake_128: \
                                                                             blake2b:blake2s:whirlpool}
 
             python hash.py -v
             python hash.py -h
 
             options :
-            -t, --tp=value, --tp value  Collision Algorithms {md5:sha1:sha224:sha256:sha384:sha512:sha3_224:sha3_256:sha3_384:sha3_512:shake_128: \
+            -t, --tp=value, --tp value  Collision Algorithms {crc32:adler32:md5:sha1:sha224:sha256:sha384:sha512:sha3_224:sha3_256:sha3_384:sha3_512:shake_128: \
                                                                             blake2b:blake2s:whirlpool}
 
             -g, --gp=value, --gp value  file to check to get checksum
@@ -407,6 +429,10 @@ def main():
     for o, a in opts:
         if o in ('-t', '--tp'):
             if a.strip().lower() == "md5":
+                typ = a.strip().lower()
+            elif a.strip().lower() == "crc32":
+                typ = a.strip().lower()
+            elif a.strip().lower() == "adler32":
                 typ = a.strip().lower()
             elif a.strip().lower() == "sha1":
                 typ = a.strip().lower()
