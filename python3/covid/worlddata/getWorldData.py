@@ -119,6 +119,8 @@ def procAut():
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
 
+    return res_dc, res_dd, res_dh, res_dt, res_dv
+
 
 def procAst():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -159,6 +161,7 @@ def procAst():
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
 
+    return res_dc, res_dd, res_dh, res_dt, res_dv
 
 def procFra():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -198,7 +201,8 @@ def procFra():
     res_dh = dict(reversed(list( dhosp.items() )))
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
-    
+
+    return res_dc, res_dd, res_dh, res_dt, res_dv
 
 def procDeu():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -239,6 +243,7 @@ def procDeu():
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
 
+    return res_dc, res_dd, res_dh, res_dt, res_dv
 
 def procHun():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -278,7 +283,8 @@ def procHun():
     res_dh = dict(reversed(list( dhosp.items() )))
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
-    
+
+    return res_dc, res_dd, res_dh, res_dt, res_dv
 
 def procIta():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -318,7 +324,8 @@ def procIta():
     res_dh = dict(reversed(list( dhosp.items() )))
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
-    
+
+    return res_dc, res_dd, res_dh, res_dt, res_dv
 
 def procNza():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -359,6 +366,7 @@ def procNza():
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
 
+    return res_dc, res_dd, res_dh, res_dt, res_dv
 
 def procPol():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -398,7 +406,8 @@ def procPol():
     res_dh = dict(reversed(list( dhosp.items() )))
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
-    
+
+    return res_dc, res_dd, res_dh, res_dt, res_dv
 
 def procPor():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -438,7 +447,8 @@ def procPor():
     res_dh = dict(reversed(list( dhosp.items() )))
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
-    
+
+    return res_dc, res_dd, res_dh, res_dt, res_dv
 
 def procSpa():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -478,11 +488,11 @@ def procSpa():
     res_dh = dict(reversed(list( dhosp.items() )))
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
-    
 
-def writeData( a, b, c, nf ):
-    # heading for csv file to prep for plotly.JS
-    # Date,VADATA.Death,VADATA.DeathConfirmed
+    return res_dc, res_dd, res_dh, res_dt, res_dv
+
+def writeData( a, b, c, d, e ):
+    #  return res_dc, res_dd, res_dh, res_dt, res_dv
     data = []
     fn = nf.strip() + "data.csv" 
     for i in list(range(0, len(a))):
@@ -528,25 +538,35 @@ def main():
         m = menu()
         if m == 1:
             pullCSV()
-            procAut()
+            v, w, x, y, z = procAut()
+            writeData(v,w,x,y,z)
         elif m == 2:
-            print(0)
+            pullCSV()
+            procAst()
         elif m == 3:
-            print(0)
+            pullCSV()
+            procFra()
         elif m == 4:
-            print(0)
+            pullCSV()
+            procDeu()
         elif m == 5:
-            print(0)
+            pullCSV()
+            procHun()
         elif m == 6:
-            print(0)
+            pullCSV()
+            procIta()
         elif m == 7:
-            print(0)
+            pullCSV()
+            procNza()
         elif m == 8:
-            print(0)
+            pullCSV()
+            procPol()
         elif m == 9:
-            print(0)
+            pullCSV()
+            procPor()
         elif m == 10:
-            print(0)
+            pullCSV()
+            procSpa()
         else:
             print("No available options.")
             sys.exit(1)
