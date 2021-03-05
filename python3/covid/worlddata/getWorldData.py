@@ -1,38 +1,10 @@
-# author
-# date
-# desc
-# assign
-# version 0.0.1
+#!/bin/env python3
+
+# author        : freeman
+# date          : 2021.03.05
+# desc          :
+# version       : 0.0.1
 ################################################
-
-"""
-Option 1
-I will rework my existing python script to pull *COV2 data* from an international Data Bank Our World in Data to retrieve two fields, 
-Date and One Country as a CSV file then use either ChartJS or ChartistJS to plot those values. 
-You must be able to have a github account and deposit those COV2 data into your public Github account. I will provide a variety of countries for you to choose from a 
-list of countries (Australia, New Zealand, Germany, Spain,  France, Poland, Italy, Portugal, Hungary, Austria, and maybe russia). 
-    
-Option 2)
-I will rework my existing python script to pull  *Financial data* from a respected Financial Data Bank to retrieve two fields, Date and a Stock Ticker (Company)  
-on using either the Open/Close daily price.  You must then use either ChartJS or ChartistJS to plot those values into a graph.  You must be able to have a github account and 
-deposit those Financial data into your public Github account. I will provide a variety of stock ticker (open || close) price as a CSV file for you to choose from a list of companies 
-(FB, Google, Amazon, Apple, Netflix, IBM, Uber, J&J, Moderna, Pfizer, and  Oracle, Biontech ). 
-
-https://covid.ourworldindata.org/data/owid-covid-data.csv
-AUS,Oceania,Australia
-FRA,Europe,France
-DEU,Europe,Germany
-ESP,Europe,Spain
-NZL,Oceania,New Zealand
-ITA,Europe,Italy
-POL,Europe,Poland,2021-02-20
-PRT,Europe,Portugal
-HUN,Europe,Hungary
-AUT,Europe,Austria
-        
-country 2, date 3, cases 4, death 7, hospitalization 19, testing 26, vaccination 34
-(iso_code,continent,location,date),(total_cases)(total_deaths)(hosp_patients)(total_tests),(total_vaccinations)
-"""
 
 
 try:
@@ -66,7 +38,6 @@ def pullCSV():
     try:
         resp = requests.get(site)
         resp.raise_for_status()
-        csvdata = resp.text
         with open('owid-covid-data.csv', 'w', encoding='utf-8') as f:
             w = csv.writer(f)
             for i in resp.iter_lines():
@@ -119,8 +90,7 @@ def procAut():
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
 
-    return res_dc, res_dd, res_dh, res_dt, res_dv
-
+    return res_dc, res_dd, res_dh, res_dt, res_dv, "aut"
 
 def procAst():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -161,7 +131,7 @@ def procAst():
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
 
-    return res_dc, res_dd, res_dh, res_dt, res_dv
+    return res_dc, res_dd, res_dh, res_dt, res_dv, "ast"
 
 def procFra():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -202,7 +172,7 @@ def procFra():
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
 
-    return res_dc, res_dd, res_dh, res_dt, res_dv
+    return res_dc, res_dd, res_dh, res_dt, res_dv, "fra"
 
 def procDeu():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -243,7 +213,7 @@ def procDeu():
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
 
-    return res_dc, res_dd, res_dh, res_dt, res_dv
+    return res_dc, res_dd, res_dh, res_dt, res_dv, "deu"
 
 def procHun():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -284,7 +254,7 @@ def procHun():
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
 
-    return res_dc, res_dd, res_dh, res_dt, res_dv
+    return res_dc, res_dd, res_dh, res_dt, res_dv, "hun"
 
 def procIta():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -325,7 +295,7 @@ def procIta():
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
 
-    return res_dc, res_dd, res_dh, res_dt, res_dv
+    return res_dc, res_dd, res_dh, res_dt, res_dv, "ita"
 
 def procNza():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -366,7 +336,7 @@ def procNza():
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
 
-    return res_dc, res_dd, res_dh, res_dt, res_dv
+    return res_dc, res_dd, res_dh, res_dt, res_dv, "nza"
 
 def procPol():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -407,7 +377,7 @@ def procPol():
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
 
-    return res_dc, res_dd, res_dh, res_dt, res_dv
+    return res_dc, res_dd, res_dh, res_dt, res_dv, "pol"
 
 def procPor():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -448,7 +418,7 @@ def procPor():
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
 
-    return res_dc, res_dd, res_dh, res_dt, res_dv
+    return res_dc, res_dd, res_dh, res_dt, res_dv, "por"
 
 def procSpa():
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
@@ -488,23 +458,37 @@ def procSpa():
     res_dh = dict(reversed(list( dhosp.items() )))
     res_dt = dict(reversed(list( dtest.items() )))
     res_dv = dict(reversed(list( dvacc.items() )))
-
-    return res_dc, res_dd, res_dh, res_dt, res_dv
-
-def writeData( a, b, c, d, e ):
-    #  return res_dc, res_dd, res_dh, res_dt, res_dv
-    data = []
-    fn = nf.strip() + "data.csv" 
-    for i in list(range(0, len(a))):
-        m = str(a[i]).strip() + "," + str(b[i]).strip() + "," + str(c[i]).strip() + "\n"
-        data.append(m)
-
-    head = "Date,"+ nf.upper() + "DATA.Death," +  nf.upper() + "DATA.DeathConfirmed\n"
     
-    data.insert(0, head)
-    with open(fn, "w+") as f:
-        for i in tqdm(data, total=len(data), desc=fn):
-            f.write(i)
+    return res_dc, res_dd, res_dh, res_dt, res_dv, "spa"
+
+def writeData( a, b, c, d, e, g):
+    mess = ""
+    datatypes = ["case_data.csv", "death_data.csv", "hosp_data.csv", "test_data.csv", "vacc_data.csv"]
+    with open (str(g+"_"+datatypes[0]), "w+") as f:
+        for k, v in a.items():
+            mess=str(k)+','+str(v)+"\n"
+            f.write(mess)
+
+    with open (str(g+"_"+datatypes[1]), "w+") as f:
+        for k, v in b.items():
+            mess=str(k)+','+str(v)+"\n"
+            f.write(mess)
+
+    with open (str(g+"_"+datatypes[2]), "w+") as f:
+        for k, v in c.items():
+            mess=str(k)+','+str(v)+"\n"
+            f.write(mess)
+
+    with open (str(g+"_"+datatypes[3]), "w+") as f:
+        for k, v in d.items():
+            mess=str(k)+','+str(v)+"\n"
+            f.write(mess)
+
+    with open (str(g+"_"+datatypes[4]), "w+") as f:
+        for k, v in e.items():
+            mess=str(k)+','+str(v)+"\n"
+            f.write(mess)
+
 
 def menu():
     print("------------------------------------------")
@@ -536,37 +520,38 @@ def main():
 
     if network == 1:
         m = menu()
+        pullCSV()
         if m == 1:
-            pullCSV()
-            v, w, x, y, z = procAut()
-            writeData(v,w,x,y,z)
+            # procAut()
+            v, w, x, y, z, c = procAut()
+            writeData(v,w,x,y,z,c)
         elif m == 2:
-            pullCSV()
-            procAst()
+            v, w, x, y, z, c = procAst()
+            writeData(v,w,x,y,z,c)
         elif m == 3:
-            pullCSV()
-            procFra()
+            v, w, x, y, z, c = procFra()
+            writeData(v,w,x,y,z,c)
         elif m == 4:
-            pullCSV()
-            procDeu()
+            v, w, x, y, z, c = procDeu()
+            writeData(v,w,x,y,z,c)
         elif m == 5:
-            pullCSV()
-            procHun()
+            v, w, x, y, z, c = procHun()
+            writeData(v,w,x,y,z,c)
         elif m == 6:
-            pullCSV()
-            procIta()
+            v, w, x, y, z, c = procIta()
+            writeData(v,w,x,y,z,c)
         elif m == 7:
-            pullCSV()
-            procNza()
+            v, w, x, y, z, c = procNza()
+            writeData(v,w,x,y,z,c)
         elif m == 8:
-            pullCSV()
-            procPol()
+            v, w, x, y, z, c = procPol()
+            writeData(v,w,x,y,z,c)
         elif m == 9:
-            pullCSV()
-            procPor()
+            v, w, x, y, z, c = procPor()
+            writeData(v,w,x,y,z,c)
         elif m == 10:
-            pullCSV()
-            procSpa()
+            v, w, x, y, z, c = procSpa()
+            writeData(v,w,x,y,z,c)
         else:
             print("No available options.")
             sys.exit(1)
