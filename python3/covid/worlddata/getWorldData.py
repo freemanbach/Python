@@ -23,6 +23,8 @@ except ImportError as herr:
 from datetime import datetime
 import csv
 import sys
+import os.path
+from os import path
 
 
 def fixdate(d):
@@ -520,9 +522,11 @@ def main():
 
     if network == 1:
         m = menu()
-        pullCSV()
+        if path.exists('owid-covid-data.csv'):
+            print()
+        else:
+            pullCSV()
         if m == 1:
-            # procAut()
             v, w, x, y, z, c = procAut()
             writeData(v,w,x,y,z,c)
         elif m == 2:
