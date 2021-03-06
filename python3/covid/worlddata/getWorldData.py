@@ -2,7 +2,7 @@
 
 # author        : freeman
 # date          : 2021.03.05
-# desc          :
+# desc          : Add tqdm and perhaps shorten the code
 # version       : 0.0.1
 ################################################
 
@@ -49,11 +49,10 @@ def pullCSV():
         sys.exit()
 
 
+# Fields Location: country 2, date 3, cases 4, death 7, hospitalization 19, testing 26, vaccination 34
+# Fields Used: location, date, total_cases, total_deaths, hosp_patients, total_tests, total_vaccinations
 def procAut():
     # https://www.geeksforgeeks.org/python-reverse-dictionary-keys-order/
-    #  country 2, date 3, cases 4, death 7, hospitalization 19, testing 26, vaccination 34
-    # country 2, date 3, cases 4, death 7, hospitalization 19, testing 26, vaccination 34
-    # (iso_code,continent,location,date),(total_cases)(total_deaths)(hosp_patients)(total_tests),(total_vaccinations)
     dcases, ddeath, dhosp, dtest, dvacc = {}, {}, {}, {}, {}
     a = 0
     with open("owid-covid-data.csv", "r") as f:
