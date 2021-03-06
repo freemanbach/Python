@@ -11,6 +11,7 @@ try:
     from tqdm import trange, tqdm
 except ImportError as herr:
     print("Missing tqdm lib.")
+    print("pip install --user tqdm")
 
 
 try:
@@ -18,6 +19,7 @@ try:
     import requests
 except ImportError as herr:
     print("Missing requests library")
+    print("pip install --user requests")
 
 
 from datetime import datetime
