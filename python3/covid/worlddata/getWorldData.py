@@ -524,7 +524,7 @@ def main():
     if network == 1:
         m = menu()
         if path.exists('owid-covid-data.csv'):
-            print()
+            pass
         else:
             pullCSV()
         if m == 1:
