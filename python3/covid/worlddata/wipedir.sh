@@ -1,0 +1,21 @@
+rm -f austria/*.csv
+rm -f france/*.csv
+rm -f germany/*.csv
+rm -f hungary/*.csv
+rm -f italy/*.csv
+rm -f newzealand/*.csv
+rm -f poland/*.csv
+rm -f spain/*.csv
+rm -f portugal/*.csv
+rm -f australia/*.csv
+
+mv aut_*.csv ./australia
+mv ast_*.csv ./austria
+mv fra_*.csv ./france
+mv deu_*.csv ./germany
+mv hun_*.csv ./hungary
+mv ita_*.csv ./italy
+mv nza_*.csv ./newzealand
+mv pol_*.csv ./poland
+mv por_*.csv ./portugal
+mv spa_*.csv ./spain
