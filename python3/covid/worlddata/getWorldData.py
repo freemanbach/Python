@@ -521,7 +521,7 @@ def main():
     except (requests.ConnectionError, requests.Timeout):
         network = 0
 
-    if network == 1:
+    if network == 1 and r.status_code == 200:
         m = menu()
         if path.exists('owid-covid-data.csv'):
             pass
