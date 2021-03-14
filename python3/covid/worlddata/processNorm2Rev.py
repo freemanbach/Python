@@ -12,7 +12,7 @@ from os import path
 
 
 cd, dd, hd, td, vd = "case_data.csv", "death_data.csv", "hosp_data.csv", "test_data.csv", "vacc_data.csv"
-m,n,o,p,q = "dates,case\n", "dates,death\n", "dates,hosp\n", "dates,test\n", "dates,vacc\n" 
+m,n,o,p,q = "Dates,Case\n", "Dates,Death\n", "Dates,Hosp\n", "Dates,Test\n", "Dates,Vacc\n" 
 
 def australia():
     aut = []
