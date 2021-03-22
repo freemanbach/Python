@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>JavaScript</title>
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        </head>
+    <body>
+        <div class="mypanel"></div>
+        
+        <script type="text/javascript">
+            // global variable for state abbr codes
+            const states = ['ak', 'al', 'ar','az', 'ca', 'co', 'ct', 'de', 'fl', 'ga', 'hi', 'ia', 'id', 'il', 'in', 'ks', 'ky', 'la', 'ma', 'md', 'me', 'mi', 'mn', 'mo', 
+                     'ms', 'mt', 'nc', 'nd', 'ne', 'nh', 'nj', 'nm', 'nv', 'ny', 'oh', 'ok', 'or', 'pa',  'ri', 'sc', 'sd', 'tn', 'tx', 'ut', 'va', 'vt', 'wa', 'wi',  'wv', 'wy' ]
+
+
+                // Assuming there is one state at a time
+                function getdata(url) {
+
+                    fetch(url)
+                    .then(
+                      function(response) {
+                        if (response.status !== 200) {
+                          console.log('Looks like there was a problem. Status Code: ' + response.status);
+                          return;
+                        }
+                        // Examine the text in the response
+                        response.json().then(function(data) { console.log(data); });
+                      }
+                    )
+                    .catch(function(err) { console.log('Fetch Error :-S', err); });
+                }
+
+            function retdata() {
+                return 0;
+            }
+            
+            state = "https://api.covidtracking.com/v1/states/" + sa + "/daily.json"
+
+
+        </script>        
+    </body>
+</html>
