@@ -223,10 +223,8 @@ echo.
 echo.Installing Additional required Modules
 :: It is a large download if i were to add rasa and nltk in the line below, therefore i took it as a seperate install
 timeout /T 4 > nul
-C:\Python38\scripts\pip.exe install --user requests diceware scipy numpy pandas matplotlib seaborn wordcloud wikipedia pillow pandas_datareader yfinance
-timeout /T 4 > nul
-:: Processor Intensive Libraries
-:: C:\Python38\scripts\pip.exe install --user rasa nltk
+C:\Python38\scripts\pip.exe install --user requests tqdm
+timeout /T 2 > nul
 timeout /T 2 > nul
 timeout /T 2 > nul
 timeout /T 2 > nul
