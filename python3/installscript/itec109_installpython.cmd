@@ -143,6 +143,9 @@ echo.Installing Python version 3.8.6.
 echo.This process will take as much as 15 mins if there is no SSD.
 echo.
 echo.Go grab Koffie or something before coming back to your Laptop.
+:: Download Python
+:: https://www.python.org/downloads/release/python-386/
+::
 :: This python install process is weird, it will simply return prompt once it had been executed but the process
 :: will not be 100 percent completed before continuing as we have learned.
 :: Came across another problem where installAllusers must be 0
@@ -225,7 +228,7 @@ echo.PRESS ENTER HERE
 :: It is a large download if i were to add rasa and nltk in the line below, therefore i took it as a seperate install
 timeout /T 4 > nul
 C:\Python38\scripts\pip.exe install --user wheel 
-C:\Python38\scripts\pip.exe install --user requests tqdm diceware scipy numpy pandas matplotlib seaborn wordcloud wikipedia pillow pandas_datareader yfinance
+C:\Python38\scripts\pip.exe install --user requests tqdm diceware scipy numpy pandas matplotlib seaborn wikipedia pillow pandas_datareader yfinance
 timeout /T 4 > nul
 :: Processor Intensive Libraries
 :: C:\Python38\scripts\pip.exe install --user rasa nltk

@@ -143,6 +143,9 @@ echo.Installing Python version 3.8.6.
 echo.This process will take as much as 15 mins if there is no SSD.
 echo.
 echo.Go grab Koffie or something before coming back to your Laptop.
+:: Download Python
+:: https://www.python.org/downloads/release/python-386/
+::
 :: This python install process is weird, it will simply return prompt once it had been executed but the process
 :: will not be 100 percent completed before continuing as we have learned.
 :: Came across another problem where installAllusers must be 0
