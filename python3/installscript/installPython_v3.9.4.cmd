@@ -250,14 +250,14 @@ echo.Finished Updating pip.
 echo.
 echo.
 echo.Installing Additional required Modules
+echo.PRESS ENTER HERE
 :: It is a large download if i were to add rasa and nltk in the line below, therefore i took it as a seperate install
-:: wordcloud required MS-VS c++ 14 building tools or newer
 timeout /T 4 > nul
-C:\Python39\scripts\pip.exe install --user wheel
-C:\Python39\scripts\pip.exe install --user requests diceware scipy numpy pandas matplotlib seaborn  wikipedia pillow pandas_datareader yfinance
+C:\Python39\scripts\pip.exe install --user wheel 
+C:\Python39\scripts\pip.exe install --user requests tqdm diceware scipy numpy pandas matplotlib seaborn wikipedia pillow pandas_datareader yfinance
 timeout /T 4 > nul
 :: Processor Intensive Libraries
-:: C:\Python39\scripts\pip.exe install --user rasa nltk
+:: C:\Python38\scripts\pip.exe install --user rasa nltk
 timeout /T 2 > nul
 timeout /T 2 > nul
 timeout /T 2 > nul
