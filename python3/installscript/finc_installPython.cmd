@@ -227,12 +227,15 @@ echo.Installing Additional required Modules
 echo.PRESS ENTER HERE
 :: It is a large download if i were to add rasa and nltk in the line below, therefore i took it as a seperate install
 timeout /T 4 > nul
-C:\Python38\scripts\pip.exe install --user wheel requests tqdm pyfin volib quantpy ffn tia pynance
+C:\Python38\scripts\pip.exe install --user wheel requests tqdm ta
+C:\Python38\scripts\pip.exe install --user pyfin volib quantpy ffn tia pynance mplfinance plotly yahoo_fin vaderSentiment xlsxwriter xlrd openpyxl
 C:\Python38\scripts\pip.exe install --user pymc3 scipy numpy pandas matplotlib seaborn pillow pandas_datareader scikit-learn yfinance statsmodels quandl zipline pyfolio
 timeout /T 4 > nul
 :: additional finance Software 
 :: https://financetrain.com/best-python-librariespackages-finance-financial-data-scientists/
 :: https://www.datacamp.com/community/tutorials/finance-python-trading
+:: https://medium.com/fintechexplained/automating-stock-investing-technical-analysis-with-python-81c669e360b2
+:: https://pythonrepo.com/repo/bukosabino-ta-python-finance
 timeout /T 2 > nul
 timeout /T 2 > nul
 timeout /T 2 > nul
