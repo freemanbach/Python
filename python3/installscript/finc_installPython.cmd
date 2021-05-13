@@ -225,11 +225,14 @@ echo.
 echo.
 echo.Installing Additional required Modules
 echo.PRESS ENTER HERE
-:: It is a large download if i were to add rasa and nltk in the line below, therefore i took it as a seperate install
+:: It is a large download in the lines below, therefore i took it as a seperate install
 timeout /T 4 > nul
-C:\Python38\scripts\pip.exe install --user wheel requests tqdm ta
-C:\Python38\scripts\pip.exe install --user pyfin volib quantpy ffn tia pynance mplfinance plotly yahoo_fin vaderSentiment xlsxwriter xlrd openpyxl
-C:\Python38\scripts\pip.exe install --user pymc3 scipy numpy pandas matplotlib seaborn pillow pandas_datareader scikit-learn yfinance statsmodels quandl zipline pyfolio
+C:\Python38\scripts\pip.exe install --user wheel requests ta
+C:\Python38\scripts\pip.exe install --user pymc3 scipy numpy pandas matplotlib seaborn pillow pandas_datareader scikit-learn 
+C:\Python38\scripts\pip.exe install --user yfinance statsmodels zipline pyfolio
+C:\Python38\scripts\pip.exe install --user pyfin volib quantpy ffn tia pynance mplfinance plotly 
+C:\Python38\scripts\pip.exe install --user yahoo_fin vaderSentiment xlsxwriter xlrd openpyxl
+:: C:\Python38\scripts\pip.exe install --user quandl tqdm
 timeout /T 4 > nul
 :: additional finance Software 
 :: https://financetrain.com/best-python-librariespackages-finance-financial-data-scientists/
