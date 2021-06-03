@@ -166,7 +166,7 @@ echo.Still compiling Python modules........
 :: Buffer Zone
 timeout /T 2 > nul
 echo.
-set num=60
+set num=40
 for /L %%I IN (1, 1, %num%) do (
   echo. | set /p="%%I " 
   timeout /T 1 > nul
@@ -227,12 +227,16 @@ echo.Installing Additional required Modules
 echo.PRESS ENTER HERE
 :: It is a large download in the lines below, therefore i took it as a seperate install
 timeout /T 4 > nul
-C:\Python38\scripts\pip.exe install --user wheel requests ta
+C:\Python38\scripts\pip.exe install --user wheel
+C:\Python38\scripts\pip.exe install --user requests
 C:\Python38\scripts\pip.exe install --user pymc3 scipy numpy pandas matplotlib seaborn pillow pandas_datareader scikit-learn 
-C:\Python38\scripts\pip.exe install --user yfinance statsmodels zipline pyfolio
+C:\Python38\scripts\pip.exe install --user yfinance statsmodels pyfolio
 C:\Python38\scripts\pip.exe install --user pyfin volib quantpy ffn tia pynance mplfinance plotly 
 C:\Python38\scripts\pip.exe install --user yahoo_fin vaderSentiment xlsxwriter xlrd openpyxl
-:: C:\Python38\scripts\pip.exe install --user quandl tqdm
+:: C:\Python38\scripts\pip.exe install --user quandl tqdm ta
+:: To download unbuildable packages: go to UC Irvine
+:: https://www.lfd.uci.edu/~gohlke/pythonlibs
+:: examples: zipline TA-Lib
 timeout /T 4 > nul
 :: additional finance Software 
 :: https://financetrain.com/best-python-librariespackages-finance-financial-data-scientists/
