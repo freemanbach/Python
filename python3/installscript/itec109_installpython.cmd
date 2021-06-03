@@ -166,7 +166,7 @@ echo.Still compiling Python modules........
 :: Buffer Zone
 timeout /T 2 > nul
 echo.
-set num=60
+set num=40
 for /L %%I IN (1, 1, %num%) do (
   echo. | set /p="%%I " 
   timeout /T 1 > nul
@@ -232,6 +232,9 @@ C:\Python38\scripts\pip.exe install --user requests tqdm diceware scipy numpy pa
 timeout /T 4 > nul
 :: Processor Intensive Libraries
 :: C:\Python38\scripts\pip.exe install --user rasa nltk
+:: To download unbuildable packages: go to UC Irvine
+:: https://www.lfd.uci.edu/~gohlke/pythonlibs
+:: examples: zipline TA-Lib
 timeout /T 2 > nul
 timeout /T 2 > nul
 timeout /T 2 > nul

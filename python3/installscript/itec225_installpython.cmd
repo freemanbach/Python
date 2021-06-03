@@ -166,7 +166,7 @@ echo.Still compiling Python modules........
 :: Buffer Zone
 timeout /T 2 > nul
 echo.
-set num=60
+set num=40
 for /L %%I IN (1, 1, %num%) do (
   echo. | set /p="%%I " 
   timeout /T 1 > nul
