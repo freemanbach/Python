@@ -231,7 +231,7 @@ C:\Python38\scripts\pip.exe install --user wheel
 C:\Python38\scripts\pip.exe install --user requests
 C:\Python38\scripts\pip.exe install --user pymc3 scipy numpy pandas matplotlib seaborn pillow pandas_datareader scikit-learn 
 C:\Python38\scripts\pip.exe install --user yfinance statsmodels pyfolio
-C:\Python38\scripts\pip.exe install --user pyfin volib quantpy ffn tia pynance mplfinance plotly 
+C:\Python38\scripts\pip.exe install --user pyfin vollib quantpy ffn tia pynance mplfinance plotly 
 C:\Python38\scripts\pip.exe install --user yahoo_fin vaderSentiment xlsxwriter xlrd openpyxl
 :: C:\Python38\scripts\pip.exe install --user quandl tqdm ta
 :: To download unbuildable packages: go to UC Irvine

@@ -20,7 +20,7 @@
 /usr/local/bin/pip3 install --user wheel requests ta
 /usr/local/bin/pip3 install --user pandas matplotlib seaborn pillow pandas_datareader scipy numpy
 /usr/local/bin/pip3 install --user pymc3 scikit-learn yfinance statsmodels zipline pyfolio
-/usr/local/bin/pip3 install --user pyfin volib quantpy ffn tia pynance mplfinance plotly yahoo_fin 
+/usr/local/bin/pip3 install --user pyfin vollib quantpy ffn tia pynance mplfinance plotly yahoo_fin 
 /usr/local/bin/pip3 install --user vaderSentiment xlsxwriter xlrd openpyxl
 # /usr/local/bin/pip3 install --user quandl tqdm
 # Creating directories

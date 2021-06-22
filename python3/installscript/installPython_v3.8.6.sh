@@ -22,7 +22,7 @@
 
 # install packages
 /usr/local/bin/pip3 install --user wheel 
-/usr/local/bin/pip3 install --user requests tqdm pyfin volib quantpy ffn tia pynance
+/usr/local/bin/pip3 install --user requests tqdm pyfin vollib quantpy ffn tia pynance
 /usr/local/bin/pip3 install --user pymc3 scipy numpy pandas matplotlib seaborn 
 /usr/local/bin/pip3 install --user pillow pandas_datareader scikit-learn yfinance statsmodels quandl zipline pyfolio
 
