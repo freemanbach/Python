@@ -92,6 +92,33 @@ IF EXIST "python-3.8.7-*.<" (
 echo.
 timeout /T 5 > nul
 
+:: Check to see if bitsadmin is located here
+:: C:\Windows\SysWOW64\bitsadmin.exe
+echo.
+echo.
+:: Section 3: Bitsadmin Download.
+echo.============================
+echo.Checking Bitsadmin
+echo.============================
+echo.
+::
+IF EXIST C:\Windows\SysWOW64\bitsadmin.exe (
+  echo.Bitsadmin is installed on your Windows 7/8/9/10 system.
+  echo.Will download Python 3 software.
+  echo.
+  timeout /T 2 > nul
+) ELSE (
+  timeout /T 2 > nul
+  echo.Apparently, Bitsadmin.exe not found.
+  echo.Raise your hand and ask Instructor for help.
+  echo.
+  goto end
+)
+::
+::
+timeout /T 2 > nul
+
+
 echo.
 echo.
 :: Section 3: Python Download.
@@ -106,7 +133,8 @@ echo.Downloading Python Software.
 timeout /T 2 > nul
 echo.
 echo.
-bitsadmin /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.8.6/python-3.8.6-amd64.exe %userprofile%\Downloads\python-3.8.6-amd64.exe
+C:\Windows\SysWOW64\bitsadmin.exe /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.8.6/python-3.8.6-amd64.exe %userprofile%\Downloads\python-3.8.6-amd64.exe
+:: bitsadmin /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.8.6/python-3.8.6-amd64.exe %userprofile%\Downloads\python-3.8.6-amd64.exe
 
 :: Quick Pause
 echo.
