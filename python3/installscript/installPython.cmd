@@ -87,10 +87,13 @@ IF EXIST "python-3.8.7-*.<" (
   echo.No existing version of python 3.8.7 Found.
   echo.
 )
+echo.
+echo.you may need to press ENTER, 
+echo.If the wait time is more than 10 seconds.
 
 :: Quick Pause
 echo.
-timeout /T 5 > nul
+timeout /T 2 > nul
 
 :: Check to see if bitsadmin is located here
 :: C:\Windows\SysWOW64\bitsadmin.exe
