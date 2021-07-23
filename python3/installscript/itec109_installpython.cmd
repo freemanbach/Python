@@ -87,11 +87,34 @@ IF EXIST "python-3.8.7-*.<" (
   echo.No existing version of python 3.8.7 Found.
   echo.
 )
-
 :: Quick Pause
 echo.
 timeout /T 5 > nul
-
+:: Check to see if bitsadmin is located here
+:: C:\Windows\SysWOW64\bitsadmin.exe
+echo.
+echo.
+:: Section 3: Bitsadmin Download.
+echo.============================
+echo.Checking Bitsadmin
+echo.============================
+echo.
+::
+IF EXIST C:\Windows\SysWOW64\bitsadmin.exe (
+  echo.Bitsadmin is installed on your Windows 7/8/9/10 system.
+  echo.Will download Python 3 software.
+  echo.
+  timeout /T 2 > nul
+) ELSE (
+  timeout /T 2 > nul
+  echo.Apparently, Bitsadmin.exe not found.
+  echo.Raise your hand and ask Instructor for help.
+  echo.
+  goto end
+)
+::
+::
+timeout /T 2 > nul
 echo.
 echo.
 :: Section 3: Python Download.
