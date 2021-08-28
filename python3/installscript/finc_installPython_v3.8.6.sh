@@ -27,4 +27,4 @@
 # /usr/local/bin/pip3 install --user quandl tqdm
 # Creating directories
 cd
-mkdir -p ~/finc3984/{labs,hws}
+mkdir -p ~/finc3114/{labs,hws}
