@@ -1,7 +1,8 @@
 @echo OFF
 ::
-:: This was one of the most complicated software 
-:: i had ever written in DOS scripting !
+:: note: this software doent seem to work for windows
+:: users with two words login. it might not work well with
+:: Windows Home edition. 
 :: 
 cls
 :: Prompt for user to Really run this script
