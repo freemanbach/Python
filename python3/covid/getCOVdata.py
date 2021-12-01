@@ -76,25 +76,25 @@ def processJSON(jsdata):
     # more data Attributes to consider in the future, perhaps
     # date, positive, hospitalizedCumulative, death, deathConfirmed, positiveIncrease, total
     # vapos, vahospcum, vaposinc, vahospinc = [], [], [], [], [], [], []
-    vadate,  vadeath, vadeathconfirm = [], [], [] 
+    date,  death, deathinc = [], [], [] 
     data = json.loads(jsdata)
     for i in data:
         if len(str(i['date'])) == 8:
-            vadate.append(fixdate(str(i['date'])))
+            date.append(fixdate(str(i['date'])))
         if str(i['death']).isdigit():
-            vadeath.append(int(i['death']))
+            death.append(int(i['death']))
         else:
-            vadeath.append(0)
-        if str(i['deathConfirmed']).isdigit():
-            vadeathconfirm.append(int(i['deathConfirmed']))
+            death.append(0)
+        if str(i['deathIncrease']).isdigit():
+            deathinc.append(int(i['deathIncrease']))
         else:
-            vadeathconfirm.append(0)
+            deathinc.append(0)
     # reverse data points
-    vadeathconfirm.reverse()
-    vadate.reverse()
-    vadeath.reverse()
+    deathinc.reverse()
+    date.reverse()
+    death.reverse()
 
-    return vadate, vadeath, vadeathconfirm
+    return date, death, deathinc
     
 
 def writeData( a, b, c, nf ):
@@ -106,7 +106,7 @@ def writeData( a, b, c, nf ):
         m = str(a[i]).strip() + "," + str(b[i]).strip() + "," + str(c[i]).strip() + "\n"
         data.append(m)
 
-    head = "Date,"+ nf.upper() + "DATA.Death," +  nf.upper() + "DATA.DeathConfirmed\n"
+    head = "Date,"+ nf.upper() + "DATA.Death," +  nf.upper() + "DATA.DeathIncrease\n"
     
     data.insert(0, head)
     with open(fn, "w+") as f:
