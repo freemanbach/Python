@@ -277,7 +277,7 @@ echo.PRESS ENTER HERE If wait time is Longer than 8 seconds
 timeout /T 2 > nul
 C:\Python310\Scripts\pip.exe install --user wheel
 timeout /T 1 > nul
-C:\Python310\Scripts\pip.exe install --user scikit-learn
+C:\Python310\Scripts\pip.exe install --user scikit-learn keras
 timeout /T 1 > nul
 C:\Python310\Scripts\pip.exe install --user pandas_datareader requests ta scipy numpy plotly
 timeout /T 1 > nul
