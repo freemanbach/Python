@@ -277,6 +277,8 @@ echo.PRESS ENTER HERE If wait time is Longer than 8 seconds
 timeout /T 2 > nul
 C:\Python310\Scripts\pip.exe install --user wheel
 timeout /T 1 > nul
+C:\Python310\Scripts\pip.exe install --user scikit-learn
+timeout /T 1 > nul
 C:\Python310\Scripts\pip.exe install --user pandas_datareader requests ta scipy numpy plotly
 timeout /T 1 > nul
 C:\Python310\Scripts\pip.exe install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
@@ -297,7 +299,6 @@ C:\Python310\Scripts\pip.exe install --user yfinance PyAlgoTrade yahoo_fin Stati
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Cant install these things via pip on windows
 ::  Failed to build numba llvmlite scikit-learn
-:: how do you instll scikit-learn on windwos besides UC-Irvine pip repo???
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 timeout /T 2 > nul
 ::
