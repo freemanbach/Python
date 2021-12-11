@@ -288,7 +288,7 @@ C:\Python310\Scripts\pip.exe install --user yfinance PyAlgoTrade yahoo_fin Stati
 :: To download unbuildable packages: go to UC Irvine
 :: https://www.lfd.uci.edu/~gohlke/pythonlibs
 :: examples: zipline TA-Lib
-:; timeout /T 1 > nul
+:: timeout /T 1 > nul
 :: additional finance Software 
 :: https://financetrain.com/best-python-librariespackages-finance-financial-data-scientists/
 :: https://www.datacamp.com/community/tutorials/finance-python-trading
@@ -297,7 +297,7 @@ C:\Python310\Scripts\pip.exe install --user yfinance PyAlgoTrade yahoo_fin Stati
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Cant install these things via pip on windows
 ::  Failed to build numba llvmlite scikit-learn
-:; how do you instll scikit-learn on windwos besides UC-Irvine pip repo???
+:: how do you instll scikit-learn on windwos besides UC-Irvine pip repo???
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 timeout /T 2 > nul
 ::
