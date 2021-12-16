@@ -8,7 +8,7 @@ echo.============================
 echo.
 ::
 cd 
-mkdir %userprofile%\finc3984
-mkdir %userprofile%\finc3984\hws
-mkdir %userprofile%\finc3984\labs
+mkdir %userprofile%\finc3114
+mkdir %userprofile%\finc3114\hws
+mkdir %userprofile%\finc3114\labs
 echo."Done"
