@@ -40,6 +40,7 @@ sudo installer -verboseR -pkg python-3.10.0post2-macos11.pkg -target /Applicatio
 #############################
 # Download custom .bashrc file
 cd $HOME
+curl -C - -O https://raw.githubusercontent.com/freemanbach/Python/master/python3/installscript/.profile
 curl -C - -O https://raw.githubusercontent.com/freemanbach/Python/master/python3/installscript/.bashrc
 ############################
 
