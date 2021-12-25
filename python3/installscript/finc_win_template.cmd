@@ -286,6 +286,11 @@ timeout /T 1 > nul
 C:\Python310\Scripts\pip.exe install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
 timeout /T 1 > nul
 C:\Python310\Scripts\pip.exe install --user yfinance PyAlgoTrade yahoo_fin Statistics-pyt backtrader
+timeout /T 1 > nul
+C:\Python310\Scripts\pip.exe install --user arrow prettypandas beautifier tabulate
+C:\Python310\Scripts\pip.exe install --user keras BeautifulSoup4 scrapy
+C:\Python310\Scripts\pip.exe install --user nltk pybrain
+C:\Python310\Scripts\pip.exe install --user pydot pygal
 :: C:\Python38\scripts\pip.exe install --user pyfin vollib quantpy ffn tia pynance mplfinance plotly 
 :: C:\Python38\scripts\pip.exe install --user yahoo_fin vaderSentiment xlsxwriter xlrd openpyxl
 :: C:\Python38\scripts\pip.exe install --user quandl tqdm ta
