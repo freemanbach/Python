@@ -48,6 +48,7 @@ curl -C - -O https://raw.githubusercontent.com/freemanbach/Python/master/python3
 # install Finance Packages
 #############################
 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user wheel 
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user scrapy
 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user pandas_datareader requests ta scipy numpy plotly
 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user yfinance PyAlgoTrade yahoo_fin 

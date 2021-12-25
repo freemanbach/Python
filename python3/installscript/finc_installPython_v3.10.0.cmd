@@ -276,6 +276,7 @@ echo.PRESS ENTER HERE If wait time is Longer than 8 seconds
 :: It is a large download in the lines below, therefore i took it as a seperate install
 timeout /T 2 > nul
 C:\Python310\Scripts\pip.exe install --user wheel
+C:\Python310\Scripts\pip.exe install --user scrapy
 :: This stuff required VisualStudio with c++ or XCode on mac OSX
 :: somehow they needed to be installed with wheel and in sourcecode form
 ::timeout /T 1 > nul
