@@ -1,8 +1,5 @@
 @echo OFF
 ::
-:: This was one of the most complicated software 
-:: i had ever written in DOS scripting !
-:: 
 cls
 :: Prompt for user to Really run this script
 setlocal
@@ -43,15 +40,11 @@ echo.============================
 echo.
 systeminfo | findstr /c:"Total Physical Memory"
 systeminfo | findstr /c:"Virtual Memory: In Use"
-:: wmic diskdrive GET index,caption,name,size /format:table
-:: wmic diskdrive GET index,Model,SerialNumber,Size,Status
-
 
 :: Quick Pause
 echo.
 timeout /T 2 > nul
 
-echo.
 echo.
 :: Section 3: Python Download.
 echo.============================
@@ -75,6 +68,7 @@ IF EXIST "python-3.10.0-*.<" (
   echo.
 )
 ::
+:: Quick Pause
 timeout /T 2 > nul
 ::
 IF EXIST "python-3.9.*.<" (
@@ -92,6 +86,7 @@ echo.
 echo.you may need to press ENTER, 
 echo.If the wait time is more than 10 seconds.
 ::
+:: Quick Pause
 timeout /T 2 > nul
 ::
 IF EXIST "python-3.8.*.<" (
@@ -114,7 +109,6 @@ echo.
 timeout /T 2 > nul
 ::
 :: Check to see if bitsadmin is located here
-:: C:\Windows\SysWOW64\bitsadmin.exe
 echo.
 echo.
 :: Section 3: Bitsadmin Download.
@@ -136,9 +130,9 @@ IF EXIST C:\Windows\SysWOW64\bitsadmin.exe (
   goto end
 )
 ::
-::
+:: Quick Pause
 timeout /T 2 > nul
-
+::
 echo.
 echo.
 :: Section 3: Python Download.
@@ -154,15 +148,13 @@ timeout /T 2 > nul
 echo.
 echo.
 C:\Windows\SysWOW64\bitsadmin.exe /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.10.0/python-3.10.0-amd64.exe %userprofile%\Downloads\python-3.10.0-amd64.exe
-:: bitsadmin /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.8.6/python-3.8.6-amd64.exe %userprofile%\Downloads\python-3.8.6-amd64.exe
-
-:: Quick Pause
+::
 echo.
 echo.
 timeout /T 1 > nul
 timeout /T 1 > nul
 echo.Checking to see if this python file has been downloaded.
-
+::
 IF EXIST python-3.10.0-amd64.exe (
   echo.Python file has been Found.
   echo.Will now Install this Software.
@@ -177,7 +169,7 @@ IF EXIST python-3.10.0-amd64.exe (
 )
 echo.Finish downloading the Python Software.
 echo.
-
+::
 echo.
 echo.
 :: Section 4: Python Installation.
@@ -185,33 +177,20 @@ echo.============================
 echo.Installing Python
 echo.============================
 echo.
-
-echo.
 echo.Installing Python version 3.10.0
 echo.This process will take as much as 15 mins if there is no SSD.
 echo.
 echo.Go grab Koffie or something before coming back to your Laptop.
-:: Download Python
-:: https://www.python.org/downloads/release/python-396/
+:: Installing Python
 ::
-:: This python install process is weird, it will simply return prompt once it had been executed but the process
-:: will not be 100 percent completed before continuing as we have learned.
-:: Came across another problem where installAllusers must be 0
-:: before the Python39 dir will stay around in the C:\ driectory
 %userprofile%\Downloads\python-3.10.0-amd64.exe /quiet InstallAllUsers=0 TargetDir=C:\Python310 AssociateFiles=1 CompileAll=1 PrependPath=0 Shortcuts=0 Include_doc=1 Include_debug=0 Include_dev=0 Include_exe=1 Include_launcher=1 InstallLauncherAllUsers=1 Include_lib=1 Include_pip=1 Include_symbol=0 Include_tcltk=1 Include_test=1 Include_tools=1
 ::
-::
-:: This is quite sensitive wait time during installation.
-:: It is compiling and creating all the dirs before all
-:: files are compiled. It then do other things too.
-:: Not sure what would be a good wait time before moving onto the next process.
-:: it is wise to wait for atleast 3 mins actually due to compilation
-:: of lots of tiny files inside python.
-::
 echo.
-echo.Still compiling Python modules........
-:: TIMEOUT 400
-:: Buffer Zone
+echo.
+echo.Compiling and Installing Python modules........
+echo.
+:: TIMEOUT 40
+:: Quick Pause
 timeout /T 2 > nul
 echo.
 set num=40
@@ -225,33 +204,32 @@ echo.Finished Installing Python Software
 echo.
 echo.
 ::
-::
 echo.Be Patient, Almost done.
-::
 ::
 echo.
 echo.
 :: Section 4: Third Party Software Installation.
 echo.============================
-echo.Installing Third Party Software
+echo.Installing Finance  Software
 echo.============================
+echo.
 echo.
 ::
 :: Checking the file to see if it was made
 ::
 echo.
+echo.
 :check
 if exist C:\Python310\Tools\pynche\Main.py (
-    echo.Checking Files if they were Created.....
-    timeout /T 2 > nul
+    echo.Checking Files if Python has been installed.....
+    timeout /T 3 > nul
     echo.
-    echo.They were created.
+    echo. Python Software has been Installed.
 ) else (
-    echo.Files still not created.....
-    echo.Still compiling code, maybe.
-    timeout /T 2 > nul
+    echo. Python has not been installed.
+    timeout /T 1 > nul
     echo.
-    timeout /T 2 > nul
+    timeout /T 1 > nul
     echo.Problem with installation. PRESS: CTRL-C to End Installation process only if after three printed messages.
     goto check
 )
@@ -263,7 +241,8 @@ echo.Updating pip the module manager tool.
 :: Updating pip on Windows
 C:\Python310\python.exe -m pip install --upgrade pip
 ::
-timeout /T 3 > nul
+:: Quick Pause
+timeout /T 2 > nul
 echo.
 echo.Finished Updating pip.
 ::
@@ -273,39 +252,38 @@ echo.
 echo.
 echo.Installing Additional required Modules
 echo.PRESS ENTER HERE If wait time is Longer than 8 seconds
-:: It is a large download in the lines below, therefore i took it as a seperate install
-timeout /T 2 > nul
+:: Quick Pause
+timeout /T 1 > nul
 C:\Python310\Scripts\pip.exe install --user wheel
-:: This stuff required VisualStudio with c++ or XCode on mac OSX
-:: somehow they needed to be installed with wheel and in sourcecode form
-::timeout /T 1 > nul
-::C:\Python310\Scripts\pip.exe install --user scikit-learn keras theano
 timeout /T 1 > nul
 C:\Python310\Scripts\pip.exe install --user pandas_datareader requests ta scipy numpy plotly
 timeout /T 1 > nul
 C:\Python310\Scripts\pip.exe install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
 timeout /T 1 > nul
 C:\Python310\Scripts\pip.exe install --user yfinance PyAlgoTrade yahoo_fin Statistics-pyt backtrader
-:: C:\Python38\scripts\pip.exe install --user pyfin vollib quantpy ffn tia pynance mplfinance plotly 
-:: C:\Python38\scripts\pip.exe install --user yahoo_fin vaderSentiment xlsxwriter xlrd openpyxl
-:: C:\Python38\scripts\pip.exe install --user quandl tqdm ta
+timeout /T 1 > nul
+C:\Python310\Scripts\pip.exe install --user arrow prettypandas beautifier tabulate
+timeout /T 1 > nul
+C:\Python310\Scripts\pip.exe install --user keras BeautifulSoup4 scrapy
+timeout /T 1 > nul
+C:\Python310\Scripts\pip.exe install --user nltk pybrain
+timeout /T 1 > nul
+C:\Python310\Scripts\pip.exe install --user pydot pygal
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: To download unbuildable packages: go to UC Irvine
 :: https://www.lfd.uci.edu/~gohlke/pythonlibs
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: additional finance Software 
-:: https://financetrain.com/best-python-librariespackages-finance-financial-data-scientists/
-:: https://www.datacamp.com/community/tutorials/finance-python-trading
-:: https://medium.com/fintechexplained/automating-stock-investing-technical-analysis-with-python-81c669e360b2
-:: https://pythonrepo.com/repo/bukosabino-ta-python-finance
+echo.
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::  Cant install these things via pip on windows
 ::  Failed to build numba llvmlite scikit-learn
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-timeout /T 2 > nul
+echo.
+timeout /T 1 > nul
 ::
 echo.
-echo.Finished installing Required Modules.
+echo.Finished installing Modules.
+echo.
 ::
 echo.
 echo.
@@ -314,10 +292,14 @@ echo.============================
 echo.Execute runme.bat
 echo.============================
 echo.
+echo.
 ::
 echo set PATH=C:\Python310;%PATH% > %userprofile%\runme.bat
 del /s %userprofile%\Downloads\python-3.10.0-amd64.exe >nul 2>&1
-echo."Done Installing"
 call %userprofile%\runme.bat
-python -c "print(\"Welcome, Python installation Success !\")"
+echo.
+echo.
+python -c "print(\"Welcome, Python installation Success.\")"
+echo.
+echo.
 :end
