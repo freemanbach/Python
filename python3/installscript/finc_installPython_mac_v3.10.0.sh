@@ -25,10 +25,15 @@
 #############################
 # install packages
 #############################
-/usr/local/bin/pip3 install --user wheel 
-/usr/local/bin/pip3 install --user pandas_datareader requests ta scipy numpy plotly
-/usr/local/bin/pip3 install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
-/usr/local/bin/pip3 install --user yfinance PyAlgoTrade yahoo_fin Statistics-pyt backtrader scikit-learn pyfin
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user wheel 
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user scrapy
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user pandas_datareader requests ta scipy numpy plotly
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user yfinance PyAlgoTrade yahoo_fin 
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user Statistics-pyt backtrader scikit-learn pyfin
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user arrow prettypandas beautifier tabulate
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user keras BeautifulSoup4 pybrain
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user pydot pygal
 
 ##############################
 # SKIP the FOLLOWING

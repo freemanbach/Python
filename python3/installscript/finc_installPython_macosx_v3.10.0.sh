@@ -53,6 +53,9 @@ curl -C - -O https://raw.githubusercontent.com/freemanbach/Python/master/python3
 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user yfinance PyAlgoTrade yahoo_fin 
 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user Statistics-pyt backtrader scikit-learn pyfin
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user arrow prettypandas beautifier tabulate
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user keras BeautifulSoup4 pybrain
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user pydot pygal
 
 ##############################
 # Cant get some of these installed without XCode
