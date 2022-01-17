@@ -1,8 +1,9 @@
 @echo OFF
 ::
 :: note: this software doent seem to work for windows
-:: users with two words login. 
-:: 
+:: users with two words login. it might not work well with
+:: Windows Home edition. 
+::
 cls
 :: Prompt for user to Really run this script
 setlocal

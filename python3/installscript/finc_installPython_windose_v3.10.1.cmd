@@ -276,7 +276,6 @@ echo.PRESS ENTER HERE If wait time is Longer than 8 seconds
 :: It is a large download in the lines below, therefore i took it as a seperate install
 timeout /T 2 > nul
 C:\Python310\Scripts\pip.exe install --user wheel
-C:\Python310\Scripts\pip.exe install --user scrapy
 :: This stuff required VisualStudio with c++ or XCode on mac OSX
 :: somehow they needed to be installed with wheel and in sourcecode form
 ::timeout /T 1 > nul
@@ -287,22 +286,30 @@ timeout /T 1 > nul
 C:\Python310\Scripts\pip.exe install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
 timeout /T 1 > nul
 C:\Python310\Scripts\pip.exe install --user yfinance PyAlgoTrade yahoo_fin Statistics-pyt backtrader
+timeout /T 1 > nul
+C:\Python310\Scripts\pip.exe install --user arrow prettypandas beautifier tabulate
+timeout /T 1 > nul
+C:\Python310\Scripts\pip.exe install --user keras BeautifulSoup4 scrapy
+timeout /T 1 > nul
+C:\Python310\Scripts\pip.exe install --user nltk pybrain
+timeout /T 1 > nul
+C:\Python310\Scripts\pip.exe install --user pydot pygal
 :: C:\Python38\scripts\pip.exe install --user pyfin vollib quantpy ffn tia pynance mplfinance plotly 
 :: C:\Python38\scripts\pip.exe install --user yahoo_fin vaderSentiment xlsxwriter xlrd openpyxl
 :: C:\Python38\scripts\pip.exe install --user quandl tqdm ta
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: To download unbuildable packages: go to UC Irvine
 :: https://www.lfd.uci.edu/~gohlke/pythonlibs
-:: examples: zipline TA-Lib
-:: timeout /T 1 > nul
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: additional finance Software 
 :: https://financetrain.com/best-python-librariespackages-finance-financial-data-scientists/
 :: https://www.datacamp.com/community/tutorials/finance-python-trading
 :: https://medium.com/fintechexplained/automating-stock-investing-technical-analysis-with-python-81c669e360b2
 :: https://pythonrepo.com/repo/bukosabino-ta-python-finance
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Cant install these things via pip on windows
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::  Cant install these things via pip on windows
 ::  Failed to build numba llvmlite scikit-learn
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 timeout /T 2 > nul
 ::
 echo.
