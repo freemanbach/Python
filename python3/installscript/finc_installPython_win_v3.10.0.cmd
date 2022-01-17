@@ -260,7 +260,7 @@ C:\Python310\Scripts\pip.exe install --user pandas_datareader requests ta scipy 
 timeout /T 1 > nul
 C:\Python310\Scripts\pip.exe install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
 timeout /T 1 > nul
-C:\Python310\Scripts\pip.exe install --user yfinance PyAlgoTrade yahoo_fin Statistics-pyt backtrader
+C:\Python310\Scripts\pip.exe install --user yfinance PyAlgoTrade Statistics-pyt backtrader
 timeout /T 1 > nul
 C:\Python310\Scripts\pip.exe install --user arrow prettypandas beautifier tabulate
 timeout /T 1 > nul
