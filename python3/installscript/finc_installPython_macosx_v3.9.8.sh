@@ -51,13 +51,14 @@ curl -C - -O https://raw.githubusercontent.com/freemanbach/Python/master/python3
 /Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user wheel 
 /Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user pandas_datareader ta scipy numpy plotly
 /Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
-/Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user yfinance PyAlgoTrade scrapy nltk
+/Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user PyAlgoTrade scrapy nltk
 /Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user Statistics-pyt backtrader scikit-learn pyfin
 /Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user arrow prettypandas beautifier tabulate
 /Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user keras BeautifulSoup4 pybrain
 /Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user alpha-vantage
 /Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user pydot pygal
-/Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user pyportfolio pyportfolioopt
+/Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user yfinance
+# /Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user pyportfolio pyportfolioopt
 
 ##############################
 # Cant get some of these installed without XCode

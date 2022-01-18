@@ -273,7 +273,8 @@ C:\Python398\Scripts\pip.exe install --user scikit-learn
 timeout /T 1 > nul
 C:\Python398\Scripts\pip.exe install --user pydot pygal alpha-vantage
 timeout /T 1 > nul
-C:\Python398\Scripts\pip.exe install --user pyportfolio pyportfolioopt
+C:\Python398\Scripts\pip.exe install --user yfinance
+:: C:\Python398\Scripts\pip.exe install --user pyportfolio pyportfolioopt
 :: yfinance used an older version of requests
 :: pyportfolio is using even an older verion of requests
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
