@@ -1,6 +1,7 @@
 @echo OFF
 ::
 :: if not %userprofile%\ it could be C:\%homepath%\
+:: ref: https://pureinfotech.com/list-environment-variables-windows-10/
 cls
 :: Prompt for user to Really run this script
 setlocal
