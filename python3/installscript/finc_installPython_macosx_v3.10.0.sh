@@ -23,7 +23,7 @@ sudo installer -verboseR -pkg python-3.10.0post2-macos11.pkg -target /Applicatio
 
 ###############################
 # Install Certificates
-/Applications/Python\ 3.10/Install\ Certificates.command
+sudo /Applications/Python\ 3.10/Install\ Certificates.command
 ###############################
 
 ##############################
