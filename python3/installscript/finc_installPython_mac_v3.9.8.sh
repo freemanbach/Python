@@ -23,7 +23,7 @@ sudo installer -verboseR -pkg python-3.9.8-macos11.pkg -target /Applications
 
 ###############################
 # Install Certificates
-sudo Applications/Python\ 3.9/Install\ Certificates.command
+sudo /Applications/Python\ 3.9/Install\ Certificates.command
 ###############################
 
 ##############################
