@@ -23,6 +23,8 @@ sudo installer -verboseR -pkg python-3.9.8-macos11.pkg -target /Applications
 
 ###############################
 # Install Certificates
+# this doesnt work for some reason
+# Must click it
 sudo /Applications/Python\ 3.9/Install\ Certificates.command
 ###############################
 
@@ -48,16 +50,16 @@ curl -C - -O https://raw.githubusercontent.com/freemanbach/Python/master/python3
 #############################
 # install Finance Packages
 #############################
-/Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user wheel 
-/Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user pandas_datareader ta scipy numpy plotly
-/Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
-/Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user PyAlgoTrade scrapy nltk
-/Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user Statistics-pyt backtrader scikit-learn pyfin
-/Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user arrow prettypandas beautifier tabulate
-/Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user keras BeautifulSoup4 pybrain
-/Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user alpha-vantage
-/Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user pydot pygal
-/Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user yfinance
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9 -m pip install --user wheel 
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9 -m pip install --user pandas_datareader ta scipy numpy plotly
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9 -m pip install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9 -m pip install --user PyAlgoTrade scrapy nltk
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9 -m pip install --user Statistics-pyt backtrader scikit-learn pyfin
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9 -m pip install --user arrow prettypandas beautifier tabulate
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9 -m pip install --user keras BeautifulSoup4 pybrain
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9 -m pip install --user alpha-vantage
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9 -m pip install --user pydot pygal
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9 -m pip install --user yfinance
 # /Library/Frameworks/Python.framework/Versions/3.9/bin/pip3 install --user pyportfolio pyportfolioopt
 
 ##############################

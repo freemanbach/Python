@@ -23,6 +23,8 @@ sudo installer -verboseR -pkg python-3.10.0post2-macos11.pkg -target /Applicatio
 
 ###############################
 # Install Certificates
+# this doesnt work for some reason
+# Must click it
 sudo /Applications/Python\ 3.10/Install\ Certificates.command
 ###############################
 
@@ -47,15 +49,15 @@ curl -C - -O https://raw.githubusercontent.com/freemanbach/Python/master/python3
 #############################
 # install Finance Packages
 #############################
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user wheel 
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user scrapy
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user pandas_datareader requests ta scipy numpy plotly
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user yfinance PyAlgoTrade yahoo_fin 
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user Statistics-pyt backtrader scikit-learn pyfin
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user arrow prettypandas beautifier tabulate
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user keras BeautifulSoup4 pybrain
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install --user pydot pygal
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3 -m pip install --user wheel 
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3 -m pip install --user scrapy
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3 -m pip install --user pandas_datareader requests ta scipy numpy plotly
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3 -m pip install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3 -m pip install --user yfinance PyAlgoTrade yahoo_fin 
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3 -m pip install --user Statistics-pyt backtrader scikit-learn pyfin
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3 -m pip install --user arrow prettypandas beautifier tabulate
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3 -m pip install --user keras BeautifulSoup4 pybrain
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3 -m pip install --user pydot pygal
 
 ##############################
 # Cant get some of these installed without XCode
