@@ -170,9 +170,11 @@ C:\Windows\SysWOW64\bitsadmin.exe /transfer PythonDownload /download /priority n
 ::
 echo.
 echo.
-timeout /T 1 > nul
-timeout /T 1 > nul
+timeout /T 2 > nul
+timeout /T 4 > nul
 echo.Checking to see if this python file has been downloaded.
+timeout /T 2 > nul
+timeout /T 4 > nul
 ::
 IF EXIST python-3.9.8-amd64.exe (
   echo.Python file has been Found.
