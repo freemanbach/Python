@@ -34,7 +34,7 @@ echo.Checking system information.
 timeout /T 2 > nul
 
 :: Switch to Downloads early on
-C:\Users\%USERNAME%\Downloads
+cd C:\Users\%USERNAME%\Downloads
 
 echo.
 echo.
