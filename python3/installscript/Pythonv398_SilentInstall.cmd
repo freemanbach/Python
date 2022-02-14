@@ -146,7 +146,7 @@ IF EXIST C:\Windows\SysWOW64\bitsadmin.exe (
 ) ELSE (
   timeout /T 2 > nul
   echo.Apparently, Bitsadmin.exe not found.
-  echo.Raise your hand and ask Your Local IT Shop :)
+  echo.Raise your hand and ask Your Local IT Shop
   echo Can you feel the sorrow ?
   echo.
   goto end
@@ -305,5 +305,5 @@ echo.
 python -c "print(\"Welcome, Python installation Success.\")"
 echo.
 echo.
-echo 100% Completed ! :)
+echo 100% Completed !
 :end
