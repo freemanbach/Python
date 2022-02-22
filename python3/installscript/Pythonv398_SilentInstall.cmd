@@ -229,7 +229,7 @@ echo.Finished Installing Python Software
 echo.===================================
 echo.
 ::
-echo.Be Patient, 60% Completed
+echo.Be Patient, 60%% Completed
 ::
 echo.
 echo.
@@ -290,6 +290,7 @@ echo.===========================
 echo.Finished installing Modules
 echo.===========================
 echo.
+echo. 85%% Completed.
 echo done
 ::
 echo.
@@ -307,5 +308,5 @@ echo.
 python -c "print(\"Welcome, Python installation Success.\")"
 echo.
 echo.
-echo 100% Completed !
+echo 100%% Completed !
 :end
