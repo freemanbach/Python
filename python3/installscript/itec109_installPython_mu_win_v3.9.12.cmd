@@ -238,7 +238,7 @@ echo.
 echo.
 echo.
 :check
-if exist C:\Python3104\Tools\pynche\Main.py (
+if exist C:\Python3912\Tools\pynche\Main.py (
     echo.Checking Files if Python has been installed.....
     timeout /T 3 > nul
     echo.
