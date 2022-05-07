@@ -88,7 +88,7 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     echo.
 
 :section_3_1
-    if EXIST "python-3.10.0-*.<" (
+    if exist "python-3.10.0-*.<" (
         echo. Found existing version of Python 3.10.0
         del python-3.10.0-*.exe
         del python-3.10.*.exe
