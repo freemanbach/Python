@@ -189,17 +189,11 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     setlocal
     echo.
     if /i "%processor_architecture%"=="x86" (
-        if not defined PROCESSOR_ARCHITEW6432 (
-            rem Run 32 bit download
             C:\Windows\SysWOW64\bitsadmin.exe /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.9.12/python-3.9.12.exe C:\Users\%USERNAME%\Downloads\python-3.9.12.exe
         ) else (
             rem Run 64 bit download
             C:\Windows\SysWOW64\bitsadmin.exe /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe C:\Users\%USERNAME%\Downloads\python-3.9.12-amd64.exe
         )           
-    ) else (
-        rem Run 64 bit download
-        C:\Windows\SysWOW64\bitsadmin.exe /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe C:\Users\%USERNAME%\Downloads\python-3.9.12-amd64.exe
-    )
     echo. 40%% Completed.
     echo.
 
@@ -378,6 +372,6 @@ cls
 
 :section_17
     echo.
-    echo 100%% Completed !
+    echo. 100%% Completed !
     echo.
 :end
