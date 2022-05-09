@@ -246,7 +246,7 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
         C:\Users\%USERNAME%\Downloads\python-3.9.12.exe /quiet /passive InstallAllUsers=0 TargetDir=C:\Python3912 AssociateFiles=1 CompileAll=1 PrependPath=0 Shortcuts=0 Include_doc=1 Include_debug=0 Include_dev=1 Include_exe=1 Include_launcher=1 InstallLauncherAllUsers=1 Include_lib=1 Include_pip=1 Include_symbol=0 Include_tcltk=1 Include_test=1 Include_tools=1
         timeout /t 4 > nul
     ) else (
-        C:\Users\%USERNAME%\Downloads\python-3.9.12.exe /quiet /passive InstallAllUsers=0 TargetDir=C:\Python3912 AssociateFiles=1 CompileAll=1 PrependPath=0 Shortcuts=0 Include_doc=1 Include_debug=0 Include_dev=1 Include_exe=1 Include_launcher=1 InstallLauncherAllUsers=1 Include_lib=1 Include_pip=1 Include_symbol=0 Include_tcltk=1 Include_test=1 Include_tools=1
+        C:\Users\%USERNAME%\Downloads\python-3.9.12-amd64.exe /quiet /passive InstallAllUsers=0 TargetDir=C:\Python3912 AssociateFiles=1 CompileAll=1 PrependPath=0 Shortcuts=0 Include_doc=1 Include_debug=0 Include_dev=1 Include_exe=1 Include_launcher=1 InstallLauncherAllUsers=1 Include_lib=1 Include_pip=1 Include_symbol=0 Include_tcltk=1 Include_test=1 Include_tools=1
         timeout /t 4 > nul
     )
     echo. 60%% Completed.
