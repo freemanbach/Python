@@ -20,7 +20,7 @@ goto check_permission
 :time_pause2
     setlocal
     echo.
-    timeout /T 2 > nul
+    timeout /T 5 > nul
 
 :: clear screen
 cls
@@ -122,7 +122,7 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     echo.
     timeout /T 2 > nul
 
-:setion_3_3
+:section_3_3
     if exist "python-3.8.*.<" (
         echo. Found existing version of Python 3.8.*
         del python-3.8.*.exe
@@ -157,17 +157,33 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     echo. Checking Bitsadmin
     echo. ============================
     echo.
-    if exist C:\Windows\SysWOW64\bitsadmin.exe (
-        echo. Bitsadmin is installed on your Windows 7/8/9/10/11 system.
-        echo. Will download Python 3 software.
-        echo.
-        ) ELSE (
-            echo. Apparently, Bitsadmin.exe not found.
-            echo. Raise your hand and ask Your Local IT Shop
+
+    REM forgot that 32bit Windows has a different location for bitsadmin
+    if /i "%processor_architecture%"=="x86" (
+        rem Run 32 bit
+        if exist C:\Windows\System32\bitsadmin.exe (
+            echo. Bitsadmin 32bit is installed on your Windows 7/8/9/10 system.
+            echo. Will download Python 3 software.
             echo.
-            goto end 
+            goto section_5
+        ) else (
+            echo. We dont know where bitsadmin 32bit is located.
+            goto end
         )
+    ) else (
+        rem Run 64 bit
+        if exist C:\Windows\SysWOW64\bitsadmin.exe (
+            echo. Bitsadmin 64bit is installed on your Windows 7/8/9/10/11 system.
+            echo. Will download Python 3 software.
+            echo.
+            goto section_5
+        ) else (
+            echo. We dont know where bitsadmin 64bit is located.
+            goto end
+        )
+    )           
     echo. 30%% Completed.
+
 
 :time_pause2
     setlocal
@@ -189,7 +205,7 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     setlocal
     echo.
     if /i "%processor_architecture%"=="x86" (
-            C:\Windows\SysWOW64\bitsadmin.exe /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.9.12/python-3.9.12.exe C:\Users\%USERNAME%\Downloads\python-3.9.12.exe
+            C:\Windows\System32\bitsadmin.exe /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.9.12/python-3.9.12.exe C:\Users\%USERNAME%\Downloads\python-3.9.12.exe
         ) else (
             rem Run 64 bit download
             C:\Windows\SysWOW64\bitsadmin.exe /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe C:\Users\%USERNAME%\Downloads\python-3.9.12-amd64.exe
