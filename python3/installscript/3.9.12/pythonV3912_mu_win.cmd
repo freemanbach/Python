@@ -346,7 +346,14 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     echo. Installing Additional Modules
     echo. =============================
     echo.
+    echo. Press ENTER if and when it seem to be pausing too long.
+    timeout /T 2 > nul
     C:\Python3912\Scripts\pip.exe install --user wheel
+    timeout /T 1 > nul
+    C:\Python3912\Scripts\pip.exe install --user requests
+    timeout /T 1 > nul
+    C:\Python3912\Scripts\pip.exe install --user wikipedia wordcloud
+    timeout /T 4 > nul
     echo. 85%% Completed.
     echo.
 

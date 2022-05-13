@@ -49,13 +49,14 @@ cd $HOME
 #############################
 /Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user wheel 
 #/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user scrapy
-#/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user pandas_datareader requests ta scipy numpy plotly
-#/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
-#/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user yfinance PyAlgoTrade yahoo_fin 
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user pandas_datareader requests ta scipy numpy plotly
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
+#/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user PyAlgoTrade yahoo_fin 
 #/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user Statistics-pyt backtrader scikit-learn pyfin
 #/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user arrow prettypandas beautifier tabulate
 #/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user keras BeautifulSoup4 pybrain
 #/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user pydot pygal
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user yfinance wikipedia wordcloud
 #
 ##############################
 # Cant get some of these installed without XCode
