@@ -224,16 +224,32 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     setlocal
     echo.
     echo. Checking to see if this python file has been downloaded.
-    if exist python-3.9.12-amd64.exe (
-        echo. Python executable has been Found.
-        echo. Will now Install this Software.
-        echo.
-        ) ELSE (
+    rem Kept forgetting that there are two architectures
+    if /i "%processor_architecture%"=="x86" (
+        if exist python-3.9.12.exe (
+            echo. Python executable has been Found.
+            echo. Will now Install this Software.
+            echo.
+            goto section_7
+        ) else (
             echo. Software not found.
             echo. Perhaps, try to run this file again.
             echo.
             goto end
         )
+    ) else (
+        if exist python-3.9.12-amd64.exe (
+            echo. Python executable has been Found.
+            echo. Will now Install this Software.
+            echo.
+            goto section_7
+        ) else (
+            echo. Software not found.
+            echo. Perhaps, try to run this file again.
+            echo.
+            goto end
+        )
+    )
     echo. 50%% Completed.
     echo.
 
