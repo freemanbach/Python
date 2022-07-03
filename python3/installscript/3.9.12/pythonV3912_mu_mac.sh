@@ -2,7 +2,7 @@
 # Email  : flo@radford.edu
 # DESC   : Silent Installer for MAC_OSX python installer
 #        : for version 3.9.12
-# Date   : 2022.05.12
+# Date   : 2022.07.04
 ################################
 
 ################################
@@ -40,22 +40,16 @@ sudo installer -verboseR -pkg python-3.9.12-macos11.pkg -target /Applications
 #############################
 # Download custom .bashrc file from Repo
 cd $HOME
-#curl -C - -O https://raw.githubusercontent.com/freemanbach/Python/master/python3/installscript/.profile
-#curl -C - -O https://raw.githubusercontent.com/freemanbach/Python/master/python3/installscript/.bashrc
+curl -C - -O https://raw.githubusercontent.com/freemanbach/Python/master/python3/installscript/.profile
+curl -C - -O https://raw.githubusercontent.com/freemanbach/Python/master/python3/installscript/.bashrc
 ############################
 
 #############################
 # install Finance Packages
 #############################
-/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user wheel 
-#/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user scrapy
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user wheel scrapy
 /Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user pandas_datareader requests ta scipy numpy plotly
-/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user pandas matplotlib seaborn statsmodels QuantLib pyfinlab
-#/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user PyAlgoTrade yahoo_fin 
-#/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user Statistics-pyt backtrader scikit-learn pyfin
-#/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user arrow prettypandas beautifier tabulate
-#/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user keras BeautifulSoup4 pybrain
-#/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user pydot pygal
+/Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user pandas matplotlib
 /Library/Frameworks/Python.framework/Versions/3.9/bin/python3 -m pip install --user yfinance wikipedia wordcloud
 #
 ##############################
@@ -71,5 +65,5 @@ cd $HOME
 # Creating directories
 #############################
 #mkdir -p ~/finc3114/{labs,hws}
-#mkdir -p ~/itec109/{labs,hws}
+mkdir -p ~/itec109/{labs,hws}
 echo "DONE."
