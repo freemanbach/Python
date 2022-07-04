@@ -170,7 +170,7 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     if /i "%processor_architecture%"=="x86" (
         rem check 32bit FTP downloader
         if exist C:\Windows\System32\bitsadmin.exe (
-            echo. Bitsadmin 32bit is installed on your Windows 7/8/9/10 system.
+            echo. Bitsadmin 32bit is installed on your Windows 7/8/9/10/11 system.
             echo. Will download Python 3 software.
             echo.
             goto section_5
@@ -413,7 +413,16 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     echo. Execute runme.bat
     echo. ============================
     echo set PATH=C:\Python3912;%PATH% > C:\Users\%USERNAME%\runme.bat
-    del /s C:\Users\%USERNAME%\Downloads\python-3.9.12-amd64.exe >nul 2>&1
+
+    if exist C:\Users\%USERNAME%\Downloads\python-3.9.12-amd64.exe (
+        echo. deleting installation file
+        del /s C:\Users\%USERNAME%\Downloads\python-3.9.12-amd64.exe >nul 2>&1
+    ) else (
+        if exist C:\Users\%USERNAME%\Downloads\python-3.9.12.exe (
+            echo. deleting installation file
+            del /s C:\Users\%USERNAME%\Downloads\python-3.9.12.exe >nul 2>&1
+        )
+    )
     call C:\Users\%USERNAME%\runme.bat
     echo.
 
@@ -428,6 +437,8 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     mkdir C:\Users\%USERNAME%\itec109
     mkdir C:\Users\%USERNAME%\itec109\hws
     mkdir C:\Users\%USERNAME%\itec109\labs
+    echo. Directories were Created
+    echo.
 
 :: Run Python
 :section_17

@@ -424,7 +424,16 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     echo. Execute runme.bat
     echo. ============================
     echo set PATH=C:\Python3912;%PATH% > C:\Users\%USERNAME%\runme.bat
-    del /s C:\Users\%USERNAME%\Downloads\python-3.9.12-amd64.exe >nul 2>&1
+
+    if exist C:\Users\%USERNAME%\Downloads\python-3.9.12-amd64.exe (
+        echo. deleting installation file
+        del /s C:\Users\%USERNAME%\Downloads\python-3.9.12-amd64.exe >nul 2>&1
+    ) else (
+        if exist C:\Users\%USERNAME%\Downloads\python-3.9.12.exe (
+            echo. deleting installation file
+            del /s C:\Users\%USERNAME%\Downloads\python-3.9.12.exe >nul 2>&1
+        )
+    )
     call C:\Users\%USERNAME%\runme.bat
     echo.
 
