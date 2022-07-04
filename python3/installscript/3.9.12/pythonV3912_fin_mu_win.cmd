@@ -1,4 +1,11 @@
 @echo OFF
+
+REM Auth   : Freeman
+REM Email  : flo@radford.edu
+REM DESC   : Silent Python Installer for Windows
+REM        : To be used on finance topics
+REM Date   : 2022.07.04
+
 :: Check Admin DOS PROMPT is available
 goto check_permission
 :check_permission
@@ -82,9 +89,9 @@ cls
 :: Section 3: Python Download.
 rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
 :section_3
-    echo. ============================
-    echo. Checking Existing Python
-    echo. ============================
+    echo. ============================================
+    echo. Checking Existing Python version in Download
+    echo. ============================================
     echo.
 
 :section_3_1
@@ -141,6 +148,7 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     echo. You may need to press ENTER, 
     echo. If the wait time is more than 10 seconds.
     echo. or CTRL-C, if it crashed or something.
+    echo. Continuing...................
     echo.
 
 :time_pause2
@@ -160,7 +168,7 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
 
     REM forgot that 32bit Windows has a different location for bitsadmin
     if /i "%processor_architecture%"=="x86" (
-        rem Run 32 bit
+        rem check 32bit FTP downloader
         if exist C:\Windows\System32\bitsadmin.exe (
             echo. Bitsadmin 32bit is installed on your Windows 7/8/9/10 system.
             echo. Will download Python 3 software.
@@ -168,10 +176,11 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
             goto section_5
         ) else (
             echo. We dont know where bitsadmin 32bit is located.
+            echo. line 178
             goto end
         )
     ) else (
-        rem Run 64 bit
+        rem check 64bit FTP downloader
         if exist C:\Windows\SysWOW64\bitsadmin.exe (
             echo. Bitsadmin 64bit is installed on your Windows 7/8/9/10/11 system.
             echo. Will download Python 3 software.
@@ -179,6 +188,7 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
             goto section_5
         ) else (
             echo. We dont know where bitsadmin 64bit is located.
+            echo. line 190
             goto end
         )
     )           
@@ -205,9 +215,10 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     setlocal
     echo.
     if /i "%processor_architecture%"=="x86" (
+            rem Run 32bit downloader
             C:\Windows\System32\bitsadmin.exe /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.9.12/python-3.9.12.exe C:\Users\%USERNAME%\Downloads\python-3.9.12.exe
         ) else (
-            rem Run 64 bit download
+            rem Run 64bit downloader
             C:\Windows\SysWOW64\bitsadmin.exe /transfer PythonDownload /download /priority normal https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe C:\Users\%USERNAME%\Downloads\python-3.9.12-amd64.exe
         )           
     echo. 40%% Completed.
@@ -234,6 +245,7 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
         ) else (
             echo. Software not found.
             echo. Perhaps, try to run this file again.
+            echo. line 247
             echo.
             goto end
         )
@@ -246,6 +258,7 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
         ) else (
             echo. Software not found.
             echo. Perhaps, try to run this file again.
+            echo. line 260
             echo.
             goto end
         )
@@ -273,7 +286,7 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     echo. Installing Python
     echo. ============================
     echo.
-    echo. Go grab Koffie or something, installion will take sometime since we had configured it to compile a few items.
+    echo. Go grab Koffie or something, installion will take sometime since we had configured it to compile quite a few items.
     if /i "%processor_architecture%"=="x86" (
         C:\Users\%USERNAME%\Downloads\python-3.9.12.exe /quiet /passive InstallAllUsers=0 TargetDir=C:\Python3912 AssociateFiles=1 CompileAll=1 PrependPath=0 Shortcuts=0 Include_doc=1 Include_debug=0 Include_dev=1 Include_exe=1 Include_launcher=1 InstallLauncherAllUsers=1 Include_lib=1 Include_pip=1 Include_symbol=0 Include_tcltk=1 Include_test=1 Include_tools=1
         timeout /t 4 > nul
@@ -318,9 +331,10 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
         echo.
         echo. Python has not been installed.
         echo.
-        echo. Problem with installation. PRESS: CTRL-C to End Installation process only if after three printed messages.
+        echo. Problem with installation. 
+        echo. line 334
         echo.
-        goto check
+        goto end
     )
     echo. 70%% Completed.
     echo.
@@ -353,7 +367,6 @@ rem https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
     setlocal
     echo.
     timeout /T 2 > nul
-
 
 :: Installing Additional Modules
 :section_13
