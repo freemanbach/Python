@@ -5,7 +5,7 @@ REM Email         : flo@radford.edu
 REM DESC          : Silent Python Installer for Windows
 REM 32bit path    : https://www.python.org/ftp/python/3.9.12/python-3.9.12.exe
 REM 64bit path    : https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe
-REM Date          : 2022.07.04
+REM Date          : 2022.07.07
 
 set major=3
 set minor=9
@@ -21,7 +21,7 @@ goto check_permission
         echo. Admin Permissions confirmed.
         echo. Continuing.......
     ) else (
-        echo. Admin Permissions not confired. 
+        echo. Admin Permissions not confirimed. 
         echo. Right click on the DOS Prompt and RUN AS Administrator
         echo. Exiting..........
         goto end
