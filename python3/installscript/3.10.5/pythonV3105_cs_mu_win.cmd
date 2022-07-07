@@ -21,7 +21,7 @@ goto check_permission
         echo. Admin Permissions confirmed.
         echo. Continuing.......
     ) else (
-        echo. Admin Permissions not confired. 
+        echo. Admin Permissions not confirmed. 
         echo. Right click on the DOS Prompt and RUN AS Administrator
         echo. Exiting..........
         goto end
