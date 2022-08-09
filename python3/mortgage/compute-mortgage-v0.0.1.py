@@ -64,20 +64,20 @@ def version():
 def usage():
 
     usage = """
-            usage: python3 mortgage.py [-l,--la = Float_VALUE]   [-t,--lt = Integer_VALUE] [-r,--lr = Float_VALUE  ] 
-                                      [-i,--li = Float_VALUE]   [-p,--lp = Float_VALUE  ] [-m,--cm = Integer_VALUE] 
-                                      [-y,--cy = Integer_VALUE] [-h] [-v]
+            usage: python3 compute-mortgage-v0.0.1.py [-l,--la = Float_VALUE]   [-t,--lt = Integer_VALUE] [-r,--lr = Float_VALUE  ] 
+                                                      [-i,--li = Float_VALUE]   [-p,--lp = Float_VALUE  ] [-m,--cm = Integer_VALUE] 
+                                                      [-y,--cy = Integer_VALUE] [-h] [-v]
             examples:
-            python3 mortgage.py
-            python3 mortgage.py -l 250000.99 -t 24 -r 4.95 -i 515.69 -p 600 -m 2 -y 2000
-            python3 mortgage.py -l 250000.99 -t 24 -r 4.95 -i 0 -p 0 -m 2 -y 2000
-            python3 mortgage.py -l 250000.99 -t 24 -r 4.95 -i 0 -p 0
-            *python3 mortgage.py -l 250000.99 -t 12x5 -r 4.95 -i 0 -p 0 -m 2 -y 2000
-            python3 mortgage.py --la 250000.99 --lt 24 --lr 4.95 --li 515.69 --lp 600 --cm 2 --cy 2000
-            python3 mortgage.py --la=250000.99 --lt=24 --lr=4.95 --li=515.69 --lp=600 --cm=2 --cy=2000
+            python3 compute-mortgage-v0.0.1.py
+            python3 compute-mortgage-v0.0.1.py -l 250000.99 -t 24 -r 4.95 -i 515.69 -p 600 -m 2 -y 2000
+            python3 compute-mortgage-v0.0.1.py -l 250000.99 -t 24 -r 4.95 -i 0 -p 0 -m 2 -y 2000
+            python3 compute-mortgage-v0.0.1.py -l 250000.99 -t 24 -r 4.95 -i 0 -p 0
+            *python3 compute-mortgage-v0.0.1.py -l 250000.99 -t 12x5 -r 4.95 -i 0 -p 0 -m 2 -y 2000
+            python3 compute-mortgage-v0.0.1.py --la 250000.99 --lt 24 --lr 4.95 --li 515.69 --lp 600 --cm 2 --cy 2000
+            python3 compute-mortgage-v0.0.1.py --la=250000.99 --lt=24 --lr=4.95 --li=515.69 --lp=600 --cm=2 --cy=2000
 
-            python mortgage.py -v
-            python mortgage.py -h
+            python compute-mortgage-v0.0.1.py -v
+            python compute-mortgage-v0.0.1.py -h
 
             options :
             -l, --la=value, --la value  take a loan Value amount
