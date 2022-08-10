@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Author  : flo
-date    : 2022.08.09
+date    : 2022.08.10
 Purpose : example of finding out the amount of principle paid to mortgage lender per year.
         : This version is uniquely special.
 
@@ -33,7 +33,6 @@ def computeMortgage(tot, mon, rate, intr, pal, m, y):
         daysInMonth = calendar.monthrange(currentYear, currentMonth)[1]
         for x in range(1, daysInMonth+1):
             tsum = tot * ( rate / 100) * (1.00/365.00)
-            # tsum = tot * ( ar / 365.00 )
             mtsum += tsum
             tot = tsum + tot
 
@@ -48,7 +47,7 @@ def computeMortgage(tot, mon, rate, intr, pal, m, y):
                 mvalue = str(currentMonth)
             
             print(" Year " + str(currentYear) + " Month " + str(mvalue) + " Day  " + str(dvalue) + "      " + \
-                  format(tot, '.4f') + "      " + format(tsum, '.4f'))
+                  format(tot, '.4f') + "      " + format(tsum, '.4f') + "      " + "Intr Amt: " + " " + format(mtsum, '.4f'))
 
             if mvalue == "01" and str(dvalue) == "31":
                 print()
@@ -88,12 +87,12 @@ def computeMortgage(tot, mon, rate, intr, pal, m, y):
         else:
             continue
 
-        print(" Actual Uptodate Interests Paid:               " + format(mtsum, '.4f'))
+        # print(" Actual Uptodate Interests Paid:               " + format(mtsum, '.4f'))
 
 
 def version():
 
-    print("version 0.0.1")
+    print("version 0.0.2")
 
 
 def usage():
