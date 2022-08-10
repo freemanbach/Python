@@ -47,7 +47,7 @@ def computeMortgage(tot, mon, rate, intr, pal, m, y):
                 mvalue = str(currentMonth)
             
             print(" Year " + str(currentYear) + " Month " + str(mvalue) + " Day  " + str(dvalue) + "      " + \
-                  format(tot, '.4f') + "      " + format(tsum, '.4f'))
+                    format(tot, '.5f') + "      " + format(tsum, '.4f') + "      " + "Intr Amt: " + " " + format(mtsum, '.4f'))
 
         if currentMonth == 12:
             currentYear += 1
@@ -62,7 +62,7 @@ def computeMortgage(tot, mon, rate, intr, pal, m, y):
         else:
             continue
 
-        print(" Actual Uptodate Interests Paid:               " + format(mtsum, '.4f'))
+        # print(" Actual Uptodate Interests Paid:               " + format(mtsum, '.4f'))
 
 
 def version():
