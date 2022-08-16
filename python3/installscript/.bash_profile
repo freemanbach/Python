@@ -1,4 +1,3 @@
-
 # User specific environment and startup programs
 
 FLO_HOME=/Users/flo
