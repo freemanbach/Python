@@ -98,4 +98,10 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# enable Custom User environmental variable features
+# .profile -> .bashrc -> .bash_profile
+#if [ -f ~/.bash_profile ]; then
+#    . ~/.bash_profile
+#fi
+
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:$PATH"
