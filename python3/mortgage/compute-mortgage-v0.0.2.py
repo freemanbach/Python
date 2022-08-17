@@ -51,7 +51,7 @@ def computeMortgage(tot, mon, rate, intr, pal, m, y):
 
             if mvalue == "01" and str(dvalue) == "31":
                 print()
-            if mvalue == "02" and str(dvalue) == "28":
+            if (mvalue == "02" and str(dvalue) == "28"):
                 print()
             if mvalue == "03" and str(dvalue) == "31":
                 print()
