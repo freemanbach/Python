@@ -302,12 +302,22 @@ cls
 :: Check to see if Python was installed 
 :section_10
     echo.
-    if exist C:\Python%major%%minor%%patch%\Tools\pynche\Main.py (
-        echo.
-        echo. Checking whether Python has been installed...
-        echo.
-        echo. Python Software has been Installed.
-        echo.
+    if exist C:\Python%major%%minor%%patch%\python.exe (
+        if exist C:\Python%major%%minor%%patch%\Tools\demo\vector.py (
+            echo.
+            echo. Checking whether Python has been installed...
+            echo.
+            echo. Python Software has been Installed.
+            echo.
+        )
+        else (
+            echo.
+            echo. Python has not been installed.
+            echo.
+            echo. Problem with installation. 
+            echo. line 306
+            goto end
+        )
     ) else (
         echo.
         echo. Python has not been installed.
