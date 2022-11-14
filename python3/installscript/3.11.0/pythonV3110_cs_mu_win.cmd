@@ -292,10 +292,10 @@ cls
     echo. Compiling and Installing Python Modules
     echo. =======================================
     echo.
-    set num=15
+    set num=30
     for /L %%I IN (1, 1, %num%) do (
         echo. | set /p="%%I " 
-        timeout /t 1 > nul
+        timeout /t 5 > nul
     )
     echo. 65%% Completed.
 
@@ -309,8 +309,7 @@ cls
             echo.
             echo. Python Software has been Installed.
             echo.
-        )
-        else (
+        ) else (
             echo.
             echo. Python has not been installed.
             echo.
