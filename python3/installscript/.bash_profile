@@ -13,7 +13,11 @@ VLANG_HOME=/usr/local/vlang
 RUST_HOME=$FLO_HOME/.cargo
 NIM_HOME=$FLO_HOME/.nimble
 NODE_HOME=/opt/homebrew/opt/node
-PYTHON_HOME=/opt/homebrew/opt/python\@3.9
+# the following lines will interfere with the original
+# python path if you used the native python installer
+#PYTHON_HOME=/opt/homebrew/opt/python\@3.9
+#PYTHON_HOME=/opt/homebrew/opt/python\@3.10
+#PYTHON_HOME=/opt/homebrew/opt/python\@3.11
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -30,8 +34,7 @@ fi
 unset __conda_setup
 conda deactivate
 # <<< conda initialize <<<
-
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
 export JAVA_HOME
 
